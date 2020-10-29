@@ -44,7 +44,7 @@
                 body {
                     margin: 0;
                     padding: 0;
-                    background-color:#666666;
+                    background-color:whitesmoke;
                 }
 
                 #Header {
