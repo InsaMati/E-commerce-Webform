@@ -28,7 +28,22 @@
     <hr />
     <br />
     <div class="container">
-        <h1>Cards de productos</h1>
+        <asp:Repeater runat="server" ID="RepetidorArticulos">
+            <ItemTemplate>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="<%#Eval("UrlImagen") %>" class="card-img-top" alt="Error Producto" />
+                        <br />
+                        <div class="card-body cards">
+                            <h5 class="card-title" style="font-size: 15px"><%#Eval("Nombre") %></h5>
+                            <p class="card-text" style="font-size: 12px"><%#Eval("Precio") %></p>
+                        </div>
+                    </div>
+                    <a class="btn btn-secondary" style="font-size: 15px; background-color: #9933CC" href="Seleccionado.aspx?id=<%#Eval("Id")%>">Seleccionar</a>
+
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
     </div>
     <br />
     <hr />
@@ -44,7 +59,7 @@
     <div class="container">
         <h1>Formulario de contacto</h1>
         <br />
-        
+
 
 
     </div>

@@ -9,39 +9,44 @@ namespace Negocio
 {
     public class NegocioArticulo
     {
-        public List<Articulo> ListaDeArticulos()
+        public List<Articulo> ListarArticulos()
         {
             List<Articulo> Lista = new List<Articulo>();
+
             AccesoADatos Datos = new AccesoADatos();
 
             try
             {
-                Datos.SetearQuery("select P.Id, P.Codigo,P.Nombre, P.Descripcion, M.Descripcion[Marca], C.Descripcion[Categoria], P.ImagenUrl,P.Precio,M.Id, C.Id from ARTICULOS P, MARCAS M, CATEGORIAS C where P.IdMarca = m.Id AND P.IdCategoria = C.Id");
+
+                //// Crear VW
+                Datos.SetearQuery("select P.ID, P.Codigo,P.Nombre, P.Descripcion, M.Descripcion[Marca], C.Descripcion[Categoria], P.ImagenUrl,P.Precio,M.ID, C.ID,P.Estado from ARTICULOS P, MARCA M, CATEGORIA C where P.IdMarca = m.Id AND P.IdCategoria = C.Id");
                 Datos.EjecutarLector();
 
                 while (Datos.Leeme.Read())
                 {
-                    Articulo Art = new Articulo();
+                    Articulo Aux = new Articulo();
 
-                    Art.Id = Datos.Leeme.GetInt32(0);
-                    Art.Codigo = Datos.Leeme.GetString(1);
-                    Art.Nombre = Datos.Leeme.GetString(2);
-                    Art.Descripcion = Datos.Leeme.GetString(3);
+                    Aux.Id = Datos.Leeme.GetInt16(0);
+                    Aux.Codigo = Datos.Leeme.GetString(1);
+                    Aux.Nombre = Datos.Leeme.GetString(2);
+                    Aux.Descripcion = Datos.Leeme.GetString(3);
 
-                    Art.Marca = new Marca();
-                    Art.Marca.Nombre = Datos.Leeme.GetString(4);
+                    Aux.Marca = new Marca();
+                    Aux.Marca.Nombre = Datos.Leeme.GetString(4);
 
-                    Art.Categoria = new Categoria();
-                    Art.Categoria.Nombre = Datos.Leeme.GetString(5);
+                    Aux.Categoria = new Categoria();
+                    Aux.Categoria.Nombre = Datos.Leeme.GetString(5);
 
-                    Art.UrlImagen = Datos.Leeme.GetString(6);
+                    Aux.UrlImagen = Datos.Leeme.GetString(6);
 
-                    Art.Precio = (double)Datos.Leeme.GetDecimal(7);
+                    Aux.Precio = Convert.ToDouble(Datos.Leeme.GetDecimal(7));
+                    Aux.Marca.Id = Datos.Leeme.GetInt16(8);
+                    Aux.Categoria.Id = Datos.Leeme.GetInt16(9);
 
-                    Art.Marca.Id = Datos.Leeme.GetInt32(8);
-                    Art.Categoria.Id = Datos.Leeme.GetInt32(9);
+                    Aux.Estado = Datos.Leeme.GetBoolean(10);
 
-                    Lista.Add(Art);
+                    if(Aux.Estado == true) Lista.Add(Aux);
+
                 }
 
                 return Lista;
