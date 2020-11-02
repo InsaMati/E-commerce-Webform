@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ABMLCategoria.aspx" />
     <Content Include="ABMLMarca.aspx" />
     <Content Include="ABMLProducto.aspx" />
     <Content Include="About.aspx" />
@@ -164,6 +165,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMLCategoria.aspx.cs">
+      <DependentUpon>ABMLCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMLCategoria.aspx.designer.cs">
+      <DependentUpon>ABMLCategoria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ABMLMarca.aspx.cs">
       <DependentUpon>ABMLMarca.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
