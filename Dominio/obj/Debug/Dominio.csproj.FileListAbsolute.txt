@@ -4,3 +4,9 @@ C:\Users\matia\source\repos\TPC_Orihuela_Insaurralde\Dominio\obj\Debug\Dominio.c
 C:\Users\matia\source\repos\TPC_Orihuela_Insaurralde\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\matia\source\repos\TPC_Orihuela_Insaurralde\Dominio\obj\Debug\Dominio.dll
 C:\Users\matia\source\repos\TPC_Orihuela_Insaurralde\Dominio\obj\Debug\Dominio.pdb
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\TP final- lab - prog\TPC_Orihuela_Insaurralde\Dominio\bin\Debug\Dominio.dll
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\TP final- lab - prog\TPC_Orihuela_Insaurralde\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\TP final- lab - prog\TPC_Orihuela_Insaurralde\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\TP final- lab - prog\TPC_Orihuela_Insaurralde\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\TP final- lab - prog\TPC_Orihuela_Insaurralde\Dominio\obj\Debug\Dominio.dll
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\TP final- lab - prog\TPC_Orihuela_Insaurralde\Dominio\obj\Debug\Dominio.pdb
