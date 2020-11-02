@@ -16,18 +16,18 @@ namespace Negocio
 
             try
             {
-
-                Datos.SetearQuery("select *from marcas");
+                Datos.SetearQuery("select *from MARCA");
                 Datos.EjecutarLector();
 
-                while (Datos.Leer.Read())
+                while (Datos.Leeme.Read())
                 {
                     Marca AuxMarca = new Marca();
 
-                    AuxMarca.Id = Datos.Leer.GetInt32(0);
-                    AuxMarca.NombreMarca = Datos.Leer.GetString(1);
+                    AuxMarca.Id = Datos.Leeme.GetInt16(0);
+                    AuxMarca.Nombre = Datos.Leeme.GetString(1);
+                    AuxMarca.Estado = Datos.Leeme.GetBoolean(2);
 
-                    Lista.Add(AuxMarca);
+                    if (AuxMarca.Estado == true) Lista.Add(AuxMarca);
                 }
 
                 return Lista;
@@ -39,8 +39,9 @@ namespace Negocio
             }
             finally
             {
-                Datos.CerrarConexionDB();
+                Datos.CerrarConexion();
             }
+
         }
     }
 }

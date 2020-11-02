@@ -16,17 +16,19 @@ namespace Negocio
 
             try
             {
-                Datos.SetearQuery("select *from categorias");
+                Datos.SetearQuery("select *from CATEGORIA");
                 Datos.EjecutarLector();
 
-                while (Datos.Leer.Read())
+                while (Datos.Leeme.Read())
                 {
                     Categoria AuxCate = new Categoria();
 
-                    AuxCate.Id = Datos.Leer.GetInt32(0);
-                    AuxCate.NombreCategoria = Datos.Leer.GetString(1);
+                    AuxCate.Id = Datos.Leeme.GetInt16(0);
+                    AuxCate.Nombre = Datos.Leeme.GetString(1);
+                    AuxCate.Estado = Datos.Leeme.GetBoolean(2);
 
-                    Lista.Add(AuxCate);
+                    if (AuxCate.Estado == true) Lista.Add(AuxCate);
+
                 }
 
                 return Lista;
@@ -34,13 +36,14 @@ namespace Negocio
             catch (Exception ex)
             {
 
-                throw ex; 
+                throw ex;
             }
             finally
             {
-                Datos.CerrarConexionDB();
+                Datos.CerrarConexion();
             }
-        }
 
+
+        }
     }
 }
