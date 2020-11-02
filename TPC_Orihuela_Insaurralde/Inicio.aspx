@@ -24,10 +24,10 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <br />
     <hr />
-    <br />
-    <div class="container">
+    <div class="container" id="ContainerProductos">
+        <h1>Productos</h1>
+        <br />
         <asp:Repeater runat="server" ID="RepetidorArticulos">
             <ItemTemplate>
                 <div class="col-md-3">
@@ -39,25 +39,44 @@
                             <p class="card-text" style="font-size: 12px">$ <%#Eval("Precio") %></p>
                         </div>
                     </div>
-                    <a class="btn btn-secondary" style="font-size: 15px; background-color: orangered" href="ProductoSeleccionado.aspx?id=<%#Eval("Id")%>">Detalle</a>
+                    <a class="btn btn-secondary" style="font-size: 17px; background-color: orangered" href="ProductoSeleccionado.aspx?id=<%#Eval("Id")%>"><span class="glyphicon glyphicon-eye-open"> Detalle</span></a>
 
                 </div>
             </ItemTemplate>
         </asp:Repeater>
     </div>
-    <br />
     <hr />
-    <br />
     <div class="container">
-        <h1>3 Columnas</h1>
-
+        <center>
+        <div class="col-md-4">
+            <span class="glyphicon glyphicon-home"></span>
+            <p>hola</p>
+        </div>
+        <div class="col-md-4"><span class="glyphicon glyphicon-home"></span>
+            <p>hola</p>
+        </div>
+        <div class="col-md-4"><span class="glyphicon glyphicon-home"></span>
+            <p>hola</p>
+        </div>
     </div>
+    </center>
     <br />
     <hr />
     <br />
 
-    <div class="container">
+    <div class="container" id="ContainerContacto">
         <h1>Formulario de contacto</h1>
+        <center>
+        <asp:Label Text="Email" runat="server" />
+        <asp:TextBox runat="server" CssClass="form-control" /><br />
+            <asp:Label Text="Nombre" runat="server" />
+        <asp:TextBox runat="server" CssClass="form-control"/><br />
+        <asp:Label Text="Motivo" runat="server" />
+        <asp:TextBox runat="server" CssClass="form-control"/><br />
+            <asp:textbox CssClass="form-control" runat="server" TextMode="MultiLine" />
+            <br />
+            <asp:button class="btn btn-success" Style="font-size:15px;background-color:orangered" text="Enviar" runat="server" />
+        </center>
         <br />
 
 
