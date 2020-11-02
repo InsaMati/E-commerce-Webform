@@ -74,10 +74,20 @@
                         <a class="nav-link" style="color: orangered" href="#">Inicio<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color: orangered" href="#">ABML</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" style="color: orangered" href="#">Carrito</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" style="color:orangered" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABML
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="ABMLProducto.aspx">Productos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="ABMLMarca.aspx">Marca</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="ABMLCategoria.aspx">Categoria</a>
+                            <div class="dropdown-divider"></div>
+                            
+                        </div>
                     </li>
                 </ul>
             </div>
