@@ -33,8 +33,8 @@
             </div>
         </div>
         <center>
-        <asp:Button class="btn btn-primary" Style="font-size:15px" Text="Agregar" runat="server" />
-        <asp:Button class="btn btn-danger" Style="font-size:15px" Text="Volver" runat="server" />
+        <asp:Button ID="BtnAgregar" class="btn btn-primary" Style="font-size:15px" Text="Agregar" runat="server" OnClick="BtnAgregar_Click" />
+        <asp:Button ID="BtnVolver" class="btn btn-danger" Style="font-size:15px" Text="Volver" runat="server" OnClick="BtnVolver_Click" />
         </center>
     </div>
 

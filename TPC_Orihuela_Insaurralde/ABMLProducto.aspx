@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col">
                 <table class="table">
-                    <tr class="bg-whitesmoke" style="color: orangered; font-size: 15px;font-style:italic">
+                    <tr class="bg-whitesmoke" style="color: orangered; font-size: 15px; font-style: italic">
                         <td>Codigo</td>
                         <td>Nombre</td>
                         <td>Categoria</td>
@@ -19,48 +19,33 @@
                         <td>Ver</td>
                     </tr>
 
-                    <tr style="font-style:italic">
-                        <td><p>1</p></td>
-                        <td><p>Assassin's Creed</p></td>
-                        <td><p>Accion-Aventura</p></td>
-                        <td><p>Ubisoft</p></td>
-                        <td><p>$ 6000</p></td>
-                        <td><img src="https://th.bing.com/th/id/OIP.U3C30hjN3h5z_lyl6yz7TAHaJZ?pid=Api&rs=1" alt="Bugisoft" width="80" height="100" /></td>
-                        <td><span style="font-size:20px;color:orangered" class="glyphicon glyphicon-remove"></span></td>
-                        <td><span style="font-size:20px;color:orangered" class="glyphicon glyphicon-pencil"></span></td>
-                        <td><span style="font-size:20px;color:orangered" class="glyphicon glyphicon-eye-open"></span></td>
-                    </tr>
+                    <% if (Lista != null)
+                        { %>
+                    <%foreach (var Item in Lista)
+                        {
+                    %>
 
-                    <tr style="font-style:italic">
-                        <td><p>1</p></td>
-                        <td><p>Assassin's Creed</p></td>
-                        <td><p>Accion-Aventura</p></td>
-                        <td><p>Ubisoft</p></td>
-                        <td><p>$ 6000</p></td>
-                        <td><img src="https://th.bing.com/th/id/OIP.U3C30hjN3h5z_lyl6yz7TAHaJZ?pid=Api&rs=1" alt="Bugisoft" width="80" height="100" /></td>
-                        <td><span style="font-size:20px;color:orangered" class="glyphicon glyphicon-remove"></span></td>
-                        <td><span style="font-size:20px;color:orangered" class="glyphicon glyphicon-pencil"></span></td>
-                        <td><span style="font-size:20px;color:orangered" class="glyphicon glyphicon-eye-open"></span></td>
-                    </tr>
-                    <tr style="font-style:italic">
-                        <td><p>1</p></td>
-                        <td><p>Assassin's Creed</p></td>
-                        <td><p>Accion-Aventura</p></td>
-                        <td><p>Ubisoft</p></td>
-                        <td><p>$ 6000</p></td>
-                        <td><img src="https://th.bing.com/th/id/OIP.U3C30hjN3h5z_lyl6yz7TAHaJZ?pid=Api&rs=1" alt="Bugisoft" width="80" height="100" /></td>
-                        <td><span style="font-size:20px;color:orangered" class="glyphicon glyphicon-remove"></span></td>
-                        <td><span style="font-size:20px;color:orangered" class="glyphicon glyphicon-pencil"></span></td>
-                        <td><span style="font-size:20px;color:orangered" class="glyphicon glyphicon-eye-open"></span></td>
+                    <tr>
+                        <td style="font-size: 12px"><% = Item.Codigo %></td>
+                        <td style="font-size: 12px"><% = Item.Nombre %></td>
+                        <td style="font-size: 12px"><% = Item.Categoria.Nombre %></td>
+                        <td style="font-size: 12px"><% = Item.Marca.Nombre %></td>
+                        <td style="font-size: 12px"><% = Item.Precio %></td>
+                        <td><img src="<% =Item.UrlImagen %>" alt="Alternate Text" width="100" height="80" /></td>
+                        <td><span style="font-size: 15px; color: orangered" class="glyphicon glyphicon-remove"></span></td>
+                        <td><span style="font-size: 15px; color: orangered" class="glyphicon glyphicon-pencil"></span></td>
+                        <td><span style="font-size: 15px; color: orangered" class="glyphicon glyphicon-eye-open"></span></td>
                     </tr>
 
 
+                    <% } %>
+                    <% } %>
                 </table>
                 <br />
                 <br />
                 <center>
-                    <asp:button text="Volver" ID="BtnVolver" cssclass="btn btn-primary" Style="font-size:15px;background-color:orangered" runat="server" OnClick="BtnVolver_Click" />
-
+        <asp:Button class="btn btn-primary" Style="font-size:15px" Text="Agregar" runat="server" ID="BtnAgregar" OnClick="BtnAgregar_Click" />
+        <asp:Button class="btn btn-danger" Style="font-size:15px" Text="Volver" runat="server" ID="BtnVolver" OnClick="BtnVolver_Click1" />
                 </center>
 
             </div>

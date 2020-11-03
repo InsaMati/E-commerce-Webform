@@ -34,15 +34,16 @@
                     <div class="card">
                         <img src="<%#Eval("UrlImagen") %>" class="card-img-top" height="300" width="100" alt="Error Producto" />
                         <br />
-                        <div class="card-body cards">
+                        <div class="card-body cards">                           
                             <h5 class="card-title" style="font-size: 15px"><%#Eval("Nombre") %></h5>
                             <p class="card-text" style="font-size: 15px"><%#Eval("Descripcion") %></p>
                             <p class="card-text" style="font-size: 12px">$ <%#Eval("Precio") %></p>
                         </div>
-
                     </div>
-                    <a class="btn btn-secondary" style="font-size: 17px; background-color: orangered" href="ProductoSeleccionado.aspx?id=<%#Eval("Id")%>"><span class="glyphicon glyphicon-eye-open"> Detalle</span></a>
+                    <a class="btn btn-secondary" style="font-size: 18px; background-color: orangered;justify-content:center;display:flex;height:35px" href="ProductoSeleccionado.aspx?id=<%#Eval("Id")%>"><span class="glyphicon glyphicon-eye-open" style="font-size:20px"></span>&nbsp;&nbsp;Detalle</a>
+                    
                     <br />
+                    <hr />
                     <br />
                 </div>
 
@@ -50,20 +51,28 @@
         </asp:Repeater>
     </div>
     <hr />
-    <div class="container">
-        <center>
-        <div class="col-md-4">
-            <span class="glyphicon glyphicon-home"></span>
-            <p>hola</p>
-        </div>
-        <div class="col-md-4"><span class="glyphicon glyphicon-home"></span>
-            <p>hola</p>
-        </div>
-        <div class="col-md-4"><span class="glyphicon glyphicon-home"></span>
-            <p>hola</p>
-        </div>
+    <div class="container-fluid">
+        
+        <div class="row">
+      <div class="col-lg-4"  style="background-color:orangered">
+        <h1>Columna 1</h1> 
+          <img src="https://www.whats-on-netflix.com/wp-content/uploads/2018/09/naruto-on-netflix.jpg" width="300" height="200" alt="Alternate Text" /><br />
+          <br />
+      </div>
+      <div class="col-lg-4"  style="background-color:orange">
+        <h1>Columna 2</h1> 
+        <img src="https://www.whats-on-netflix.com/wp-content/uploads/2018/09/naruto-on-netflix.jpg" width="300" height="200" alt="Alternate Text" /><br />
+          <br />
+      </div>
+      <div class="col-lg-4"  style="background-color:orangered">
+        <h1>Columna 3</h1> 
+        <img src="https://www.whats-on-netflix.com/wp-content/uploads/2018/09/naruto-on-netflix.jpg" width="300" height="200" alt="Alternate Text" /><br />
+          <br />
+      </div>
     </div>
-    </center>
+            
+    </div>
+
     <br />
     <hr />
     <br />

@@ -18,5 +18,23 @@ namespace TPC_Orihuela_Insaurralde
 
             Lista = Negocio.ListarMarcas();
         }
+
+        protected void BtnVolver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("inicio.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
