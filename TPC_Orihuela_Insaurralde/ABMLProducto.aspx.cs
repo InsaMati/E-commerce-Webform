@@ -26,19 +26,6 @@ namespace TPC_Orihuela_Insaurralde
             }
         }
 
-        protected void BtnVolver_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect("inicio.aspx");
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
         protected void BtnVolver_Click1(object sender, EventArgs e)
         {
             try
