@@ -30,18 +30,22 @@
         <br />
         <asp:Repeater runat="server" ID="RepetidorArticulos">
             <ItemTemplate>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card">
-                        <img src="<%#Eval("UrlImagen") %>" class="card-img-top" alt="Error Producto" />
+                        <img src="<%#Eval("UrlImagen") %>" class="card-img-top" height="300" width="100" alt="Error Producto" />
                         <br />
                         <div class="card-body cards">
                             <h5 class="card-title" style="font-size: 15px"><%#Eval("Nombre") %></h5>
+                            <p class="card-text" style="font-size: 15px"><%#Eval("Descripcion") %></p>
                             <p class="card-text" style="font-size: 12px">$ <%#Eval("Precio") %></p>
                         </div>
+
                     </div>
                     <a class="btn btn-secondary" style="font-size: 17px; background-color: orangered" href="ProductoSeleccionado.aspx?id=<%#Eval("Id")%>"><span class="glyphicon glyphicon-eye-open"> Detalle</span></a>
-
+                    <br />
+                    <br />
                 </div>
+
             </ItemTemplate>
         </asp:Repeater>
     </div>
