@@ -19,12 +19,12 @@ namespace TPC_Orihuela_Insaurralde
                 NegocioArticulo Negocio = new NegocioArticulo();
                 Lista = Negocio.ListarArticulos();
 
-                var Deleteado = Request.QueryString["Pro"];
+                var Eliminado = Request.QueryString["Pro"];
 
-                if (Deleteado != null)
+                if (Eliminado != null)
                 {
                     //Producto Boleteado = Lista.Find(J => J.IdProducto == int.Parse(Deleteado));
-                    Negocio.EliminarProducto(Convert.ToInt32(Deleteado));
+                    Negocio.EliminarProducto(Convert.ToInt32(Eliminado));
                     Response.Redirect("ABMLProducto.aspx");
 
                 }
