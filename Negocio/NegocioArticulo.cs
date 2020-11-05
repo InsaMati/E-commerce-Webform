@@ -62,5 +62,29 @@ namespace Negocio
             }
         }
 
+
+        public void EliminarProducto(int id)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+
+            try
+            {
+                Datos.SetearQuery("update ARTICULOS set Estado = @Estado where ID = @Id");
+                Datos.AgregarParametro("@Estado", Convert.ToString(0));
+                Datos.AgregarParametro("@Id", Convert.ToString(id));
+                Datos.EjecutarLector();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                Datos.CerrarConexion();
+            }
+
+        }
+
     }
 }

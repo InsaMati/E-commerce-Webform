@@ -32,9 +32,9 @@
                         <td style="font-size: 12px"><% = Item.Marca.Nombre %></td>
                         <td style="font-size: 12px"><% = Item.Precio %></td>
                         <td><img src="<% =Item.UrlImagen %>" alt="Alternate Text" width="100" height="80" /></td>
-                        <td><span style="font-size: 15px; color: orangered" class="glyphicon glyphicon-remove"></span></td>
-                        <td><span style="font-size: 15px; color: orangered" class="glyphicon glyphicon-pencil"></span></td>
-                        <td><span style="font-size: 15px; color: orangered" class="glyphicon glyphicon-eye-open"></span></td>
+                        <td><a href="ABMLProducto.aspx?Pro=<% = Item.Id %>" class="glyphicon glyphicon-remove" style="font-size: 15px; color: orangered;text-decoration:none"></a></td>                       
+                        <td><a href="#" class="glyphicon glyphicon-pencil" style="font-size: 15px; color: orangered;text-decoration:none"></a></td>
+                        <td><a href="#" class="glyphicon glyphicon-eye-open" style="font-size: 15px; color: orangered;text-decoration:none"></a></td>
                     </tr>
 
 
