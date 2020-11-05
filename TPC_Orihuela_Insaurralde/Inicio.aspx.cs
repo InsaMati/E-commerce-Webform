@@ -18,12 +18,23 @@ namespace TPC_Orihuela_Insaurralde
             try
             {
                 NegocioArticulo NegocioArticulo = new NegocioArticulo();
-
+                
                 ListaART = NegocioArticulo.ListarArticulos();
 
                 RepetidorArticulos.DataSource = ListaART;
                 RepetidorArticulos.DataBind();
 
+                //// Categoria
+                NegocioCategoria NegocioCategoria = new NegocioCategoria();
+
+                DdCategoria.DataSource = NegocioCategoria.ListarCategorias();
+                DdCategoria.DataBind();
+
+                //// Marca
+                NegocioMarca NegocioMarca = new NegocioMarca();
+
+                DdMarca.DataSource = NegocioMarca.ListarMarcas();
+                DdMarca.DataBind();
             }
             catch (Exception ex)
             {
