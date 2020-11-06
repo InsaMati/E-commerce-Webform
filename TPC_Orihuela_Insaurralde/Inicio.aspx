@@ -74,31 +74,83 @@
 
     </div>
     <hr />
-    <div class="container-fluid">
-
+    <div class="container-fluid mb-5">
+        <div class="text-center mt-5">
+            <h1>Servicios</h1>
+        </div>
         <div class="row">
-            <div class="col-lg-4" style="background-color: orangered">
-                <h1>Columna 1</h1>
-                <img src="https://www.whats-on-netflix.com/wp-content/uploads/2018/09/naruto-on-netflix.jpg" width="300" height="200" alt="Alternate Text" /><br />
-                <br />
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="our-services settings">
+                        <div class="icon">
+                            <img src="https://i.imgur.com/6NKPrhO.png">
+                        </div>
+                        <h4>Settings</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4" style="background-color: orange">
-                <h1>Columna 2</h1>
-                <img src="https://www.whats-on-netflix.com/wp-content/uploads/2018/09/naruto-on-netflix.jpg" width="300" height="200" alt="Alternate Text" /><br />
-                <br />
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="our-services speedup">
+                        <div class="icon">
+                            <img src="https://i.imgur.com/KMbnpFF.png">
+                        </div>
+                        <h4>Speedup</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4" style="background-color: orangered">
-                <h1>Columna 3</h1>
-                <img src="https://www.whats-on-netflix.com/wp-content/uploads/2018/09/naruto-on-netflix.jpg" width="300" height="200" alt="Alternate Text" /><br />
-                <br />
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="our-services privacy">
+                        <div class="icon">
+                            <img src="https://i.imgur.com/AgyneKA.png">
+                        </div>
+                        <h4>Privacy</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="our-services backups">
+                        <div class="icon">
+                            <img src="https://i.imgur.com/vdH9LKi.png">
+                        </div>
+                        <h4>Backups</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="our-services ssl">
+                        <div class="icon">
+                            <img src="https://i.imgur.com/v6OnUqu.png">
+                        </div>
+                        <h4>SSL secured</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="our-services database">
+                        <div class="icon">
+                            <img src="https://i.imgur.com/VzjZw9M.png">
+                        </div>
+                        <h4>Database</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </div>
             </div>
         </div>
 
     </div>
-
-    <br />
     <hr />
-    <br />
 
     <div class="container" id="ContainerContacto">
         <h1>Formulario de contacto</h1>
@@ -114,8 +166,6 @@
             <asp:button class="btn btn-success" Style="font-size:15px;background-color:orangered" text="Enviar" runat="server" />
         </center>
         <br />
-
-
 
     </div>
 
