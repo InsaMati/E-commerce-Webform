@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
+    <script src="https://kit.fontawesome.com/c26cd2166c.js"></script>
 </head>
 <body>
     <form runat="server">
@@ -45,10 +45,8 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black">
-            <a class="navbar-brand" href="#">
-                <img src="http://1000logos.net/wp-content/uploads/2017/07/Deadpool-Logo.png" width="50" height="50" class="logo" alt="Logo" />
-            </a>
+        <nav class="navbar navbar-expand-lg bh-white">
+            <a class="navbar-brand pl-5" href="#">TPC</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -56,31 +54,35 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="Inicio.aspx">Home</a>
+                        <a class="nav-link pr-5" href="Inicio.aspx">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link pr-5" href="#">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
+                        <a class="nav-link pr-5" href="#">Carrito</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Account</a>
+                        <a class="nav-link pr-5" href="#">Mis Compras</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link pr-5" href="#">Login</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABML
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="ABMLProducto.aspx">Productos</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="ABMLMarca.aspx">Marcas</a>
                             <a class="dropdown-item" href="ABMLCategoria.aspx">Categorias</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Clientes</a>
                             <a class="dropdown-item" href="#">Usuarios</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Facturas</a>
                             <a class="dropdown-item" href="#">Estado De Pedidos</a>
+                            <div class="dropdown-divider"></div>
                         </div>
                     </li>
 
@@ -88,6 +90,73 @@
             </div>
         </nav>
 
+        <!-- Fin NavBar -->
+
+        <div id="carouselexamplecontrols" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="http://www.prodirectsoccer.com/it/siteimages/responsive/desktop/puma/tricks/framework/billboards/evospeed/evospeed-banner-1.jpg" width="200" height="500" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://cdn.denimandcloth.com.au/content/uploads/2014/11/20133541/adidas-banner.jpg" width="200" height="500" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.sportsdirect.com/images/marketing/nike_football_landing_page_banner_fast.jpg" width="200" height="500" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselexamplecontrols" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselexamplecontrols" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">next</span>
+            </a>
+        </div>
+
+        <!-- Fin Carousel -->
+
+        <section class="sub">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-2"><span><i class="fas fa-shopping-cart"></i></span></div>
+                            <div class="col-lg-10">
+                                <h5 style="font-size:20px">Return & Exchange</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-2"><span><i class="fab fa-cc-visa"></i></span></div>
+                            <div class="col-lg-10">
+                                <h5 style="font-size:20px">Receive Gift Cards</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-2"><span><i class="fas fa-user-shield"></i></span></div>
+                            <div class="col-lg-10">
+                                <h5 style="font-size:20px">Online Support</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="row">
+                            <asp:TextBox CssClass="txt1" Style="font-size:15px" runat="Server" placeholder="Email" Type="text"></asp:TextBox>
+                            <asp:Button CssClass="btn1" Style="font-size:15px"  Text="Suscribirte" runat="server" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <!-- Fin Suscribirte -->
 
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
