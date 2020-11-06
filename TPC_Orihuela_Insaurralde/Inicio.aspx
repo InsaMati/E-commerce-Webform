@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.Inicio" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <hr />
     <div class="container" id="ContainerProductos">
         <div class="col-md-12">
             <h1 class="text-center">Productos</h1>
@@ -47,79 +46,39 @@
 
             </ItemTemplate>
         </asp:Repeater>
-
     </div>
-    <hr />
     <div class="container-fluid mb-5">
-        <div class="text-center mt-5">
+        <div class="text-center">
             <h1>Servicios</h1>
         </div>
         <div class="row">
             <div class="col-md-4">
                 <div class="box">
                     <div class="our-services settings">
-                        <div class="icon">
-                            <img src="https://i.imgur.com/6NKPrhO.png">
-                        </div>
                         <h4>Settings</h4>
+                        <br />
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                        <span><i class="fab fa-cc-visa"></i></span>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="box">
                     <div class="our-services speedup">
-                        <div class="icon">
-                            <img src="https://i.imgur.com/KMbnpFF.png">
-                        </div>
                         <h4>Speedup</h4>
+                        <br />
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                        <span><i class="fab fa-cc-visa"></i></span>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="box">
                     <div class="our-services privacy">
-                        <div class="icon">
-                            <img src="https://i.imgur.com/AgyneKA.png">
-                        </div>
                         <h4>Privacy</h4>
+                        <br />
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="box">
-                    <div class="our-services backups">
-                        <div class="icon">
-                            <img src="https://i.imgur.com/vdH9LKi.png">
-                        </div>
-                        <h4>Backups</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="box">
-                    <div class="our-services ssl">
-                        <div class="icon">
-                            <img src="https://i.imgur.com/v6OnUqu.png">
-                        </div>
-                        <h4>SSL secured</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="box">
-                    <div class="our-services database">
-                        <div class="icon">
-                            <img src="https://i.imgur.com/VzjZw9M.png">
-                        </div>
-                        <h4>Database</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                        <span><i class="fab fa-cc-visa"></i></span>
                     </div>
                 </div>
             </div>

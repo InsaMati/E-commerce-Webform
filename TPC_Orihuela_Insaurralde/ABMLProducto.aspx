@@ -9,6 +9,7 @@
                 <tr>
                     <th>Codigo</th>
                     <th>Nombre</th>
+                    <th style="width:200px">Descripcion</th>
                     <th>Categoria</th>
                     <th>Marca</th>
                     <th>Precio</th>
@@ -27,6 +28,7 @@
                 <tr class="table-light text-center">
                     <td style="font-size: 12px"><% = Item.Codigo %></td>
                     <td style="font-size: 12px"><% = Item.Nombre %></td>
+                    <td style="font-size: 12px"><% = Item.Descripcion %></td>
                     <td style="font-size: 12px"><% = Item.Categoria.Nombre %></td>
                     <td style="font-size: 12px"><% = Item.Marca.Nombre %></td>
                     <td style="font-size: 12px">$<% = Item.Precio %></td>
@@ -43,8 +45,6 @@
                 <% } %>
             </tbody>
         </table>
-        <br />
-        <br />
         <center>
         <asp:Button class="btn btn-primary" Style="font-size:15px" Text="Agregar" runat="server" ID="BtnAgregar" OnClick="BtnAgregar_Click" />
         <asp:Button class="btn btn-danger" Style="font-size:15px" Text="Volver" runat="server" ID="BtnVolver" OnClick="BtnVolver_Click1" />
