@@ -62,10 +62,7 @@ namespace Negocio
             }
         }
 
-        public void AgregarArticulo(Articulo Nuevo)
-        {
 
-        }
         public void EliminarProducto(int id)
         {
             AccesoADatos Datos = new AccesoADatos();

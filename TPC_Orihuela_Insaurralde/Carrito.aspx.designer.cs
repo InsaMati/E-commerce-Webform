@@ -11,7 +11,7 @@ namespace TPC_Orihuela_Insaurralde
 {
 
 
-    public partial class ABMLCategoria
+    public partial class Carrito
     {
     }
 }
