@@ -18,7 +18,7 @@ namespace Negocio
             // Insaurralde C7AMVOI
             // Orihuela OC9KSLQ
 
-            Conexion = new SqlConnection("data source=.\\SQLEXPRESS; initial catalog=TP_Final; integrated security=sspi");
+            Conexion = new SqlConnection("data source=DESKTOP-OC9KSLQ\\SQLEXPRESS; initial catalog=TP_Final; integrated security=sspi");
             Comando = new SqlCommand();
             Comando.Connection = Conexion;
         }

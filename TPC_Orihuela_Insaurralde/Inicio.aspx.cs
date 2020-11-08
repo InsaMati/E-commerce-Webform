@@ -35,6 +35,7 @@ namespace TPC_Orihuela_Insaurralde
 
                 DdMarca.DataSource = NegocioMarca.ListarMarcas();
                 DdMarca.DataBind();
+
             }
             catch (Exception ex)
             {

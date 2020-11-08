@@ -61,6 +61,7 @@ namespace TPC_Orihuela_Insaurralde
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
             CargarArticulo.Cantidad = Convert.ToInt32(TxtCantidad.Text);
+            CargarArticulo.Subtotal = Convert.ToInt32(TxtCantidad.Text) * MostrarArticulo.Precio;
             CargarArticulo.ArticuloCarro = MostrarArticulo;
 
             bool validar = new bool();
@@ -75,7 +76,8 @@ namespace TPC_Orihuela_Insaurralde
                 if (J.ArticuloCarro.Id == MostrarArticulo.Id)
                 {
 
-                    J.Cantidad += Convert.ToInt32(TxtCantidad.Text);
+                    J.Cantidad += CargarArticulo.Cantidad;
+                    J.Subtotal += CargarArticulo.Subtotal;
                     ListaCarrito.Remove(J);
                     ListaCarrito.Add(J);
                     Session[Session.SessionID + "Lista"] = ListaCarrito;

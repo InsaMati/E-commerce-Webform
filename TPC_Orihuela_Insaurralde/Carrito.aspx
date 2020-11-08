@@ -18,11 +18,39 @@
             <td>
                 <h3 style="color: red"> ELIMINAR </h3>
             </td>
-            </tr>
+        </tr>
+        <% if(ListaCarro != null)
+            {%>
+            <% foreach (var item in ListaCarro)
+                {%>
+        <tr>
+            <td>
+                    <% = item.ArticuloCarro.Nombre %>
+            </td>
+            <td>
+                    <% = item.Cantidad %>
+            </td>
+            <td>
+                    <% = item.ArticuloCarro.Precio %>
+            </td>
+            <td>
+                    <% = item.Subtotal %>
+            </td>
 
+        </tr>
+
+           <%} %>
+        <%} %>
        
+       </table>
+        
+    <asp:Button Text="Vaciar" ID="btnVaciar" runat="server" class="btn btn-primary" OnClick="btnVaciar_Click" />
+    &nbsp
+    <asp:Button Text="Volver" ID="btnVolver" class="btn btn-primary" runat="server" OnClick="btnVolver_Click" />
+    &nbsp
+    <asp:Button Text="Comprar" runat="server" class="btn btn-success"/>
 
-    </table>
+      
 
 
 </asp:Content>

@@ -23,5 +23,20 @@ namespace TPC_Orihuela_Insaurralde
             }
 
         }
+
+        protected void btnVaciar_Click(object sender, EventArgs e)
+        {
+            if (ListaCarro != null)
+            {
+                ListaCarro.Clear();
+                Session[Session.SessionID + "Lista"] = ListaCarro;
+                Response.Redirect("Carrito.aspx");
+            }
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Inicio.aspx");
+        }
     }
 }
