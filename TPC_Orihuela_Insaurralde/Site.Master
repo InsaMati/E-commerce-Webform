@@ -16,11 +16,15 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="Styles/Style.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/Mobile.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c26cd2166c.js"></script>
+    <script src="Js/JavaScript.js"></script>
 </head>
+
 <body>
     <form runat="server">
         <asp:ScriptManager runat="server">
@@ -43,185 +47,161 @@
             </Scripts>
         </asp:ScriptManager>
 
-
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                background-color: white;
-            }
-
-            #Header {
-                font-size: 15px;
-            }
-
-            a {
-                font-size: 15px;
-            }
-
-            p {
-                font-size: 13px;
-            }
-        </style>
-
-         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0a0a0a">
-            <a class="navbar-brand" href="#">TPC</a>
+        <nav class="navbar navbar-expand-lg bh-white">
+            <a class="navbar-brand pl-5" href="#">TPC</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="Inicio.aspx">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link pr-5" href="Inicio.aspx">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Carrito.aspx">Carrito</a>
+                        <a class="nav-link pr-5" href="#">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pr-5" href="#">Carrito</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pr-5" href="#">Mis Compras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pr-5" href="#">Login</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABML
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="ABMLProducto.aspx">Producto</a>
+                            <a class="dropdown-item" href="ABMLProducto.aspx">Productos</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="ABMLMarca.aspx">Marca</a>
+                            <a class="dropdown-item" href="ABMLMarca.aspx">Marcas</a>
+                            <a class="dropdown-item" href="ABMLCategoria.aspx">Categorias</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="ABMLCategoria.aspx">Categoria</a>
-                            
+                            <a class="dropdown-item" href="#">Clientes</a>
+                            <a class="dropdown-item" href="#">Usuarios</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Facturas</a>
+                            <a class="dropdown-item" href="#">Estado De Pedidos</a>
+                            <div class="dropdown-divider"></div>
                         </div>
                     </li>
 
                 </ul>
-                
-                    <input class="form-control mr-sm-2" style="font-size:15px" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" style="font-size:15px" type="submit">Buscar</button>
-                
             </div>
         </nav>
 
+        <!-- Fin NavBar -->
+
+        <div id="carouselexamplecontrols" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="http://www.prodirectsoccer.com/it/siteimages/responsive/desktop/puma/tricks/framework/billboards/evospeed/evospeed-banner-1.jpg" width="200" height="500" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://cdn.denimandcloth.com.au/content/uploads/2014/11/20133541/adidas-banner.jpg" width="200" height="500" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.sportsdirect.com/images/marketing/nike_football_landing_page_banner_fast.jpg" width="200" height="500" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselexamplecontrols" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselexamplecontrols" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">next</span>
+            </a>
+        </div>
+
+        <!-- Fin Carousel -->
+
+        <section class="sub">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-2"><span><i class="fas fa-shopping-cart"></i></span></div>
+                            <div class="col-lg-10">
+                                <h5 style="font-size: 20px">Return & Exchange</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-2"><span><i class="fab fa-cc-visa"></i></span></div>
+                            <div class="col-lg-10">
+                                <h5 style="font-size: 20px">Receive Gift Cards</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-2"><span><i class="fas fa-user-shield"></i></span></div>
+                            <div class="col-lg-10">
+                                <h5 style="font-size: 20px">Online Support</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="row">
+                            <asp:TextBox CssClass="txt1" Style="font-size: 15px" runat="Server" placeholder="Email" Type="text"></asp:TextBox>
+                            <asp:Button CssClass="btn1" Style="font-size: 15px" Text="Suscribirte" runat="server" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <hr />
+
+
+        <!-- Fin Suscribirte -->
 
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-
-            <!-- Footer -->
-            <footer class="page-footer font-small stylish-color-dark pt-4">
-
-                <!-- Footer Links -->
-                <div class="container text-center text-md-left">
-
-                    <!-- Grid row -->
-                    <div class="row">
-
-                        <!-- Grid column -->
-                        <div class="col-md-4 mx-auto">
-
-                            <!-- Content -->
-                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
-                            <p>
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.
-                            </p>
-
-                        </div>
-                        <!-- Grid column -->
-
-                        <hr class="clearfix w-100 d-md-none">
-
-                        <!-- Grid column -->
-                        <div class="col-md-2 mx-auto">
-
-                            <!-- Links -->
-                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="#!">Link 1</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 2</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 3</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 4</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <!-- Grid column -->
-
-                        <hr class="clearfix w-100 d-md-none">
-
-                        <!-- Grid column -->
-                        <div class="col-md-2 mx-auto">
-
-                            <!-- Links -->
-                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="#!">Link 1</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 2</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 3</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 4</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <!-- Grid column -->
-
-                        <hr class="clearfix w-100 d-md-none">
-
-                        <!-- Grid column -->
-                        <div class="col-md-2 mx-auto">
-
-                            <!-- Links -->
-                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="#!">Link 1</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 2</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 3</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 4</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <!-- Grid column -->
-
-                    </div>
-                    <!-- Grid row -->
-
-                </div>
-                <hr />
-                <!-- Copyright -->
-                <div class="footer-copyright text-center py-3">
-                    © 2020 Copyright: Mi sitio web
-   
-                </div>
-                <!-- Copyright -->
-
-            </footer>
-            <!-- Footer -->
-
         </div>
+
+        <br />
+        <hr />
+        <footer style="background-color: whitesmoke">
+            <div class="container" >
+                <div class="row">
+                    <div class="col-md-12 py-5">
+                        <div class="text-center">
+                            <a style="font-size:15px;text-decoration:none"class="fb-ic">
+                                <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x" style="color:greenyellow"></i>
+                            </a>
+
+                            <a style="font-size:15px;text-decoration:none" class="tw-ic">
+                                <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x" style="color:greenyellow"></i>
+                            </a>
+
+                            <a style="font-size:15px;text-decoration:none" class="gplus-ic">
+                                <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x" style="color:greenyellow"></i>
+                            </a>
+
+                            <a style="font-size:15px;text-decoration:none" class="li-ic">
+                                <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x" style="color:greenyellow"></i>
+                            </a>
+
+                            <a style="font-size:15px;text-decoration:none" class="ins-ic">
+                                <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x" style="color:greenyellow"></i>
+                            </a>
+                            <a style="font-size:15px;text-decoration:none" class="pin-ic">
+                                <i class="fab fa-pinterest fa-lg white-text fa-2x" style="color:greenyellow"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright text-center py-3" style="font-size:15px">
+                © 2020 Copyright: Trabajo Practico Cuatrimestal
+            </div>
+        </footer>
     </form>
 </body>
 </html>

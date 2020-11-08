@@ -14,17 +14,15 @@ namespace TPC_Orihuela_Insaurralde
         public Articulo MostrarArticulo { get; set; }
         public List<Articulo> ListaArticulos { get; set; }
 
-        public CarritoCompra CargarArticulo { get; set; }
-
-        public List<CarritoCompra> ListaCarrito { get; set; }
-
+        public CarritoCompra CargarArticulo = new CarritoCompra();
+        public List<CarritoCompra> ListaCarrito = new List<CarritoCompra>();
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
             NegocioArticulo NegArticulo = new NegocioArticulo();
 
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 TxtCantidad.Text = Convert.ToString(1);
             }
@@ -41,13 +39,6 @@ namespace TPC_Orihuela_Insaurralde
 
                 throw ex;
             }
-            
-
-        }
-
-        protected void TxtCantidad_TextChanged(object sender, EventArgs e)
-        {
-           
         }
 
         protected void BtnDisminuir_Click(object sender, EventArgs e)
@@ -58,15 +49,13 @@ namespace TPC_Orihuela_Insaurralde
                 int Cantidad = Convert.ToInt32(TxtCantidad.Text);
                 TxtCantidad.Text = Convert.ToString(Cantidad - 1);
             }
-            
+
         }
 
         protected void BtnAumentar_Click(object sender, EventArgs e)
         {
-            
-                int Cantidad = Convert.ToInt32(TxtCantidad.Text);
-                TxtCantidad.Text = Convert.ToString(Cantidad + 1);
-            
+            int cantidad = Convert.ToInt32(TxtCantidad.Text);
+            TxtCantidad.Text = Convert.ToString(cantidad + 1);
         }
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
@@ -85,7 +74,7 @@ namespace TPC_Orihuela_Insaurralde
             {
                 if (J.ArticuloCarro.Id == MostrarArticulo.Id)
                 {
-                  
+
                     J.Cantidad += Convert.ToInt32(TxtCantidad.Text);
                     ListaCarrito.Remove(J);
                     ListaCarrito.Add(J);
@@ -111,4 +100,6 @@ namespace TPC_Orihuela_Insaurralde
             }
         }
     }
+
+    
 }

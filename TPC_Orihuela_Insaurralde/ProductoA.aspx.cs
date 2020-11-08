@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,54 @@ namespace TPC_Orihuela_Insaurralde
                 NegocioCategoria NegocioCategoria = new NegocioCategoria();
                 NegocioMarca NegocioMarca = new NegocioMarca();
 
-                DDCategoria.DataSource = NegocioCategoria.ListarCategorias();
-                DDCategoria.DataBind();
+                if (!IsPostBack)
+                {
 
-                DDMarca.DataSource = NegocioMarca.ListarMarcas();
-                DDMarca.DataBind();
+                    List<Categoria> ListaCategoria = NegocioCategoria.ListarCategorias();
+                    DDCategoria.DataSource = ListaCategoria;
+                    DDCategoria.DataBind();
+
+                    Session.Add("LCategoria", ListaCategoria);
+
+                    List<Marca> ListaMarca = NegocioMarca.ListarMarcas();
+                    DDMarca.DataSource = ListaMarca;
+                    DDMarca.DataBind();
+
+                    Session.Add("LMarca", ListaMarca);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        protected void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NegocioArticulo NegocioArticulo = new NegocioArticulo();
+
+                Articulo ArticuloAux = new Articulo();
+
+                ArticuloAux.Codigo = TxtCodigo.Text.Trim();
+                ArticuloAux.Nombre = TxtNombre.Text.Trim();
+                ArticuloAux.Descripcion = TxtDescripcion.Text.Trim();
+                ArticuloAux.Precio = double.Parse(TxtPrecio.Text);
+                ArticuloAux.UrlImagen = TxtImagen.Text.Trim();
+
+                List<Marca> LMarca = (List<Marca>)Session["LMarca"];
+                ArticuloAux.Marca = LMarca.Find(x => x.Nombre == DDMarca.SelectedValue);
+
+                List<Categoria> LCategoria = (List<Categoria>)Session["LCategoria"];
+                ArticuloAux.Categoria = LCategoria.Find(j => j.Nombre == DDCategoria.SelectedValue);
+
+                NegocioArticulo.AgregarArticulo(ArticuloAux);
+
+                Response.Redirect("ProductoA.aspx");
+
             }
             catch (Exception ex)
             {
