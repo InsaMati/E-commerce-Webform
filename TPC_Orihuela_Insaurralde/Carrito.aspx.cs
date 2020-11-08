@@ -15,28 +15,51 @@ namespace TPC_Orihuela_Insaurralde
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListaCarro = (List<CarritoCompra>)Session[Session.SessionID + "Lista"];
-
-            if(ListaCarro == null)
+            try
+            {
+                ListaCarro = (List<CarritoCompra>)Session[Session.SessionID + "Lista"];
+            }
+            catch (Exception)
             {
 
+                throw;
             }
+
+           
 
         }
 
         protected void btnVaciar_Click(object sender, EventArgs e)
         {
-            if (ListaCarro != null)
+            try
             {
-                ListaCarro.Clear();
-                Session[Session.SessionID + "Lista"] = ListaCarro;
-                Response.Redirect("Carrito.aspx");
+                if (ListaCarro != null)
+                {
+                    ListaCarro.Clear();
+                    Session[Session.SessionID + "Lista"] = ListaCarro;
+                    Response.Redirect("Carrito.aspx");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Inicio.aspx");
+            try
+            {
+                Response.Redirect("Inicio.aspx");
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

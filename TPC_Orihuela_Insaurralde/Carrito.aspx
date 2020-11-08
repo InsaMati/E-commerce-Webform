@@ -36,6 +36,9 @@
             <td>
                     <% = item.Subtotal %>
             </td>
+            <td>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </td>
 
         </tr>
 
