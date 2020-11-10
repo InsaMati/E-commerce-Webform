@@ -1,54 +1,5 @@
-create database TP_Final
-go
 use TP_Final
-go
-create table CATEGORIA
-(
-	ID smallint not null primary key identity (1,1),
-	Descripcion varchar(50) not null
-)
-go
-create table MARCA
-(
-	ID smallint not null primary key identity (1,1),
-	Descripcion varchar(50) not null
-)
-go
-create table ARTICULOS
-(
-	ID smallint not null primary key identity (1,1),
-	Codigo varchar(50) not null unique,
-	Nombre varchar(50) not null,
-	Descripcion varchar(150),
-	IdMarca smallint not null foreign key references MARCA(ID),
-	IdCategoria smallint not null foreign key references CATEGORIA(ID), 
-	ImagenURL varchar(1000),
-	Precio money not null,
-	Estado bit not null
-)
-go
-create table TIPO_DE_USUARIO
-(
-	ID smallint not null primary key identity (1,1),
-	Nombre varchar(50) not null
-)
-go
-create table USUARIO
-(
-	ID smallint primary key identity (1,1),
-	Email varchar(100) not null unique,
-	Contraseña varchar(50) not null,
-	IdTipoUsuario smallint not null foreign key references TIPO_DE_USUARIO(ID)
-)
-go
-create table CLIENTE
-(
-	ID smallint not null primary key identity (1,1),
-	Nombre varchar(50) not null,
-	Apellido varchar(50) not null,
-	IdUsuario smallint not null foreign key references USUARIO(ID)
-)
-go
+GO
 INSERT [dbo].[ARTICULOS] ( [Codigo], [Nombre], [Descripcion], [IdMarca], [IdCategoria], [ImagenURL], [Precio], [Estado]) VALUES ('MTH','Medias', 'Medias termicas para hombre', 1, 3, 'https://http2.mlstatic.com/pack-x12-floyd-medias-termicas-fantasia-hombre-art-1416-D_Q_NP_623482-MLA30406376369_052019-F.webp', 500, 1)
 go
 INSERT [dbo].[ARTICULOS] ( [Codigo], [Nombre], [Descripcion], [IdMarca], [IdCategoria], [ImagenURL], [Precio], [Estado]) VALUES ('MTM','Medias', 'Medias termicas para mujer', 1, 3, 'https://http2.mlstatic.com/pack-x3-floyd-medias-termica-dama-estampa-ctoalla-a-mj12-D_Q_NP_902474-MLA30131098317_042019-F.webp', 500, 1)
