@@ -5,14 +5,18 @@ go
 create table CATEGORIA
 (
 	ID smallint not null primary key identity (1,1),
-	Descripcion varchar(50) not null
+	Nombre varchar(50) not null,
+	Estado bit not null
+
 )
 go
 create table MARCA
 (
 	ID smallint not null primary key identity (1,1),
-	Descripcion varchar(50) not null
+	Nombre varchar(50) not null,
+	Estado bit not null
 )
+
 go
 create table ARTICULOS
 (
@@ -38,7 +42,8 @@ create table USUARIO
 (
 	ID smallint primary key identity (1,1),
 	Contraseña varchar(50) not null,
-	IdTipoUsuario smallint not null foreign key references TIPO_DE_USUARIO(ID)
+	IdTipoUsuario smallint not null foreign key references TIPO_DE_USUARIO(ID),
+	Estado bit not null
 )
 GO
 create table PAISES
@@ -72,7 +77,8 @@ create table CARRITO
 (
 	ID smallint not null primary key identity (1,1),
 	ID_usuario smallint not null foreign key references USUARIO(ID),
-	Costo_Total money not null
+	Costo_Total money not null,
+	Estado bit not null
 )
 GO
 create table ARTICULOS_X_CARRITO
