@@ -25,9 +25,18 @@ namespace TPC_Orihuela_Insaurralde
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            NegocioMarca Negocio = new NegocioMarca();
-            var NuevaMarca = Convert.ToString(txtMarca);
-            Negocio.AgregarMarca(NuevaMarca);
+            try
+            {
+                NegocioMarca Negocio = new NegocioMarca();
+                var NuevaMarca = Convert.ToString(txtMarca);
+                Negocio.AgregarMarca(NuevaMarca);
+                Response.Redirect("ABMLMarca.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
