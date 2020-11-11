@@ -1,7 +1,9 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Linq;
+using System.Net.Cache;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -64,7 +66,7 @@ namespace Negocio
 
         public void AgregarArticulo(Articulo Nuevo)
         {
-
+            
         }
         public void EliminarProducto(int id)
         {

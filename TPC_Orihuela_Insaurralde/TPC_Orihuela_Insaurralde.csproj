@@ -110,6 +110,7 @@
     <Content Include="ABMLProducto.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Carrito.aspx" />
+    <Content Include="CategoriaA.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -129,6 +130,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Inicio.aspx" />
+    <Content Include="MarcaA.aspx" />
     <Content Include="ProductoA.aspx" />
     <Content Include="ProductoSeleccionado.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -204,6 +206,13 @@
     <Compile Include="Carrito.aspx.designer.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CategoriaA.aspx.cs">
+      <DependentUpon>CategoriaA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoriaA.aspx.designer.cs">
+      <DependentUpon>CategoriaA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,6 +229,13 @@
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MarcaA.aspx.cs">
+      <DependentUpon>MarcaA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MarcaA.aspx.designer.cs">
+      <DependentUpon>MarcaA.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductoA.aspx.cs">
       <DependentUpon>ProductoA.aspx</DependentUpon>

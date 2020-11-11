@@ -15,8 +15,15 @@ namespace TPC_Orihuela_Insaurralde
         protected void Page_Load(object sender, EventArgs e)
         {
             NegocioMarca Negocio = new NegocioMarca();
-
             Lista = Negocio.ListarMarcas();
+
+            var Eliminar = Request.QueryString["ID"];
+
+            if (Eliminar != null)
+            {
+                Negocio.EliminarMarca(Convert.ToInt32(Eliminar));
+                Response.Redirect("AMBLMarca.aspx");
+            }
         }
 
         protected void BtnVolver_Click(object sender, EventArgs e)
@@ -28,7 +35,7 @@ namespace TPC_Orihuela_Insaurralde
         {
             try
             {
-                Response.Redirect("inicio.aspx");
+                Response.Redirect("MarcaA.aspx");
             }
             catch (Exception ex)
             {

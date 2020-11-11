@@ -1,7 +1,10 @@
 ﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Linq;
+using System.Net.Cache;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,6 +47,24 @@ namespace Negocio
             }
 
 
+        }
+
+        public void EliminarCategoria (int id)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+
+            try
+            {
+                Datos.SetearQuery("update CATEGORIA set Estado = @Estado where ID = @Id");
+                Datos.AgregarParametro("@Estado", Convert.ToString(0));
+                Datos.AgregarParametro("@Id", Convert.ToString(id));
+                Datos.EjecutarLector();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

@@ -23,8 +23,8 @@
                     <td style="font-size: 12px"><% = Item.Id %></td>
                     <td style="font-size: 12px"><% = Item.Nombre %></td>
                     <td class="text-right">
-                        <a href="#<% = Item.Id %>" class="btn btn-primary badge-pill" style="font-size: 15px; color: white; text-decoration: none">Editar</a>
-                        <a href="#<% = Item.Id %>" class="btn btn-danger badge-pill" style="font-size: 15px; color: white; text-decoration: none">Eliminar</a>
+                        <a href="ABMLMarca.aspx?ID=<% = Item.Id %>" class="btn btn-primary badge-pill" style="font-size: 15px; color: white; text-decoration: none">Editar</a>
+                        <a href="ABMLMarca.aspx?ID=<% = Item.Id %>" class="btn btn-danger badge-pill" style="font-size: 15px; color: white; text-decoration: none">Eliminar</a>
                     </td>
                 </tr>
 

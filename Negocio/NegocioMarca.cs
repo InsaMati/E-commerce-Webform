@@ -1,6 +1,8 @@
 ﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +44,23 @@ namespace Negocio
                 Datos.CerrarConexion();
             }
 
+        }
+        public void EliminarMarca (int id)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+
+            Datos.SetearQuery("update MARCA set Estado = @Estado where ID = @Id");
+            Datos.AgregarParametro("@Estado", Convert.ToString(0));
+            Datos.AgregarParametro("@ID", Convert.ToString(id));
+            Datos.EjecutarLector();
+
+        }
+
+        public void AgregarMarca (string Marca)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            Datos.AgregarParametro("@Nombre", Marca);
+            Datos.EjecutarLector();
         }
     }
 }

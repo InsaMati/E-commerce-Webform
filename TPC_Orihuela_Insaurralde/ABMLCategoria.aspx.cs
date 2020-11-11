@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace TPC_Orihuela_Insaurralde
 {
@@ -19,6 +17,14 @@ namespace TPC_Orihuela_Insaurralde
                 NegocioCategoria Negocio = new NegocioCategoria();
                 Lista = Negocio.ListarCategorias();
 
+                var Eliminar = Request.QueryString["ID"];
+
+                if(Eliminar != null)
+                {
+                    Negocio.EliminarCategoria(Convert.ToInt32(Eliminar));
+                    Response.Redirect("AMBLCategoria.aspx");
+                }
+
             }
             catch (Exception ex)
             {
@@ -26,5 +32,6 @@ namespace TPC_Orihuela_Insaurralde
                 throw ex;
             }
         }
+        
     }
 }
