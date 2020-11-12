@@ -21,7 +21,7 @@ namespace Negocio
             {
 
                 //// Crear VW
-                Datos.SetearQuery("select P.ID, P.Codigo,P.Nombre, P.Descripcion, M.Descripcion[Marca], C.Descripcion[Categoria], P.ImagenUrl,P.Precio,M.ID, C.ID,P.Estado from ARTICULOS P, MARCA M, CATEGORIA C where P.IdMarca = m.Id AND P.IdCategoria = C.Id");
+                Datos.SetearQuery("select P.ID, P.Codigo,P.Nombre, P.Descripcion, M.Nombre[Marca], C.Nombre[Categoria], P.ImagenUrl,P.Precio,M.ID, C.ID,P.Estado, P.Stock from ARTICULOS P, MARCA M, CATEGORIA C where P.IdMarca = m.Id AND P.IdCategoria = C.Id");
                 Datos.EjecutarLector();
 
                 while (Datos.Leeme.Read())
@@ -66,7 +66,21 @@ namespace Negocio
 
         public void AgregarArticulo(Articulo Nuevo)
         {
-            
+            AccesoADatos Datos = new AccesoADatos();
+
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+
+            }
         }
         public void EliminarProducto(int id)
         {
