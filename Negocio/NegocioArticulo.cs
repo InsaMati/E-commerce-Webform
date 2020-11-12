@@ -44,10 +44,10 @@ namespace Negocio
                     Aux.Precio = Convert.ToDouble(Datos.Leeme.GetDecimal(7));
                     Aux.Marca.Id = Datos.Leeme.GetInt16(8);
                     Aux.Categoria.Id = Datos.Leeme.GetInt16(9);
-
+                    
                     Aux.Estado = Datos.Leeme.GetBoolean(10);
-
-                    if(Aux.Estado == true) Lista.Add(Aux);
+                    Aux.Stock = Datos.Leeme.GetInt16(11);
+                    if (Aux.Estado == true) Lista.Add(Aux);
 
                 }
 

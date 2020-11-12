@@ -14,6 +14,7 @@
                     <th>Marca</th>
                     <th>Precio</th>
                     <th>Imagen</th>
+                    <th>Stock</th>
                     <th class="text-right" style="width:200px">Acciones</th>
 
                 </tr>
@@ -34,6 +35,7 @@
                     <td style="font-size: 12px">$<% = Item.Precio %></td>
                     <td>
                         <img src="<% =Item.UrlImagen %>" alt="Alternate Text" width="80" height="80" /></td>
+                    <td style="font-size: 12px"><% = Item.Stock %></td>
                     <td class="text-right">
                         <a href="ProductoA.aspx?Pro=<% = Item.Id %>" class="btn btn-primary badge-pill" style="font-size: 15px; color: white; text-decoration: none">Editar</a>
                         <a href="ABMLProducto.aspx?Pro=<% = Item.Id %>" class="btn btn-danger badge-pill" style="font-size: 15px; color: white; text-decoration: none">Eliminar</a>
