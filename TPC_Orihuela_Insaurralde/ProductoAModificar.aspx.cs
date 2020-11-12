@@ -16,19 +16,22 @@ namespace TPC_Orihuela_Insaurralde
         public List<Marca> ListaM = new List<Marca>();
         public List<Articulo> BuscarArticulo = new List<Articulo>();
         public List<Categoria> ListaC = new List<Categoria>();
+
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                var Modificar = Request.QueryString["Pro"];
+                
                 if (!IsPostBack)
                 {
-
+                    var Modificar = Request.QueryString["Pro"];
+                   
                     if (Modificar != null)
                     {
                         CargarListas();
                         Articulo Modificado = BuscarArticulo.Find(J => J.Id == int.Parse(Modificar));
-                        CargarDropDown();
+                        CargarDropDown(Modificado.Marca.Id,Modificado.Categoria.Id);
                         CargarTextbox(Modificado);
                     }
 
@@ -54,12 +57,17 @@ namespace TPC_Orihuela_Insaurralde
 
         }
 
-        public void CargarDropDown()
+        public void CargarDropDown(int IdMarca, int IdCategoria)
         {
+            int IndexCategoria = ListaC.FindIndex(J => J.Id == IdCategoria);
+            int IndexMarca = ListaM.FindIndex(J => J.Id == IdMarca);
+
             DDCategoria.DataSource = ListaC;
+            DDCategoria.SelectedIndex = IndexCategoria;
             DDCategoria.DataBind();
 
             DDMarca.DataSource = ListaM;
+            DDMarca.SelectedIndex = IndexMarca;
             DDMarca.DataBind();
         }
 
@@ -76,8 +84,28 @@ namespace TPC_Orihuela_Insaurralde
 
         protected void BtnModificar_Click(object sender, EventArgs e)
         {
+            NegocioArticulo NegocioArticulo = new NegocioArticulo();
+
             try
             {
+
+                CargarListas();
+
+                Articulo AuxModificar = new Articulo();
+
+                AuxModificar.Id = Convert.ToInt16(Request.QueryString["Pro"]);
+                AuxModificar.Codigo = TxtCodigo.Text;
+                AuxModificar.Nombre = TxtNombre.Text;
+                AuxModificar.Descripcion = TxtDescripcion.Text;
+                AuxModificar.Marca = ListaM.Find(BuscarMarca => BuscarMarca.Nombre == DDMarca.SelectedValue);
+                AuxModificar.Categoria = ListaC.Find(BuscarCategoria => BuscarCategoria.Nombre == DDCategoria.SelectedValue);
+                AuxModificar.UrlImagen = TxtImagen.Text;
+                AuxModificar.Precio = double.Parse(TxtPrecio.Text);
+                AuxModificar.Stock = Convert.ToInt16(TxtStock.Text);
+
+                NegocioArticulo.ModificarArticulo(AuxModificar);
+
+                Response.Redirect("ABMLProducto.aspx");
 
             }
             catch (Exception ex)

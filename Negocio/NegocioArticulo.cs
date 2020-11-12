@@ -104,6 +104,7 @@ namespace Negocio
             {
                 Datos.SetearSp("SP_Modificar_Articulo");
 
+                Datos.AgregarParametro("@ID", Convert.ToString(Modificar.Id));
                 Datos.AgregarParametro("@Codigo", Modificar.Codigo);
                 Datos.AgregarParametro("@Nombre", Modificar.Nombre);
                 Datos.AgregarParametro("@Descripcion", Modificar.Descripcion);
@@ -113,7 +114,6 @@ namespace Negocio
                 Datos.AgregarParametro("@Precio", Convert.ToString(Modificar.Precio));
                 Datos.AgregarParametro("@Stock", Convert.ToString(Modificar.Stock));
                 Datos.AgregarParametro("@Estado", Convert.ToString(1));
-                Datos.AgregarParametro("@ID", Convert.ToString(Modificar.Id));
 
                 Datos.EjecutarLector();
             }
