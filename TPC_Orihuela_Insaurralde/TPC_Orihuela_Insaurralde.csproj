@@ -132,6 +132,7 @@
     <Content Include="Inicio.aspx" />
     <Content Include="MarcaA.aspx" />
     <Content Include="ProductoA.aspx" />
+    <Content Include="ProductoAModificar.aspx" />
     <Content Include="ProductoSeleccionado.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -243,6 +244,13 @@
     </Compile>
     <Compile Include="ProductoA.aspx.designer.cs">
       <DependentUpon>ProductoA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductoAModificar.aspx.cs">
+      <DependentUpon>ProductoAModificar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductoAModificar.aspx.designer.cs">
+      <DependentUpon>ProductoAModificar.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductoSeleccionado.aspx.cs">
       <DependentUpon>ProductoSeleccionado.aspx</DependentUpon>

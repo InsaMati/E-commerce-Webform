@@ -95,6 +95,39 @@ namespace Negocio
                 Datos.CerrarConexion();
             }
         }
+
+        public void ModificarArticulo (Articulo Modificar)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+             
+            try
+            {
+                Datos.SetearSp("SP_Modificar_Articulo");
+
+                Datos.AgregarParametro("@Codigo", Modificar.Codigo);
+                Datos.AgregarParametro("@Nombre", Modificar.Nombre);
+                Datos.AgregarParametro("@Descripcion", Modificar.Descripcion);
+                Datos.AgregarParametro("@Marca", Convert.ToString(Modificar.Marca.Id));
+                Datos.AgregarParametro("@Categoria", Convert.ToString(Modificar.Categoria.Id));
+                Datos.AgregarParametro("@Imagen", Modificar.UrlImagen);
+                Datos.AgregarParametro("@Precio", Convert.ToString(Modificar.Precio));
+                Datos.AgregarParametro("@Stock", Convert.ToString(Modificar.Stock));
+                Datos.AgregarParametro("@Estado", Convert.ToString(1));
+                Datos.AgregarParametro("@ID", Convert.ToString(Modificar.Id));
+
+                Datos.EjecutarLector();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex; 
+            }
+            finally
+            {
+                Datos.CerrarConexion();
+            }
+           
+        }
         public void EliminarProducto(int id)
         {
             AccesoADatos Datos = new AccesoADatos();
