@@ -78,6 +78,15 @@ namespace TPC_Orihuela_Insaurralde
         protected global::System.Web.UI.WebControls.TextBox TxtPrecio;
 
         /// <summary>
+        /// Control TxtStock.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtStock;
+
+        /// <summary>
         /// Control BtnAgregar.
         /// </summary>
         /// <remarks>

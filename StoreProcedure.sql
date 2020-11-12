@@ -14,7 +14,7 @@ create procedure SP_Agregar_Articulo(
 as
 BEGIN TRY 
 INSERT INTO ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,ImagenURL,Precio,Stock,Estado)
-VALUES (@Codigo,@Nombre,@Descripcion,@Marca,@Descripcion,@Imagen,@Precio,@Stock,@Estado)
+VALUES (@Codigo,@Nombre,@Descripcion,@Marca,@Categoria,@Imagen,@Precio,@Stock,@Estado)
 END TRY
 BEGIN CATCH
 RAISERROR('ERROR AL AGREGAR Articulo',16,1)

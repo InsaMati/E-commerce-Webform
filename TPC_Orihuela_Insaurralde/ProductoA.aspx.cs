@@ -62,6 +62,8 @@ namespace TPC_Orihuela_Insaurralde
                 List<Categoria> LCategoria = (List<Categoria>)Session["LCategoria"];
                 ArticuloAux.Categoria = LCategoria.Find(j => j.Nombre == DDCategoria.SelectedValue);
 
+                ArticuloAux.Stock = Convert.ToInt16(TxtStock.Text);
+
                 NegocioArticulo.AgregarArticulo(ArticuloAux);
 
                 Response.Redirect("ProductoA.aspx");

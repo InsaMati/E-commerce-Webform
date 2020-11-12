@@ -49,6 +49,12 @@
                 <br />
             </div>
 
+            <div class="col-md-4">
+                <asp:Label Text="Stock" Style="font-size: 15px;color:black;font-weight:700" runat="server" /><br />
+                <br />
+                <asp:TextBox runat="server" Style="font-size: 15px" CssClass="form-control" ID="TxtStock" />
+                <br />
+            </div>
         </div>
     </div>
     <center>

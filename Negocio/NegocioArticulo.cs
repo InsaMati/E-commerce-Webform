@@ -44,7 +44,7 @@ namespace Negocio
                     Aux.Precio = Convert.ToDouble(Datos.Leeme.GetDecimal(7));
                     Aux.Marca.Id = Datos.Leeme.GetInt16(8);
                     Aux.Categoria.Id = Datos.Leeme.GetInt16(9);
-                    
+
                     Aux.Estado = Datos.Leeme.GetBoolean(10);
                     Aux.Stock = Datos.Leeme.GetInt16(11);
                     if (Aux.Estado == true) Lista.Add(Aux);
@@ -70,6 +70,19 @@ namespace Negocio
 
             try
             {
+                Datos.SetearSp("SP_Agregar_Articulo");
+
+                Datos.AgregarParametro("@Codigo", Nuevo.Codigo);
+                Datos.AgregarParametro("@Nombre", Nuevo.Nombre);
+                Datos.AgregarParametro("@Descripcion", Nuevo.Descripcion);
+                Datos.AgregarParametro("@Marca", Convert.ToString(Nuevo.Marca.Id));
+                Datos.AgregarParametro("@Categoria", Convert.ToString(Nuevo.Categoria.Id));
+                Datos.AgregarParametro("@Imagen", Nuevo.UrlImagen);
+                Datos.AgregarParametro("@Precio", Convert.ToString(Nuevo.Precio));
+                Datos.AgregarParametro("@Stock", Convert.ToString(Nuevo.Stock));
+                Datos.AgregarParametro("@Estado", Convert.ToString(1));
+
+                Datos.EjecutarLector();
 
             }
             catch (Exception ex)
@@ -79,7 +92,7 @@ namespace Negocio
             }
             finally
             {
-
+                Datos.CerrarConexion();
             }
         }
         public void EliminarProducto(int id)
