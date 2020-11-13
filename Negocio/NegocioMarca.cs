@@ -64,5 +64,14 @@ namespace Negocio
             Datos.AgregarParametro("@Estado", "1");
             Datos.EjecutarLector();
         }
+
+        public void ModificarMarca(string MarcaVieja, string MarcaNueva)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            Datos.SetearQuery("UPDATE marca SET nombre = @Nombre where nombre=@ViejoNombre");
+            Datos.AgregarParametro("@Nombre", MarcaNueva);
+            Datos.AgregarParametro("@ViejoNombre", MarcaVieja);
+            Datos.EjecutarLector();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,19 @@ using System.Web.UI.WebControls;
 
 namespace TPC_Orihuela_Insaurralde
 {
-    public partial class MarcaA : System.Web.UI.Page
+    public partial class MarcaModificar : System.Web.UI.Page
     {
+        public List<Marca> BuscarMarca = new List<Marca>();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             try
             {
                 NegocioMarca Negocio = new NegocioMarca();
-
+                BuscarMarca = Negocio.ListarMarcas();
+                var MarcaVieja = Request.QueryString["ID"];
+                Marca MarcaAux = BuscarMarca.Find(J => J.Id == int.Parse(MarcaVieja));
+                txtMarca.Text = MarcaAux.Nombre;
             }
             catch (Exception ex)
             {
@@ -24,13 +30,14 @@ namespace TPC_Orihuela_Insaurralde
             }
         }
 
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        protected void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
                 NegocioMarca Negocio = new NegocioMarca();
-                var NuevaMarca = Convert.ToString(txtMarca.Text);
-                Negocio.AgregarMarca(NuevaMarca);
+                var MarcaVieja = txtMarca.Text;
+                var MarcaNueva = txtModificar.Text;
+                Negocio.ModificarMarca(MarcaVieja, MarcaNueva);
                 Response.Redirect("ABMLMarca.aspx");
             }
             catch (Exception ex)

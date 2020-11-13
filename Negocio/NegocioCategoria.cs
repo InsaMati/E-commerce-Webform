@@ -75,5 +75,14 @@ namespace Negocio
             Datos.AgregarParametro("@Estado", "1");
             Datos.EjecutarLector();
         }
+
+        public void ModificarCategoria (string CategoriaVieja, string CategoriaNueva)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            Datos.SetearQuery("UPDATE categoria SET nombre = @Nombre where nombre=@ViejoNombre");
+            Datos.AgregarParametro("@Nombre", CategoriaNueva);
+            Datos.AgregarParametro("@ViejoNombre", CategoriaVieja);
+            Datos.EjecutarLector();
+        }
     }
 }

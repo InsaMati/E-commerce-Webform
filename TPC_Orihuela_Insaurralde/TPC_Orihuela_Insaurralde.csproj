@@ -111,6 +111,7 @@
     <Content Include="About.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="CategoriaA.aspx" />
+    <Content Include="CategoriaModificar.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -132,6 +133,7 @@
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MarcaA.aspx" />
+    <Content Include="MarcaModificar.aspx" />
     <Content Include="ProductoA.aspx" />
     <Content Include="ProductoAModificar.aspx" />
     <Content Include="ProductoSeleccionado.aspx" />
@@ -217,6 +219,13 @@
     <Compile Include="CategoriaA.aspx.designer.cs">
       <DependentUpon>CategoriaA.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CategoriaModificar.aspx.cs">
+      <DependentUpon>CategoriaModificar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoriaModificar.aspx.designer.cs">
+      <DependentUpon>CategoriaModificar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -247,6 +256,13 @@
     </Compile>
     <Compile Include="MarcaA.aspx.designer.cs">
       <DependentUpon>MarcaA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MarcaModificar.aspx.cs">
+      <DependentUpon>MarcaModificar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MarcaModificar.aspx.designer.cs">
+      <DependentUpon>MarcaModificar.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductoA.aspx.cs">
       <DependentUpon>ProductoA.aspx</DependentUpon>

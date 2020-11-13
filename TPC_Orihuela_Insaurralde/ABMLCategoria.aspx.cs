@@ -22,7 +22,7 @@ namespace TPC_Orihuela_Insaurralde
                 if(Eliminar != null)
                 {
                     Negocio.EliminarCategoria(Convert.ToInt32(Eliminar));
-                    Response.Redirect("AMBLCategoria.aspx");
+                    Response.Redirect("ABMLCategoria.aspx");
                 }
 
             }
