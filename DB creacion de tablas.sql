@@ -16,7 +16,6 @@ create table MARCA
 	Nombre varchar(50) not null,
 	Estado bit not null
 )
-
 go
 create table ARTICULOS
 (
@@ -46,7 +45,7 @@ create table USUARIO
 	Estado bit not null
 )
 GO
-create table PAISES
+create table Provincia
 (
 	ID smallint not null primary key identity (1,1),
 	Nombre varchar (50)
@@ -58,10 +57,17 @@ create table DATOS_PERSONALES
 	Nombre varchar(50) not null,
 	Apellido varchar(50) not null,
 	Email varchar(100) not null unique,
+	Dni int not null unique,
 	Direccion varchar(100),
-	ID_pais smallint foreign key references PAISES(ID),
+	ID_Provincia smallint foreign key references Provincia(ID),
+	ID_Genero smallint foreign key references GENERO(ID_Genero),
 	Telefono bigint,
 	Fecha_Nac date not null,
+)
+GO
+create table GENERO(
+ID_Genero smallint not null primary key identity(1,1),
+Nombre varchar (80) not null
 )
 GO
 create table DATOS_BANCARIOS

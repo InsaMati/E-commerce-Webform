@@ -17,7 +17,6 @@ namespace TPC_Orihuela_Insaurralde
         public List<Articulo> BuscarArticulo = new List<Articulo>();
         public List<Categoria> ListaC = new List<Categoria>();
 
-        
         protected void Page_Load(object sender, EventArgs e)
         {
             try

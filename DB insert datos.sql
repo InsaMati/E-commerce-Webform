@@ -51,3 +51,11 @@ go
 INSERT [dbo].[CATEGORIA] ([Nombre],[Estado]) VALUES ('Deportivo',1)
 GO
 INSERT [dbo].[CATEGORIA] ([Nombre],[Estado]) VALUES ('Ropa Interior',1)
+
+
+
+INSERT [dbo].[GENERO]([Nombre]) VALUES ('Masculino')
+go
+INSERT [dbo].[GENERO]([Nombre]) VALUES ('Femenino')
+go
+INSERT [dbo].[GENERO]([Nombre]) VALUES ('Otro')
