@@ -8,13 +8,17 @@
     <p><% = MostrarArticulo.Descripcion %> </p>
     <p>Precio: <% = MostrarArticulo.Precio %> </p>
 
-    <asp:Label Text="Cantidad" runat="server"></asp:Label>
-    <asp:TextBox ID="TxtCantidad" Height="25px" Width="25px" runat="server" ></asp:TextBox>
-    <asp:Button ID="BtnDisminuir" CssClass="btn btn-primary" runat="server" Text="-" Height="40px" Width="44px" OnClick="BtnDisminuir_Click"  />
-    <asp:Button ID="BtnAumentar" CssClass="btn btn-primary" runat="server" Text="+" Height="40px" Width="44px" OnClick="BtnAumentar_Click" />
+    <br />
+    <br />
 
-    <br />
-    <br />
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
+            <asp:Label Text="Cantidad" runat="server"></asp:Label>
+            <asp:TextBox ID="TxtCantidad" Height="25px" Width="25px" runat="server"></asp:TextBox>
+            <asp:Button ID="BtnDisminuir" CssClass="btn btn-primary" runat="server" Text="-" Height="40px" Width="44px" OnClick="BtnDisminuir_Click" />
+            <asp:Button ID="BtnAumentar" CssClass="btn btn-primary" runat="server" Text="+" Height="40px" Width="44px" OnClick="BtnAumentar_Click" />
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
     <asp:Button ID="BtnAgregar" Text="Agregar" CssClass="btn btn-success" runat="server" OnClick="BtnAgregar_Click" />
 

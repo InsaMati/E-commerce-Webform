@@ -43,12 +43,11 @@ namespace TPC_Orihuela_Insaurralde
 
         protected void BtnDisminuir_Click(object sender, EventArgs e)
         {
-            int aux = Convert.ToInt32(TxtCantidad.Text);
-            if (aux < 0)
-            {
-                int Cantidad = Convert.ToInt32(TxtCantidad.Text);
-                TxtCantidad.Text = Convert.ToString(Cantidad - 1);
-            }
+
+            int Cantidad = Convert.ToInt32(TxtCantidad.Text);
+
+            if(Cantidad > 0) TxtCantidad.Text = Convert.ToString(Cantidad - 1);
+
 
         }
 
@@ -103,5 +102,5 @@ namespace TPC_Orihuela_Insaurralde
         }
     }
 
-    
+
 }
