@@ -1,4 +1,5 @@
 ﻿using System;
+using Negocio;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +14,22 @@ namespace TPC_Orihuela_Insaurralde
         {
 
         }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NegocioCategoria Negocio = new NegocioCategoria();
+                var NuevaCategoria = Convert.ToString(txtCategoria.Text);
+                Negocio.AgregarCategoria(NuevaCategoria);
+                Response.Redirect("ABMLCategoria.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
+
 }

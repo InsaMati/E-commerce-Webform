@@ -65,6 +65,15 @@ namespace Negocio
 
                 throw ex;
             }
+
+        }
+        public void AgregarCategoria(string Categoria)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            Datos.SetearQuery("INSERT INTO CATEGORIA ([Nombre],[Estado]) values (@Nombre,@Estado)");
+            Datos.AgregarParametro("@Nombre", Categoria);
+            Datos.AgregarParametro("@Estado", "1");
+            Datos.EjecutarLector();
         }
     }
 }

@@ -59,8 +59,9 @@ namespace Negocio
         public void AgregarMarca (string Marca)
         {
             AccesoADatos Datos = new AccesoADatos();
-            Datos.SetearQuery("INSERT [dbo].[MARCA] ([Nombre]) values (@Nombre)");
+            Datos.SetearQuery("INSERT INTO MARCA ([Nombre],[Estado]) values (@Nombre,@Estado)");
             Datos.AgregarParametro("@Nombre", Marca);
+            Datos.AgregarParametro("@Estado", "1");
             Datos.EjecutarLector();
         }
     }

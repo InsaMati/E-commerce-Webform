@@ -23,8 +23,8 @@
                     <td style="font-size: 12px"><% = Item.Id %></td>
                     <td style="font-size: 12px"><% = Item.Nombre %></td>
                     <td class="text-right">
-                        <a href="AMBLCategoria.aspx?ID=<% = Item.Id %>" class="btn btn-primary badge-pill" style="font-size: 15px; color: white; text-decoration: none">Editar</a>
-                        <a href="AMBLCategoria.aspx?ID=<% = Item.Id %>" class="btn btn-danger badge-pill" style="font-size: 15px; color: white; text-decoration: none">Eliminar</a>
+                        <a href="ABMLCategoria.aspx?ID=<% = Item.Id %>" class="btn btn-primary badge-pill" style="font-size: 15px; color: white; text-decoration: none">Editar</a>
+                        <a href="ABMLCategoria.aspx?ID=<% = Item.Id %>" class="btn btn-danger badge-pill" style="font-size: 15px; color: white; text-decoration: none">Eliminar</a>
                     </td>
                 </tr>
 
@@ -35,7 +35,7 @@
         </table>
 
         <center>
-        <asp:Button ID="BtnAgregar" class="btn btn-primary" Style="font-size:15px" Text="Agregar" runat="server" />
+        <asp:Button ID="BtnAgregar" class="btn btn-primary" Style="font-size:15px" Text="Agregar" runat="server" OnClick="BtnAgregar_Click" />
         <asp:Button ID="BtnVolver" class="btn btn-danger" Style="font-size:15px" Text="Volver" runat="server" />
         </center>
     </div>
