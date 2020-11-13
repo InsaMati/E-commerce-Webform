@@ -38,5 +38,18 @@ namespace TPC_Orihuela_Insaurralde
             NegocioGenero NegocioGenero = new NegocioGenero();
             ListaGenero = NegocioGenero.ListarGeneros();
         }
+
+        protected void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

@@ -44,6 +44,7 @@ create table USUARIO
 	IdTipoUsuario smallint not null foreign key references TIPO_DE_USUARIO(ID),
 	Estado bit not null
 )
+
 GO
 create table Provincia
 (

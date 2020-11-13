@@ -72,7 +72,7 @@
     
     <hr />
     <center>
-    <asp:Button Text="Guardar" ID="BtnAgregar" class="btn btn-success" Style="font-size:18px;" runat="server" /><br />
+    <asp:Button Text="Guardar" ID="BtnGuardar" class="btn btn-success" Style="font-size:18px;" runat="server" OnClick="BtnGuardar_Click" /><br />
         <a href="inicio.aspx" style="font-size:15px">Cancelar</a>
   </center>
 
