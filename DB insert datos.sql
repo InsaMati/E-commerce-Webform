@@ -1,5 +1,6 @@
 use TP_Final
 GO
+--- ARTICULOS
 INSERT [dbo].[ARTICULOS] ( [Codigo], [Nombre], [Descripcion], [IdMarca], [IdCategoria], [ImagenURL], [Precio],[Stock], [Estado]) VALUES ('MTH','Medias', 'Medias termicas para hombre', 1, 3, 'https://http2.mlstatic.com/pack-x12-floyd-medias-termicas-fantasia-hombre-art-1416-D_Q_NP_623482-MLA30406376369_052019-F.webp', 500,15, 1)
 go
 INSERT [dbo].[ARTICULOS] ( [Codigo], [Nombre], [Descripcion], [IdMarca], [IdCategoria], [ImagenURL], [Precio],[Stock], [Estado]) VALUES ('MTM','Medias', 'Medias termicas para mujer', 1, 3, 'https://http2.mlstatic.com/pack-x3-floyd-medias-termica-dama-estampa-ctoalla-a-mj12-D_Q_NP_902474-MLA30131098317_042019-F.webp', 500, 15,1)
@@ -39,12 +40,15 @@ GO
 INSERT [dbo].[ARTICULOS] ( [Codigo], [Nombre], [Descripcion], [IdMarca], [IdCategoria], [ImagenURL], [Precio],[Stock], [Estado]) VALUES ('CUEN', 'Culotte','Culotte de encaje', 1, 3, 'https://sporting.vteximg.com.br/arquivos/ids/195136-1500-1500/1.jpg', 300,15, 1)
 go
 INSERT [dbo].[ARTICULOS] ( [Codigo], [Nombre], [Descripcion], [IdMarca], [IdCategoria], [ImagenURL], [Precio],[Stock], [Estado]) VALUES ('CODP', 'Corpiño','Corpiño deportivo', 1, 3, 'https://sporting.vteximg.com.br/arquivos/ids/195136-1500-1500/1.jpg', 550,15, 1)
+--- MARCA
 GO
 INSERT [dbo].[MARCA] ([Nombre],[Estado]) VALUES ('Floyd',1)
 go
 INSERT [dbo].[MARCA] ([Nombre],[Estado]) VALUES ('Elemento',1)
 GO
 INSERT [dbo].[MARCA] ([Nombre],[Estado]) VALUES ('Kolper',1)
+
+--- CATEGORIA
 go
 INSERT [dbo].[CATEGORIA] ([Nombre],[Estado]) VALUES ('Termica',1)
 go
@@ -53,10 +57,40 @@ GO
 INSERT [dbo].[CATEGORIA] ([Nombre],[Estado]) VALUES ('Ropa Interior',1)
 
 
-
-
+--- GENEROS
 INSERT [dbo].[GENERO]([Nombre]) VALUES ('Masculino')
 go
 INSERT [dbo].[GENERO]([Nombre]) VALUES ('Femenino')
 go
 INSERT [dbo].[GENERO]([Nombre]) VALUES ('Otro')
+go
+--- TipoUSUARIO
+INSERT [dbo].[TIPO_DE_USUARIO]([Nombre]) VALUES ('Administrador')
+go
+INSERT [dbo].[TIPO_DE_USUARIO]([Nombre]) VALUES ('Empleado')
+go
+INSERT [dbo].[TIPO_DE_USUARIO]([Nombre]) VALUES ('Invitado')
+go
+--- Usuario
+INSERT [dbo].[USUARIO]([email],[Contraseña],[IdTipoUsuario],[Estado]) VALUES ('matiasinsaurralde51@gmail.com','123456',1,1)
+go
+INSERT [dbo].[USUARIO]([email],[Contraseña],[IdTipoUsuario],[Estado]) VALUES ('msarfernandez@gmail.com','123456',2,1)
+go
+INSERT [dbo].[USUARIO]([email],[Contraseña],[IdTipoUsuario],[Estado]) VALUES ('lucasorihuela@gmail.com','123456',1,1)
+go
+INSERT [dbo].[USUARIO]([email],[Contraseña],[IdTipoUsuario],[Estado]) VALUES ('jorgemelgarejo@gmail.com','123456',3,1)
+go
+--- Medios de pago
+INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('Efectivo')
+go
+INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('Tarjeta Credito/Debito')
+go
+INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('Transferencia Bancaria')
+go
+INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('Paypal')
+go
+INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('MercadoPago')
+go
+INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('Efectivo')
+
+
