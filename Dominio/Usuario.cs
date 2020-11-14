@@ -11,7 +11,7 @@ namespace Dominio
         public int Id { get; set; }
         public string Email { get; set; }
         public string Contraseña { get; set; }
-        public bool Estado { get; set; }
         public TipoUsuario TipoUsuario { get; set; }
+        public bool Estado { get; set; }
     }
 }

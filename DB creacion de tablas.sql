@@ -40,6 +40,7 @@ go
 create table USUARIO
 (
 	ID smallint primary key identity (1,1),
+	Email varchar(100) not null unique,
 	Contraseña varchar(50) not null,
 	IdTipoUsuario smallint not null foreign key references TIPO_DE_USUARIO(ID),
 	Estado bit not null
@@ -52,23 +53,22 @@ create table Provincia
 	Nombre varchar (50)
 )
 GO
+create table GENERO(
+ID_Genero smallint not null primary key identity(1,1),
+Nombre varchar (80) not null
+)
+GO
 create table DATOS_PERSONALES
 (
 	ID_usuario smallint not null primary key foreign key references USUARIO(ID),
 	Nombre varchar(50) not null,
 	Apellido varchar(50) not null,
-	Email varchar(100) not null unique,
 	Dni int not null unique,
 	Direccion varchar(100),
 	ID_Provincia smallint foreign key references Provincia(ID),
 	ID_Genero smallint foreign key references GENERO(ID_Genero),
 	Telefono bigint,
 	Fecha_Nac date not null,
-)
-GO
-create table GENERO(
-ID_Genero smallint not null primary key identity(1,1),
-Nombre varchar (80) not null
 )
 GO
 create table DATOS_BANCARIOS

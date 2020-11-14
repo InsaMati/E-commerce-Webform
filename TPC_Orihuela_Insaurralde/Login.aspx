@@ -5,25 +5,25 @@
     <h1>Login</h1>
     <hr />
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <asp:Label Text="E-mail" Style="font-size: 15px; color: black; font-weight: 700" runat="server" />
-                <asp:TextBox ID="TxtEmail" runat="server" Style="font-size: 15px" CssClass="form-control" />
-            </div>
+                    <div class="col-md-4">
+                       <center>
+                        <asp:Label Text="E-mail" Style="font-size: 15px; color: black; font-weight: 700" runat="server" />
+                        <asp:TextBox ID="TxtEmail" runat="server" Style="font-size: 15px" CssClass="form-control" />
+                    
+                        <br />  
+                   
+                        <asp:Label Text="Contraseña" Style="font-size: 15px; color: black; font-weight: 700" runat="server" />
+                        <asp:TextBox ID="TxtPassword" runat="server" Style="font-size: 15px" TextMode="Password" CssClass="form-control" />
+                   
+                        <br />
+                                          
+                        <asp:Button ID="BtnIngresar" Text="Ingresar" CssClass="btn btn-danger" Style="font-size: 18px;" runat="server" />
+                        <a href="RecuperacionPassword.aspx" style="font-size: 15px">¿Olvidaste tu contraseña?</a>
+                       </center>
+                       
+                    </div>
 
-            <div class="col-md-4">
-                <asp:Label Text="Contraseña" Style="font-size: 15px; color: black; font-weight: 700" runat="server" />
-                <asp:TextBox ID="TxtPassword" runat="server" Style="font-size: 15px" TextMode="Password" CssClass="form-control" />
-            </div>
-
-            <div class="col-md-4">
-                <br />
-                <asp:Button ID="BtnIngresar" Text="Ingresar" CssClass="btn btn-danger" Style="font-size: 18px;" runat="server" />
-                <a href="#" style="font-size: 15px">¿Olvidaste tu contraseña?</a>
-            </div>
-
-        </div>
-    </div>
+      </div>
 
     <hr />
     <center>

@@ -54,6 +54,7 @@ INSERT [dbo].[CATEGORIA] ([Nombre],[Estado]) VALUES ('Ropa Interior',1)
 
 
 
+
 INSERT [dbo].[GENERO]([Nombre]) VALUES ('Masculino')
 go
 INSERT [dbo].[GENERO]([Nombre]) VALUES ('Femenino')
