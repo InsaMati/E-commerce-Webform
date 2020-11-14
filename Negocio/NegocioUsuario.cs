@@ -43,5 +43,42 @@ namespace Negocio
             }
         }
 
+        public void EliminarUsuario(int id)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            try
+            {
+                Datos.SetearQuery("update USUARIO set Estado = @Estado where ID = @ID");
+                Datos.AgregarParametro("@Estado","0");
+                Datos.AgregarParametro("@ID", Convert.ToString(id));
+                Datos.EjecutarLector();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        
+        }
+
+        public void AgregarUsuario (Usuario user)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+
+            try
+            {
+                Datos.SetearQuery("SP_AgregarUsuario");
+                Datos.AgregarParametro("@Email",user.Email);
+                Datos.AgregarParametro("@Contraseña",user.Contraseña);
+                Datos.AgregarParametro("@IdTipoUsuario",Convert.ToString(user.TipoUsuario.Id));
+                Datos.EjecutarLector();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

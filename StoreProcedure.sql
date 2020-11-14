@@ -1,5 +1,6 @@
 use TP_FINAL
 
+-- AGREGAR ARTICULO
 create procedure SP_Agregar_Articulo(
 @Codigo varchar (50),
 @Nombre varchar (50),
@@ -20,6 +21,7 @@ BEGIN CATCH
 RAISERROR('Error al Agregar Articulo',16,1)
 END CATCH
 go
+-- MODIFICAR ARTICULO
 create procedure SP_Modificar_Articulo(
 @ID  smallint,
 @Codigo varchar (50),
@@ -40,5 +42,17 @@ END TRY
 BEGIN CATCH
 RAISERROR('Error al Modificar Articulo',16,1)
 END CATCH
-
-select *From CATEGORIA
+GO
+-- AGREGAR USUARIO
+create procedure SP_AgregarUsuario(
+@Email varchar(100),
+@Contraseña varchar(50),
+@IdTipoUsuario smallint
+) AS
+BEGIN TRY
+	INSERT INTO USUARIO (Email,Contraseña,IdTipoUsuario,Estado)
+	VALUES (@Email,@Contraseña,@IdTipoUsuario,1)
+END TRY
+BEGIN CATCH
+	RAISERROR('ERROR AL CARGAR UN USUARIO',16,1)
+END CATCH
