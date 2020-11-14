@@ -40,6 +40,8 @@ GO
 INSERT [dbo].[ARTICULOS] ( [Codigo], [Nombre], [Descripcion], [IdMarca], [IdCategoria], [ImagenURL], [Precio],[Stock], [Estado]) VALUES ('CUEN', 'Culotte','Culotte de encaje', 1, 3, 'https://sporting.vteximg.com.br/arquivos/ids/195136-1500-1500/1.jpg', 300,15, 1)
 go
 INSERT [dbo].[ARTICULOS] ( [Codigo], [Nombre], [Descripcion], [IdMarca], [IdCategoria], [ImagenURL], [Precio],[Stock], [Estado]) VALUES ('CODP', 'Corpiño','Corpiño deportivo', 1, 3, 'https://sporting.vteximg.com.br/arquivos/ids/195136-1500-1500/1.jpg', 550,15, 1)
+GO
+INSERT [dbo].[ARTICULOS] ( [Codigo], [Nombre], [Descripcion], [IdMarca], [IdCategoria], [ImagenURL], [Precio],[Stock], [Estado]) VALUES ('COPP', 'Corpiño','Corpiño deportivo', 1, 3, 'https://th.bing.com/th/id/OIP.DJJRiwY9Xc0yPA3Se63boAHaHa?pid=Api&rs=1', 1500,30, 1)
 --- MARCA
 GO
 INSERT [dbo].[MARCA] ([Nombre],[Estado]) VALUES ('Floyd',1)

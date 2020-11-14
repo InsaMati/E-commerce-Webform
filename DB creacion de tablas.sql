@@ -134,3 +134,12 @@ create table PAGOS
 	ID_tipoPago smallint not null foreign key references TIPO_DE_PAGO(ID),
 	Importe money not null
 )
+go 
+create table HISTORIAL(
+ID smallint not null primary key identity (1,1),
+Fecha date,
+Codigo varchar(50),
+Descripcion varchar(100),
+UsuarioNombre varchar(100)
+)
+
