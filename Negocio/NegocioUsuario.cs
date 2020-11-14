@@ -64,12 +64,12 @@ namespace Negocio
         public void AgregarUsuario (Usuario user)
         {
             AccesoADatos Datos = new AccesoADatos();
-
+            
             try
             {
                 Datos.SetearQuery("SP_AgregarUsuario");
                 Datos.AgregarParametro("@Email",user.Email);
-                Datos.AgregarParametro("@Contraseña",user.Contraseña);
+                Datos.AgregarParametro("@Contraseña", user.Contraseña);
                 Datos.AgregarParametro("@IdTipoUsuario",Convert.ToString(user.TipoUsuario.Id));
                 Datos.EjecutarLector();
             }
@@ -79,6 +79,7 @@ namespace Negocio
                 throw ex;
             }
         }
+        
 
     }
 }

@@ -5,7 +5,8 @@
     <h1>Login</h1>
     <hr />
     <div class="container">
-                    <div class="col-md-4">
+        <div class="row">
+                    <div class="col-md-12">
                        <center>
                         <asp:Label Text="E-mail" Style="font-size: 15px; color: black; font-weight: 700" runat="server" />
                         <asp:TextBox ID="TxtEmail" runat="server" Style="font-size: 15px" CssClass="form-control" />
@@ -17,19 +18,20 @@
                    
                         <br />
                                           
-                        <asp:Button ID="BtnIngresar" Text="Ingresar" CssClass="btn btn-danger" Style="font-size: 18px;" runat="server" />
+                        <asp:Button ID="BtnIngresar" Text="Ingresar" CssClass="btn btn-success" Style="font-size: 18px;" runat="server" />
+                           <br />
                         <a href="RecuperacionPassword.aspx" style="font-size: 15px">¿Olvidaste tu contraseña?</a>
-                       </center>
-                       
+                       </center>                       
                     </div>
-
+        </div>
       </div>
 
     <hr />
     <center>
 
         <asp:Label Text="¿Todavia no estas registrado?" runat="server" Style="font-size: 15px" />
-                <asp:Button ID="BtnRegistrate" Text="Registrate" CssClass="btn btn-danger" Style="font-size: 18px;" runat="server" OnClick="BtnRegistrate_Click" />
+        <br />
+        <asp:Button ID="BtnRegistrate" Text="Registrate" CssClass="btn btn-outline-success" Style="font-size: 18px;" runat="server" OnClick="BtnRegistrate_Click" />
     </center>
 
     <br />
