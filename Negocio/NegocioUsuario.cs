@@ -48,8 +48,7 @@ namespace Negocio
             AccesoADatos Datos = new AccesoADatos();
             try
             {
-                Datos.SetearQuery("update USUARIO set Estado = @Estado where ID = @ID");
-                Datos.AgregarParametro("@Estado","0");
+                Datos.SetearQuery("update USUARIO set Estado = 0 where ID = @ID");                
                 Datos.AgregarParametro("@ID", Convert.ToString(id));
                 Datos.EjecutarLector();
             }
@@ -67,7 +66,7 @@ namespace Negocio
             
             try
             {
-                Datos.SetearQuery("SP_AgregarUsuario");
+                Datos.SetearSp("SP_AgregarUsuario");
                 Datos.AgregarParametro("@Email",user.Email);
                 Datos.AgregarParametro("@Contraseña", user.Contraseña);
                 Datos.AgregarParametro("@IdTipoUsuario",Convert.ToString(user.TipoUsuario.Id));

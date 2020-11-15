@@ -19,9 +19,8 @@ namespace Negocio
 
             try
             {
-
-                //// Crear VW
-                Datos.SetearQuery("select P.ID, P.Codigo,P.Nombre, P.Descripcion, M.Nombre[Marca], C.Nombre[Categoria], P.ImagenUrl,P.Precio,M.ID, C.ID,P.Estado, P.Stock from ARTICULOS P, MARCA M, CATEGORIA C where P.IdMarca = m.Id AND P.IdCategoria = C.Id");
+                                
+                Datos.SetearQuery("SELECT * FROM VW_ListarArticulos");
                 Datos.EjecutarLector();
 
                 while (Datos.Leeme.Read())
