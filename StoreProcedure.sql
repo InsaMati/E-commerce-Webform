@@ -1,5 +1,8 @@
 use TP_FINAL
 
+-- LISTAR ARTICULO
+create procedure SP_Listar
+
 -- AGREGAR ARTICULO
 create procedure SP_Agregar_Articulo(
 @Codigo varchar (50),
@@ -14,11 +17,11 @@ create procedure SP_Agregar_Articulo(
 )
 as
 BEGIN TRY 
-INSERT INTO ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,ImagenURL,Precio,Stock,Estado)
-VALUES (@Codigo,@Nombre,@Descripcion,@Marca,@Categoria,@Imagen,@Precio,@Stock,@Estado)
+	INSERT INTO ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,ImagenURL,Precio,Stock,Estado)
+	VALUES (@Codigo,@Nombre,@Descripcion,@Marca,@Categoria,@Imagen,@Precio,@Stock,@Estado)
 END TRY
 BEGIN CATCH
-RAISERROR('Error al Agregar Articulo',16,1)
+	RAISERROR('Error al Agregar Articulo',16,1)
 END CATCH
 go
 -- MODIFICAR ARTICULO
@@ -36,13 +39,24 @@ create procedure SP_Modificar_Articulo(
 )
 as
 BEGIN TRY 
-UPDATE  ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @Marca, IdCategoria = @Categoria, ImagenURL = @Imagen, Precio = @Precio,
-Stock = @Stock, Estado = @Estado where ID = @ID
+	UPDATE  ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @Marca, IdCategoria = @Categoria, ImagenURL = @Imagen, Precio = @Precio,
+	Stock = @Stock, Estado = @Estado where ID = @ID
 END TRY
 BEGIN CATCH
-RAISERROR('Error al Modificar Articulo',16,1)
+	RAISERROR('Error al Modificar Articulo',16,1)
 END CATCH
 GO
+
+-- LISTAR USUARIOS
+create procedure SP_ListarUsuarios(@Tipo smallint) as
+BEGIN TRY
+	SELECT * FROM USUARIO
+	WHERE USUARIO.IdTipoUsuario = @Tipo
+END TRY
+BEGIN CATCH
+	RAISERROR('ERROR AL LISTAR ALUMNOS POR TIPO',16,1)
+END CATCH
+
 -- AGREGAR USUARIO
 create procedure SP_AgregarUsuario(
 @Email varchar(100),

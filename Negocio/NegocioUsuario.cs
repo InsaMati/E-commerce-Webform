@@ -43,6 +43,40 @@ namespace Negocio
             }
         }
 
+        public List<Usuario> ListarUsuariosXTipo(int IDTipo)
+        {
+            List<Usuario> Lista = new List<Usuario>();
+            AccesoADatos Datos = new AccesoADatos();
+            try
+            {
+                Datos.SetearQuery("SP_ListarUsuarios");
+                Datos.AgregarParametro("@Tipo",Convert.ToString(IDTipo));
+                Datos.EjecutarLector();
+
+                while (Datos.Leeme.Read())
+                {
+                    var aux = new Usuario();
+
+                    aux.Id = Datos.Leeme.GetInt32(0);
+                    aux.Email = Datos.Leeme.GetString(1);
+                    aux.Contraseña = Datos.Leeme.GetString(2);
+                    aux.TipoUsuario.Id = Datos.Leeme.GetInt32(3);
+                    aux.Estado = Datos.Leeme.GetBoolean(4);
+                }
+
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                Datos.CerrarConexion();
+            }
+        }
+
         public void EliminarUsuario(int id)
         {
             AccesoADatos Datos = new AccesoADatos();

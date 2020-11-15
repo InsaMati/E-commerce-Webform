@@ -54,8 +54,8 @@ create table Provincia
 )
 GO
 create table GENERO(
-ID_Genero smallint not null primary key identity(1,1),
-Nombre varchar (80) not null
+	ID_Genero smallint not null primary key identity(1,1),
+	Nombre varchar (80) not null
 )
 GO
 create table DATOS_PERSONALES
@@ -92,7 +92,7 @@ create table ARTICULOS_X_CARRITO
 (
 	ID_carrito smallint not null foreign key references CARRITO(ID),
 	ID_articulos smallint not null foreign key references ARTICULOS(ID),
-	Cantidad smallint not null,
+	Cantidad smallint not null check (cantidad > 0),
 	Subtotal money not null,
 	primary key (ID_carrito, ID_articulos)
 )
@@ -132,7 +132,7 @@ create table PAGOS
 	ID smallint not null primary key identity (1,1),
 	ID_factura smallint not null foreign key references FACTURA(ID),
 	ID_tipoPago smallint not null foreign key references TIPO_DE_PAGO(ID),
-	Importe money not null
+	Importe money not null check (Importe > 0)
 )
 go 
 create table HISTORIAL(
