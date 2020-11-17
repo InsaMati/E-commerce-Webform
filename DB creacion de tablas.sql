@@ -41,13 +41,13 @@ create table USUARIO
 (
 	ID smallint primary key identity (1,1),
 	Email varchar(100) not null unique,
-	Contraseña varchar(50) not null,
+	Contraseña varchar(100) not null,
 	IdTipoUsuario smallint not null foreign key references TIPO_DE_USUARIO(ID),
 	Estado bit not null
 )
 
 GO
-create table Provincia
+create table PROVINCIA
 (
 	ID smallint not null primary key identity (1,1),
 	Nombre varchar (50)
@@ -63,7 +63,7 @@ create table DATOS_PERSONALES
 	ID_usuario smallint not null primary key foreign key references USUARIO(ID),
 	Nombre varchar(50) not null,
 	Apellido varchar(50) not null,
-	Dni int not null unique,
+	Dni bigint not null unique,
 	Direccion varchar(100),
 	ID_Provincia smallint foreign key references Provincia(ID),
 	ID_Genero smallint foreign key references GENERO(ID_Genero),
@@ -136,10 +136,9 @@ create table PAGOS
 )
 go 
 create table HISTORIAL(
-ID smallint not null primary key identity (1,1),
-Fecha date,
-Codigo varchar(50),
-Descripcion varchar(100),
-UsuarioNombre varchar(100)
+	ID smallint not null primary key identity (1,1),
+	Fecha date,
+	Codigo varchar(50),
+	Descripcion varchar(100),
+	UsuarioNombre varchar(100)
 )
-

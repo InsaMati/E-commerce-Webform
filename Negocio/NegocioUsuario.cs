@@ -94,7 +94,7 @@ namespace Negocio
         
         }
 
-        public void AgregarUsuario (Usuario user)
+        public void RegistrarUsuario (Usuario user, DatosPersonales datos)
         {
             AccesoADatos Datos = new AccesoADatos();
             

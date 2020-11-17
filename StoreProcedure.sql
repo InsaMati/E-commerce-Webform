@@ -60,13 +60,46 @@ END CATCH
 -- AGREGAR USUARIO
 create procedure SP_AgregarUsuario(
 @Email varchar(100),
-@Contraseña varchar(50),
-@IdTipoUsuario smallint
+@Contraseña varchar(100),
+@IdTipoUsuario smallint,
+@Nombre varchar(50),
+@Apellido varchar(50),
+@Dni smallint,
+@Genero smallint,
+@Direccion varchar(100),
+@Provincia smallint,
+@FechaNacimiento date
 ) AS
 BEGIN TRY
-	INSERT INTO USUARIO (Email,Contraseña,IdTipoUsuario,Estado)
-	VALUES (@Email,@Contraseña,@IdTipoUsuario,1)
+	BEGIN TRANSACTION
+		INSERT INTO USUARIO (Email,Contraseña,IdTipoUsuario,Estado)
+		VALUES (@Email,@Contraseña,@IdTipoUsuario,1)
+		INSERT INTO DATOS_PERSONALES (Nombre,Apellido,Dni,ID_Genero,Direccion,ID_Provincia,Fecha_Nac)
+		VALUES (@Nombre,@Apellido,@Dni,@Genero,@Direccion,@Provincia,@FechaNacimiento)
+	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
 	RAISERROR('ERROR AL CARGAR UN USUARIO',16,1)
 END CATCH
+
+-- AGREGAR VENTA                 PROTOTIPO MEDIO TRUCHO
+create procedure SP_ComprarCarrito(
+	@IdUsuario smallint,
+	@CostoTotal money
+) as
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+			insert into FACTURA (ID_pedido, ID_usuario, Fecha, Forma_de_pago, Importe)
+			values (@IdUsuario,@CostoTotal)
+			declare @idcarrito SMALLINT
+			select @idcarrito = c.ID FROM CARRITO as c
+			inner join pedido as p on p.ID_carrito = c.ID
+			insert into PEDIDO (ID_carrito,ID_estado,Fecha)
+			values(@idcarrito,1,getdate())
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		RAISERROR('ERROR AL CARGAR UN PEDIDO',16,1)
+	END CATCH
+END

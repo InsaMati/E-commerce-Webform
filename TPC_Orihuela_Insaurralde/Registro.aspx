@@ -7,6 +7,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
+                <asp:Label Text="Nombre/s" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
+                <br />
+                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtNombre" runat="server" />
+                <br />
+            </div>
+            <div class="col-md-4">
+                <asp:Label Text="Apellidos/s" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
+                <br />
+                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtApellido" runat="server" />
+                <br />
+            </div>
+            <div class="col-md-4">
                 <asp:Label Text="Email" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
                 <br />
                 <asp:TextBox runat="server" Style="font-size: 15px" CssClass="form-control" ID="TxtEmail" />
@@ -28,18 +40,6 @@
             </div>
 
             <div class="col-md-4">
-                <asp:Label Text="Nombre/s" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
-                <br />
-                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtNombre" runat="server" />
-                <br />
-            </div>
-            <div class="col-md-4">
-                <asp:Label Text="Apellidos/s" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
-                <br />
-                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtApellido" runat="server" />
-                <br />
-            </div>
-            <div class="col-md-4">
                 <asp:Label Text="Dni" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
                 <br />
                 <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtDni" runat="server" />
@@ -52,7 +52,12 @@
                 <asp:DropDownList runat="server" CssClass="form-control" Style="font-size: 15px" ID="DDGenero" />
                 <br />
             </div>
-
+            <div class="col-md-4">
+                <asp:Label Text="Provincia" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
+                <br />
+                <asp:DropDownList runat="server" CssClass="form-control" Style="font-size: 15px" ID="DDProvincia" />
+                <br />
+            </div>
             <div class="col-md-4">
                 <asp:Label Text="Direccion" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
                 <br />
@@ -72,8 +77,11 @@
     
     <hr />
     <center>
-    <asp:Button Text="Guardar" ID="BtnGuardar" class="btn btn-success" Style="font-size:18px;" runat="server" OnClick="BtnGuardar_Click" /><br />
-        <a href="inicio.aspx" style="font-size:15px">Cancelar</a>
+    <asp:Button Text="Continuar" ID="BtnContinuar" class="btn btn-success" Style="font-size:18px;" runat="server" OnClick="btnContinuar_Click" />
+        <br />
+        <br />
+        <br />
+        <asp:button text="Cancelar" ID="btnCancelar" class="btn btn-outline-secondary" runat="server" />
   </center>
 
 </asp:Content>

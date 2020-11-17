@@ -71,7 +71,9 @@ INSERT [dbo].[TIPO_DE_USUARIO]([Nombre]) VALUES ('Administrador')
 go
 INSERT [dbo].[TIPO_DE_USUARIO]([Nombre]) VALUES ('Empleado')
 go
-INSERT [dbo].[TIPO_DE_USUARIO]([Nombre]) VALUES ('Invitado')
+INSERT [dbo].[TIPO_DE_USUARIO]([Nombre]) VALUES ('Visita')
+go
+INSERT [dbo].[TIPO_DE_USUARIO]([Nombre]) VALUES ('Cliente')
 go
 --- Usuario
 INSERT [dbo].[USUARIO]([email],[Contraseña],[IdTipoUsuario],[Estado]) VALUES ('matiasinsaurralde51@gmail.com','123456',1,1)
@@ -94,5 +96,13 @@ go
 INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('MercadoPago')
 go
 INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('Efectivo')
-
-
+--- Provincias
+INSERT INTO PROVINCIA VALUES ('Buenos Aires')
+GO
+INSERT INTO PROVINCIA VALUES ('Santa Fe')
+GO
+INSERT INTO PROVINCIA VALUES ('Cordoba')
+GO
+INSERT INTO PROVINCIA VALUES ('Entre Rios')
+GO
+INSERT INTO PROVINCIA VALUES ('La Pampa')
