@@ -14,8 +14,8 @@ namespace TPC_Orihuela_Insaurralde
         public Articulo MostrarArticulo { get; set; }
         public List<Articulo> ListaArticulos { get; set; }
 
-        public CarritoCompra CargarArticulo = new CarritoCompra();
-        public List<CarritoCompra> ListaCarrito = new List<CarritoCompra>();
+        public ElementoCarrito CargarArticulo = new ElementoCarrito();
+        public List<ElementoCarrito> ListaCarrito = new List<ElementoCarrito>();
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace TPC_Orihuela_Insaurralde
 
             int Cantidad = Convert.ToInt32(TxtCantidad.Text);
 
-            if(Cantidad > 0) TxtCantidad.Text = Convert.ToString(Cantidad - 1);
+            if (Cantidad > 0) TxtCantidad.Text = Convert.ToString(Cantidad - 1);
 
 
         }
@@ -60,23 +60,23 @@ namespace TPC_Orihuela_Insaurralde
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
             CargarArticulo.Cantidad = Convert.ToInt32(TxtCantidad.Text);
-            CargarArticulo.Subtotal = Convert.ToInt32(TxtCantidad.Text) * MostrarArticulo.Precio;
-            CargarArticulo.ArticuloCarro = MostrarArticulo;
+            CargarArticulo.SubTotal = Convert.ToInt32(TxtCantidad.Text) * MostrarArticulo.Precio;
+            CargarArticulo.articulo = MostrarArticulo;
 
             bool validar = new bool();
 
             if (Session[Session.SessionID + "Lista"] != null)
             {
-                ListaCarrito = (List<CarritoCompra>)Session[Session.SessionID + "Lista"];
+                ListaCarrito = (List<ElementoCarrito>)Session[Session.SessionID + "Lista"];
             }
 
             foreach (var J in ListaCarrito)
             {
-                if (J.ArticuloCarro.Id == MostrarArticulo.Id)
+                if (J.articulo.Id == MostrarArticulo.Id)
                 {
 
                     J.Cantidad += CargarArticulo.Cantidad;
-                    J.Subtotal += CargarArticulo.Subtotal;
+                    J.SubTotal += CargarArticulo.SubTotal;
                     ListaCarrito.Remove(J);
                     ListaCarrito.Add(J);
                     Session[Session.SessionID + "Lista"] = ListaCarrito;
@@ -100,7 +100,8 @@ namespace TPC_Orihuela_Insaurralde
 
             }
         }
+
     }
-
-
 }
+
+

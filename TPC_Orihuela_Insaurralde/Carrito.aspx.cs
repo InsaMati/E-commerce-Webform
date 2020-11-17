@@ -10,14 +10,22 @@ namespace TPC_Orihuela_Insaurralde
 {
     public partial class Carrito : System.Web.UI.Page
     {
-        public List<CarritoCompra> ListaCarro = new List<CarritoCompra>();
+        public List<ElementoCarrito> ElementoC = new List<ElementoCarrito>();
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                ListaCarro = (List<CarritoCompra>)Session[Session.SessionID + "Lista"];
+                ElementoC = (List<ElementoCarrito>)Session[Session.SessionID + "Lista"];
+
+                var Id = Request.QueryString["id"];
+
+                if (Id != null)
+                {
+                    EliminarArticulo(Convert.ToInt32(Id));
+                }
+
             }
             catch (Exception)
             {
@@ -33,10 +41,10 @@ namespace TPC_Orihuela_Insaurralde
         {
             try
             {
-                if (ListaCarro != null)
+                if (ElementoC != null)
                 {
-                    ListaCarro.Clear();
-                    Session[Session.SessionID + "Lista"] = ListaCarro;
+                    ElementoC.Clear();
+                    Session[Session.SessionID + "Lista"] = ElementoC;
                     Response.Redirect("Carrito.aspx");
                 }
 
@@ -46,6 +54,20 @@ namespace TPC_Orihuela_Insaurralde
 
                 throw ex;
             }
+        }
+
+        public void EliminarArticulo (int IdArticulo)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)

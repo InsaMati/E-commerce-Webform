@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class CarritoCompra
+    public class ElementoCarrito
     {
         public int IdCarrito { get; set; }
+        public Articulo articulo { get; set; }
 
-        public int IdUsuario { get; set; }
+        public int Cantidad { get; set; }
+
+        public double SubTotal { get; set; }
     }
 }
