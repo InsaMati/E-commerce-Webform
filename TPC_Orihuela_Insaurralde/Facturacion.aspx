@@ -4,10 +4,17 @@
 
     <div class="container">
         <div class="row">
+            <div class="col-md-4">
+                <asp:Label Text="Encriptado" runat="server" />
+                <asp:TextBox ID="TxtEncriptado" CssClass="form-control" runat="server" />  
+            </div>
+         
 
 
         </div>
     </div>
+
+    <asp:Button ID="BtnEnviar" Text="Enviar" CssClass="btn btn-danger" runat="server" OnClick="BtnEnviar_Click" />
 
 
 
