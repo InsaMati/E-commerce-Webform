@@ -2,59 +2,47 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <table class="table table-hover table-bordered">
+        <thead class="thead-dark text-center" style="font-size: 17px">
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
+                <th>Total</th>
+                <th>Eliminar</th>
 
-    <table class="table">
-        <tr>
-            <td>
-                <h3>NOMBRE   </h3>
-            </td>
-            <td>
-                <h3>CANTIDAD </h3>
-            </td>
-            <td>
-                <h3>PRECIO </h3>
-            </td>
-            <td>
-                <h3>SUBTOTAL </h3>
-            </td>
-            <td>
-                <h3 style="color: red">ELIMINAR </h3>
-            </td>
-        </tr>
-        <% if (ElementoC != null)
-            {%>
-        <% foreach (var item in ElementoC)
-            {%>
-        <tr>
-            <td>
-                <% = item.articulo.Nombre%>
-            </td>
-            <td>
-                <% = item.Cantidad %>
-            </td>
-            <td>
-                <% = item.articulo.Precio %>
-            </td>
-            <td>
-                <% = item.SubTotal %>
-            </td>
-            <td>
-                <a href="Carrito.aspx?id=<% = item.articulo.Id %>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-            </td>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (ElementoC != null)
+                { %>
+            <%foreach (var Item in ElementoC)
+                {
+                %>
 
-        </tr>
+            <tr class="table-light text-center">
+                <td style="font-size: 14px"><% = Item.articulo.Nombre%></td>
+            <td style="font-size: 14px"><% = Item.Cantidad %></td>
+            <td style="font-size: 14px">$ <% = Item.articulo.Precio %> c/u</td>
+            <td style="font-size: 14px">$ <% = Item.SubTotal %></td>
+            <td style="font-size: 14px">$ <% = Total %></td>
+            <td><a href="Carrito.aspx?id=<% = Item.articulo.Id %>"><span class="glyphicon glyphicon-trash" style="font-size:20px;color:red" aria-hidden="true"></span></a></td>
+            </tr>
 
-        <%} %>
-        <%} %>
+
+            <% } %>
+            <% } %>
+        </tbody>
     </table>
 
-    <asp:Button Text="Vaciar" ID="btnVaciar" runat="server" class="btn btn-primary" OnClick="btnVaciar_Click" />
+    <asp:Label runat="server">Total:<% = Total %></asp:Label>
+    <br />
+
+    <asp:Button Text="Vaciar" ID="btnVaciar" runat="server" Style="font-size:15px" class="btn btn-danger" OnClick="btnVaciar_Click" />
     &nbsp
-    <asp:Button Text="Volver" ID="btnVolver" class="btn btn-primary" runat="server" OnClick="btnVolver_Click" />
+    <asp:Button Text="Volver" ID="btnVolver" Style="font-size:15px" class="btn btn-primary" runat="server" OnClick="btnVolver_Click" />
     &nbsp
-    <asp:Button Text="Comprar" runat="server" class="btn btn-success" />
-
-
-
+    <asp:Button Text="Comprar" ID="BtnComprar" runat="server" Style="font-size:15px" class="btn btn-success" />
 
 </asp:Content>

@@ -12,6 +12,8 @@ namespace TPC_Orihuela_Insaurralde
     {
         public List<ElementoCarrito> ElementoC = new List<ElementoCarrito>();
 
+        public double Total = new double();
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +26,10 @@ namespace TPC_Orihuela_Insaurralde
                 if (Id != null)
                 {
                     EliminarArticulo(Convert.ToInt32(Id));
+
                 }
+
+                CalcularTotal();
 
             }
             catch (Exception)
@@ -33,7 +38,7 @@ namespace TPC_Orihuela_Insaurralde
                 throw;
             }
 
-           
+
 
         }
 
@@ -56,11 +61,14 @@ namespace TPC_Orihuela_Insaurralde
             }
         }
 
-        public void EliminarArticulo (int IdArticulo)
+        public void EliminarArticulo(int ArticuloId)
         {
             try
             {
+                ElementoCarrito Eliminar = ElementoC.Find(ChauArticulo => ChauArticulo.articulo.Id == ArticuloId);
+                ElementoC.Remove(Eliminar);
 
+                Session[Session.SessionID + "ListaElemento"] = ElementoC;
             }
             catch (Exception ex)
             {
@@ -69,6 +77,17 @@ namespace TPC_Orihuela_Insaurralde
             }
 
         }
+
+        public void CalcularTotal()
+        {
+
+            foreach (var Item in ElementoC)
+            {
+                Total += Item.SubTotal;
+            }
+
+        }
+
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
