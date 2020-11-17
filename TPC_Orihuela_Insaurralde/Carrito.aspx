@@ -43,6 +43,6 @@
     &nbsp
     <asp:Button Text="Volver" ID="btnVolver" Style="font-size:15px" class="btn btn-primary" runat="server" OnClick="btnVolver_Click" />
     &nbsp
-    <asp:Button Text="Comprar" ID="BtnComprar" runat="server" Style="font-size:15px" class="btn btn-success" />
+    <asp:Button Text="Comprar" ID="BtnComprar" runat="server" Style="font-size:15px" class="btn btn-success" OnClick="BtnComprar_Click" />
 
 </asp:Content>

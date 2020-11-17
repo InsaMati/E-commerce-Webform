@@ -112,7 +112,44 @@ namespace Negocio
                 throw ex;
             }
         }
-        
+
+        public Usuario Login(Usuario Verificar)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+
+            try
+            {    
+                Datos.SetearSp("SP_VERIFICAR_USUARIO");
+                Datos.AgregarParametro("@Email", Verificar.Email);
+                Datos.AgregarParametro("@Contraseña", Verificar.Contraseña);
+                Datos.EjecutarLector();
+
+                if (Datos.Leeme.Read())
+                {
+                    Verificar.Id = Datos.Leeme.GetInt16(0);
+                    Verificar.Email = Datos.Leeme.GetString(1);
+                    Verificar.Contraseña = Datos.Leeme.GetString(2);
+
+                    Verificar.TipoUsuario = new TipoUsuario();
+
+                    Verificar.TipoUsuario.Id = Datos.Leeme.GetInt16(3);
+                    Verificar.Estado = Datos.Leeme.GetBoolean(4);
+
+                }
+
+                return Verificar;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+            
+        }
+
 
     }
 }

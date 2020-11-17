@@ -103,3 +103,18 @@ BEGIN
 		RAISERROR('ERROR AL CARGAR UN PEDIDO',16,1)
 	END CATCH
 END
+
+
+
+create procedure SP_VERIFICAR_USUARIO
+(
+@Email varchar(100),
+@Contraseña varchar(100)
+) as
+BEGIN TRY
+select ID, Email, Contraseña, IdTipoUsuario, Estado from USUARIO where Email = @Email and Contraseña=@Contraseña
+END TRY
+BEGIN CATCH
+RAISERROR('Usuario Inexistente.',16,1)
+END CATCH
+

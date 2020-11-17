@@ -18,7 +18,7 @@
                    
                         <br />
                                           
-                        <asp:Button ID="BtnIngresar" Text="Ingresar" CssClass="btn btn-success" Style="font-size: 18px;" runat="server" />
+                        <asp:Button ID="BtnIngresar" Text="Ingresar" CssClass="btn btn-success" Style="font-size: 18px;" runat="server" OnClick="BtnIngresar_Click" />
                            <br />
                         <a href="RecuperacionPassword.aspx" style="font-size: 15px">¿Olvidaste tu contraseña?</a>
                        </center>                       

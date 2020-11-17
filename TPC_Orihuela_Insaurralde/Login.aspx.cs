@@ -1,4 +1,6 @@
 ﻿using System;
+using Negocio;
+using Dominio;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,6 +21,38 @@ namespace TPC_Orihuela_Insaurralde
             try
             {
                 Response.Redirect("Registro.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        protected void BtnIngresar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Usuario User = new Usuario();
+                NegocioUsuario NegocioUsuario = new NegocioUsuario();
+
+                User.Email = TxtEmail.Text;
+                User.Contraseña = TxtPassword.Text;
+
+                User = NegocioUsuario.Login(User);
+
+                if (User.Id != 0 || User.Estado == true)
+                {
+                    Session.Add("UsuarioLogueado", User);
+                    Response.Redirect("inicio.aspx");
+                }
+
+                else
+                { 
+                    Console.WriteLine("Usuario o contraseña incorrectos");
+                    Response.Redirect("Login.aspx");
+                }
+
             }
             catch (Exception ex)
             {

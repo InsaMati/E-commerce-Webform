@@ -26,20 +26,15 @@ namespace TPC_Orihuela_Insaurralde
                 if (Id != null)
                 {
                     EliminarArticulo(Convert.ToInt32(Id));
-
                 }
 
                 CalcularTotal();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
-
-
-
         }
 
         protected void btnVaciar_Click(object sender, EventArgs e)
@@ -84,6 +79,7 @@ namespace TPC_Orihuela_Insaurralde
             foreach (var Item in ElementoC)
             {
                 Total += Item.SubTotal;
+                Session[Session.SessionID + "Total"] = Total;
             }
 
         }
@@ -94,6 +90,24 @@ namespace TPC_Orihuela_Insaurralde
             try
             {
                 Response.Redirect("Inicio.aspx");
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        protected void BtnComprar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(ElementoC.Count > 0)
+                {
+                    Response.Redirect("Facturacion.aspx");
+                }
+
 
             }
             catch (Exception ex)
