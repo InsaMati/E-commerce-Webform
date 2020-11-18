@@ -44,12 +44,18 @@
     <Compile Include="Articulo.cs" />
     <Compile Include="CarritoCompra.cs" />
     <Compile Include="Categoria.cs" />
+    <Compile Include="DatosBancarios.cs" />
     <Compile Include="DatosPersonales.cs" />
     <Compile Include="ElementoCarrito.cs" />
+    <Compile Include="EstadoPedidos.cs" />
+    <Compile Include="Factura.cs" />
     <Compile Include="Genero.cs" />
     <Compile Include="Marca.cs" />
+    <Compile Include="Pagos.cs" />
+    <Compile Include="Pedido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provincia.cs" />
+    <Compile Include="TipoDePago.cs" />
     <Compile Include="TipoUsuario.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
