@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MarcaA.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.MarcaA" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h1>Registro de Marca</h1>
+    <hr />
     <div class="container">
         <div class="row">   
             <div>

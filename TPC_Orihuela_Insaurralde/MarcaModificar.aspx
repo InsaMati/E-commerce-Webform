@@ -1,19 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.Master" AutoEventWireup="true" CodeBehind="MarcaModificar.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.MarcaModificar" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <h1 style="font-size:20px">Modificacion de Marca</h1>
+    <hr />
     <div class="container">
         <div class="row">
-            <center>
-                <asp:label text="MARCA ANTERIOR" Style="font-size: 15px; color:black; font-weight:700" runat="server" />
-                <asp:textbox ID="txtMarca" runat="server" />
-                <br />
-                <asp:label text="MARCA NUEVA" Style="font-size: 15px; color:black;font-weight:700" runat="server" />
-                <asp:textbox ID="txtModificar" runat="server" />
-                <br />
-                <asp:button ID="btnModificar" text="MODIFICAR" class="btn btn-primary" runat="server" OnClick="btnModificar_Click" />
-            </center>
+            <div class="col-md-4">
+
+                <asp:Label Text="Marca a Modificar" Style="font-size: 13.5px; color: black; font-weight: 700" runat="server" />
+                <asp:TextBox ID="txtMarca" CssClass="form-control" style="font-size:13.5px" runat="server" ReadOnly="True" />
+            </div>
+            <div class="col-md-4">
+                <asp:Label Text="Marca Nueva" Style="font-size: 13.5px; color: black; font-weight: 700" runat="server" />
+                <asp:TextBox ID="txtModificar" CssClass="form-control" style="font-size:13.5px" runat="server" />
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="col-md-12">
+                <center>
+                <asp:Button ID="btnModificar" Text="Modificar" style="font-size:15px" class="btn btn-outline-success" runat="server" OnClick="btnModificar_Click" /></center>
+            </div>
         </div>
     </div>
-
+    <hr />
 
 </asp:Content>

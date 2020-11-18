@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Carrito.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.Carrito" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h1>Carrito</h1>
+    <hr />
     <table class="table table-hover table-bordered">
         <thead class="thead-dark text-center" style="font-size: 17px">
             <tr>
@@ -39,10 +40,10 @@
     <asp:Label runat="server">Total:<% = Total %></asp:Label>
     <br />
 
-    <asp:Button Text="Vaciar" ID="btnVaciar" runat="server" Style="font-size:15px" class="btn btn-danger" OnClick="btnVaciar_Click" />
+    <asp:Button Text="Vaciar" ID="btnVaciar" runat="server" Style="font-size:15px" class="btn btn-outline-danger" OnClick="btnVaciar_Click" />
     &nbsp
-    <asp:Button Text="Volver" ID="btnVolver" Style="font-size:15px" class="btn btn-primary" runat="server" OnClick="btnVolver_Click" />
+    <asp:Button Text="Volver" ID="btnVolver" Style="font-size:15px" class="btn btn-outline-primary" runat="server" OnClick="btnVolver_Click" />
     &nbsp
-    <asp:Button Text="Comprar" ID="BtnComprar" runat="server" Style="font-size:15px" class="btn btn-success" OnClick="BtnComprar_Click" />
+    <asp:Button Text="Comprar" ID="BtnComprar" runat="server" Style="font-size:15px" class="btn btn-outline-success" OnClick="BtnComprar_Click" />
 
 </asp:Content>

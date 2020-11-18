@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ABMLCategoria.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.ABMLCategoria" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h1>Administracion de Categoria</h1>
+    <hr />
     <div class="container">
        <table class="table table-hover table-bordered">
             <thead class="thead-dark text-center" style="font-size: 14px">

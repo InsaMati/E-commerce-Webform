@@ -74,10 +74,7 @@ namespace TPC_Orihuela_Insaurralde
                 Datos.Telefono = Convert.ToInt32(TxtTelefono.Text);
                 Datos.FechaNacimiento = Convert.ToDateTime(TxtFecha.Text);
 
-                NegocioUsuario.RegistrarUsuario(user);
-
-                Datos.ID_Usuario = NegocioUsuario.RetornarId(user.Email);
-                negocioDatosPersonales.RegistrarDatosUsuario(Datos);
+                NegocioUsuario.RegistrarUsuario(user, Datos);
 
                 Response.Redirect("inicio.aspx");
             }

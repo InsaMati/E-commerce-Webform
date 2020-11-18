@@ -94,7 +94,7 @@ namespace Negocio
 
         }
 
-        public void RegistrarUsuario(Usuario user)
+        public void RegistrarUsuario(Usuario user, DatosPersonales UsuarioDatos)
         {
             AccesoADatos Datos = new AccesoADatos();
 
@@ -104,6 +104,15 @@ namespace Negocio
                 Datos.AgregarParametro("@Email", user.Email);
                 Datos.AgregarParametro("@Contraseña", user.Contraseña);
                 Datos.AgregarParametroSmallInt("@IdTipoUsuario", user.TipoUsuario.Id);
+
+                Datos.AgregarParametro("@Nombre", UsuarioDatos.Nombre);
+                Datos.AgregarParametro("@Apellido", UsuarioDatos.Apellido);
+                Datos.AgregarParametroInt("@Dni", UsuarioDatos.Dni);
+                Datos.AgregarParametroSmallInt("@Genero", UsuarioDatos.Genero.ID);
+                Datos.AgregarParametro("@Direccion", UsuarioDatos.Direccion);
+                Datos.AgregarParametroSmallInt("@Provincia", UsuarioDatos.Provincia.ID);
+                Datos.AgregarParametroDateTime("@FechaNacimiento", UsuarioDatos.FechaNacimiento);
+                Datos.AgregarParametro("@Telefono", Convert.ToString(UsuarioDatos.Telefono));
 
                 Datos.EjecutarLector();
             }
@@ -145,32 +154,6 @@ namespace Negocio
 
                 throw;
             }
-        }
-
-        public int RetornarId(string Email)
-        {
-            AccesoADatos Datos = new AccesoADatos();
-
-            try
-            {
-                int Aux = new int();
-
-                Datos.SetearQuery("select ID from USUARIO where Email = @Email");
-                Datos.AgregarParametro("@Email", Email);
-                Datos.EjecutarLector();
-
-                if (Datos.Leeme.Read()) Aux = Datos.Leeme.GetInt16(0);
-
-                return Aux;
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-
         }
 
     }

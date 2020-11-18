@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductoAModificar.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.ProductoAModificar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h1>Modificacion de producto</h1>
+    <hr />
     <div class="container">
         <div class="row">
             <div class="col-md-4">

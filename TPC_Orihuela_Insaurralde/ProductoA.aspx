@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.Master" AutoEventWireup="true" CodeBehind="ProductoA.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.ProductoA" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h1>Registro de producto</h1>
+    <hr />
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -58,7 +59,7 @@
         </div>
     </div>
     <center>
-    <asp:Button Text="Agregar" ID="BtnAgregar" class="btn btn-primary" Style="font-size:15px;" runat="server" OnClick="BtnAgregar_Click"/>
-        <asp:Button Text="Volver" ID="BtnVolver" class="btn btn-danger" Style="font-size:15px;" runat="server"/>
+    <asp:Button Text="Agregar" ID="BtnAgregar" class="btn btn-outline-primary" Style="font-size:15px;" runat="server" OnClick="BtnAgregar_Click"/>&nbsp;&nbsp;
+        <asp:Button Text="Volver" ID="BtnVolver" class="btn btn-outline-danger" Style="font-size:15px;" runat="server"/>
   </center>
 </asp:Content>
