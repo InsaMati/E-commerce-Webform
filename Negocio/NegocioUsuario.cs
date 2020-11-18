@@ -17,18 +17,22 @@ namespace Negocio
 
             try
             {
-                Datos.SetearQuery("SELECT * FROM USUARIO");
+                Datos.SetearQuery("select *from usuario");
                 Datos.EjecutarLector();
 
                 while (Datos.Leeme.Read())
                 {
                     var aux = new Usuario();
 
-                    aux.Id = Datos.Leeme.GetInt32(0);
+                    aux.Id = Datos.Leeme.GetInt16(0);
                     aux.Email = Datos.Leeme.GetString(1);
                     aux.Contraseña = Datos.Leeme.GetString(2);
-                    aux.TipoUsuario.Id = Datos.Leeme.GetInt32(3);
+
+                    aux.TipoUsuario = new TipoUsuario();
+                    aux.TipoUsuario.Id = Datos.Leeme.GetInt16(3);
                     aux.Estado = Datos.Leeme.GetBoolean(4);
+
+                    if(aux.Estado == true) ListaUsuarios.Add(aux);
                 }
                 return ListaUsuarios;
             }

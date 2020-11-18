@@ -23,7 +23,7 @@ namespace TPC_Orihuela_Insaurralde
 
                 if (Eliminado != null)
                 {
-                    //Producto Boleteado = Lista.Find(J => J.IdProducto == int.Parse(Deleteado));
+                    
                     Negocio.EliminarProducto(Convert.ToInt32(Eliminado));
                     Response.Redirect("ABMLProducto.aspx");
 
