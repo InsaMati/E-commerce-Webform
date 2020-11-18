@@ -21,12 +21,11 @@ namespace TPC_Orihuela_Insaurralde
             {
                 ElementoC = (List<ElementoCarrito>)Session[Session.SessionID + "Lista"];
 
+                if (ElementoC == null) Response.Redirect("inicio.aspx");
+
                 var Id = Request.QueryString["id"];
 
-                if (Id != null)
-                {
-                    EliminarArticulo(Convert.ToInt32(Id));
-                }
+                if (Id != null) EliminarArticulo(Convert.ToInt32(Id));
 
                 CalcularTotal();
 

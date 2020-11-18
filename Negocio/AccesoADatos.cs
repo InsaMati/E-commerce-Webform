@@ -50,6 +50,17 @@ namespace Negocio
 
         }
 
+        public void AgregarParametroSmallInt(string Nombre, int valor)
+        {
+
+            Comando.Parameters.AddWithValue(Nombre, Convert.ToInt16(valor));
+        }
+
+        public void AgregarParametroInt(string Nombre, int valor)
+        {
+
+            Comando.Parameters.AddWithValue(Nombre, valor);
+        }
         public void AgregarParametro(string nombre, string valor)
         {
             Comando.Parameters.AddWithValue(nombre, valor);

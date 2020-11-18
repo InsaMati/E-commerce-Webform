@@ -18,8 +18,26 @@ namespace TPC_Orihuela_Insaurralde
         {
             try
             {
-                CargarListas();
-                CargarDD();
+                NegocioGenero NegocioGenero = new NegocioGenero();
+                NegocioProvincia NegocioProvincia = new NegocioProvincia();
+
+                if (!IsPostBack)
+                {
+
+                    List<Genero> ListaGenero = NegocioGenero.ListarGeneros();
+                    DDGenero.DataSource = ListaGenero;
+                    DDGenero.DataBind();
+
+                    Session.Add("LGenero", ListaGenero);
+
+                    List<Provincia> ListaProvincia = NegocioProvincia.ListarProvincias();
+                    DDProvincia.DataSource = ListaProvincia;
+                    DDProvincia.DataBind();
+
+                    Session.Add("LProvincia", ListaProvincia);
+
+
+                }
             }
             catch (Exception ex)
             {
@@ -28,39 +46,38 @@ namespace TPC_Orihuela_Insaurralde
             }
         }
 
-        public void CargarDD()
-        {
-            DDProvincia.DataSource = ListaProvincias;
-            DDProvincia.DataBind();
-            DDGenero.DataSource = ListaGenero;
-            DDGenero.DataBind();
-        }
-
-        public void CargarListas()
-        {
-            NegocioGenero NegocioGenero = new NegocioGenero();
-            NegocioProvincia NegocioProvincia = new NegocioProvincia();
-            ListaProvincias = NegocioProvincia.ListarProvincias();
-            ListaGenero = NegocioGenero.ListarGeneros();
-        }
-
         protected void btnContinuar_Click(object sender, EventArgs e)
         {
-            NegocioUsuario Negocio = new NegocioUsuario();
+            NegocioUsuario NegocioUsuario = new NegocioUsuario();
+            NegocioDatosPersonales negocioDatosPersonales = new NegocioDatosPersonales();
+
             try
             {
                 Usuario user = new Usuario();
                 DatosPersonales Datos = new DatosPersonales();
                 user.Email = TxtEmail.Text;
-                user.Contraseña = TxtPassword.Text;
+                user.Contraseña = Criptografia.Encriptar(TxtPassword.Text);
+
+                user.TipoUsuario = new TipoUsuario();
                 user.TipoUsuario.Id = 3;
                 Datos.Nombre = TxtNombre.Text;
                 Datos.Apellido = TxtApellido.Text;
                 Datos.Dni = Convert.ToInt32(TxtDni.Text);
-                Datos.Genero.ID = DDGenero.SelectedIndex;
+
+                List<Genero> LGenero = (List<Genero>)Session["LGenero"];
+                Datos.Genero = LGenero.Find(G => G.Nombre == DDGenero.SelectedValue);
+
                 Datos.Direccion = TxtDireccion.Text;
-                Datos.Provincia.ID = DDProvincia.SelectedIndex;
-                Negocio.RegistrarUsuario(user,Datos);
+
+                List<Provincia> LProvincia = (List<Provincia>)Session["LProvincia"];
+                Datos.Provincia = LProvincia.Find(P => P.Nombre == DDProvincia.SelectedValue);
+                Datos.Telefono = Convert.ToInt32(TxtTelefono.Text);
+                Datos.FechaNacimiento = Convert.ToDateTime(TxtFecha.Text);
+
+                NegocioUsuario.RegistrarUsuario(user);
+
+                Datos.ID_Usuario = NegocioUsuario.RetornarId(user.Email);
+                negocioDatosPersonales.RegistrarDatosUsuario(Datos);
             }
             catch (Exception ex)
             {

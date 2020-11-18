@@ -63,7 +63,7 @@ create table DATOS_PERSONALES
 	ID_usuario smallint not null primary key foreign key references USUARIO(ID),
 	Nombre varchar(50) not null,
 	Apellido varchar(50) not null,
-	Dni bigint not null unique,
+	Dni int not null unique,
 	Direccion varchar(100),
 	ID_Provincia smallint foreign key references Provincia(ID),
 	ID_Genero smallint foreign key references GENERO(ID_Genero),

@@ -58,29 +58,45 @@ BEGIN CATCH
 END CATCH
 
 -- AGREGAR USUARIO
+
 create procedure SP_AgregarUsuario(
 @Email varchar(100),
 @Contraseña varchar(100),
-@IdTipoUsuario smallint,
+@IdTipoUsuario smallint
+) AS
+BEGIN TRY
+	
+		INSERT INTO USUARIO (Email,Contraseña,IdTipoUsuario,Estado)
+		VALUES (@Email,@Contraseña,@IdTipoUsuario,1)
+		
+END TRY
+BEGIN CATCH
+	RAISERROR('Error al registrar un usuario nuevo',16,1)
+END CATCH
+
+
+
+create procedure SP_AgregarDatosPersonales
+(
+@IdUsuario smallint,
 @Nombre varchar(50),
 @Apellido varchar(50),
-@Dni smallint,
+@Dni int,
 @Genero smallint,
 @Direccion varchar(100),
 @Provincia smallint,
-@FechaNacimiento date
-) AS
+@FechaNacimiento date,
+@Telefono bigint
+)
+AS
 BEGIN TRY
-	BEGIN TRANSACTION
-		INSERT INTO USUARIO (Email,Contraseña,IdTipoUsuario,Estado)
-		VALUES (@Email,@Contraseña,@IdTipoUsuario,1)
-		INSERT INTO DATOS_PERSONALES (Nombre,Apellido,Dni,ID_Genero,Direccion,ID_Provincia,Fecha_Nac)
-		VALUES (@Nombre,@Apellido,@Dni,@Genero,@Direccion,@Provincia,@FechaNacimiento)
-	COMMIT TRANSACTION
-END TRY
+        INSERT INTO DATOS_PERSONALES (ID_usuario,Nombre,Apellido,Dni,ID_Genero,Direccion,ID_Provincia,Fecha_Nac,Telefono)
+		VALUES (@IdUsuario,@Nombre,@Apellido,@Dni,@Genero,@Direccion,@Provincia,@FechaNacimiento,@Telefono)
+		END TRY
 BEGIN CATCH
-	RAISERROR('ERROR AL CARGAR UN USUARIO',16,1)
+	RAISERROR('Error al registrar datos de un nuevo usuario.',16,1)
 END CATCH
+
 
 -- AGREGAR VENTA                 PROTOTIPO MEDIO TRUCHO
 create procedure SP_ComprarCarrito(
@@ -118,3 +134,35 @@ BEGIN CATCH
 RAISERROR('Usuario Inexistente.',16,1)
 END CATCH
 
+select *From USUARIO
+select *from DATOS_PERSONALES
+
+
+-- AGREGAR USUARIO
+/*
+create procedure SP_AgregarUsuario(
+
+@Email varchar(100),
+@Contraseña varchar(100),
+@IdTipoUsuario smallint,
+@Nombre varchar(50),
+@Apellido varchar(50),
+@Dni smallint,
+@Genero smallint,
+@Direccion varchar(100),
+@Provincia smallint,
+@FechaNacimiento date
+) AS
+BEGIN TRY
+	BEGIN TRANSACTION
+		INSERT INTO USUARIO (Email,Contraseña,IdTipoUsuario,Estado)
+		VALUES (@Email,@Contraseña,@IdTipoUsuario,1)
+		INSERT INTO DATOS_PERSONALES (Nombre,Apellido,Dni,ID_Genero,Direccion,ID_Provincia,Fecha_Nac)
+		VALUES (@Nombre,@Apellido,@Dni,@Genero,@Direccion,@Provincia,@FechaNacimiento)
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	RAISERROR('ERROR AL CARGAR UN USUARIO',16,1)
+END CATCH
+
+*/

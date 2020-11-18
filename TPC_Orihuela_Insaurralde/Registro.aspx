@@ -27,17 +27,10 @@
             <div class="col-md-4">
                 <asp:Label Text="Contraseña" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
                 <br />
-                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtPassword" TextMode="Password" runat="server" />
+                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtPassword" TextMode="Password" runat="server" MaxLength="20" />
                 <br />
             </div>
-            <div class="col-md-4">
-                <br />
-                <br />
-                <br />
-                <asp:CheckBox Text="Visualizar Clave" runat="server" ID="ChkPassword" />
-                <br />
-                <br />
-            </div>
+
 
             <div class="col-md-4">
                 <asp:Label Text="Dni" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
@@ -69,6 +62,13 @@
                 <asp:Label Text="Fecha Nacimiento" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
                 <br />
                 <asp:TextBox runat="server" Style="font-size: 15px" CssClass="form-control" TextMode="Date" ID="TxtFecha" />
+                <br />
+            </div>
+
+            <div class="col-md-4">
+                <asp:Label Text="Telefono" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
+                <br />
+                <asp:TextBox runat="server" Style="font-size: 15px" CssClass="form-control" ID="TxtTelefono" />
                 <br />
             </div>
         </div>

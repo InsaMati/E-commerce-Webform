@@ -50,7 +50,7 @@ namespace Negocio
             try
             {
                 Datos.SetearQuery("SP_ListarUsuarios");
-                Datos.AgregarParametro("@Tipo",Convert.ToString(IDTipo));
+                Datos.AgregarParametro("@Tipo", Convert.ToString(IDTipo));
                 Datos.EjecutarLector();
 
                 while (Datos.Leeme.Read())
@@ -82,7 +82,7 @@ namespace Negocio
             AccesoADatos Datos = new AccesoADatos();
             try
             {
-                Datos.SetearQuery("update USUARIO set Estado = 0 where ID = @ID");                
+                Datos.SetearQuery("update USUARIO set Estado = 0 where ID = @ID");
                 Datos.AgregarParametro("@ID", Convert.ToString(id));
                 Datos.EjecutarLector();
             }
@@ -91,19 +91,20 @@ namespace Negocio
 
                 throw ex;
             }
-        
+
         }
 
-        public void RegistrarUsuario (Usuario user, DatosPersonales datos)
+        public void RegistrarUsuario(Usuario user)
         {
             AccesoADatos Datos = new AccesoADatos();
-            
+
             try
             {
                 Datos.SetearSp("SP_AgregarUsuario");
-                Datos.AgregarParametro("@Email",user.Email);
+                Datos.AgregarParametro("@Email", user.Email);
                 Datos.AgregarParametro("@Contraseña", user.Contraseña);
-                Datos.AgregarParametro("@IdTipoUsuario",Convert.ToString(user.TipoUsuario.Id));
+                Datos.AgregarParametroSmallInt("@IdTipoUsuario", user.TipoUsuario.Id);
+
                 Datos.EjecutarLector();
             }
             catch (Exception ex)
@@ -118,7 +119,7 @@ namespace Negocio
             AccesoADatos Datos = new AccesoADatos();
 
             try
-            {    
+            {
                 Datos.SetearSp("SP_VERIFICAR_USUARIO");
                 Datos.AgregarParametro("@Email", Verificar.Email);
                 Datos.AgregarParametro("@Contraseña", Verificar.Contraseña);
@@ -144,12 +145,33 @@ namespace Negocio
 
                 throw;
             }
-
-
-
-            
         }
 
+        public int RetornarId(string Email)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+
+            try
+            {
+                int Aux = new int();
+
+                Datos.SetearQuery("select ID from USUARIO where Email = @Email");
+                Datos.AgregarParametro("@Email", Email);
+                Datos.EjecutarLector();
+
+                if (Datos.Leeme.Read()) Aux = Datos.Leeme.GetInt16(0);
+
+                return Aux;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+        }
 
     }
 }

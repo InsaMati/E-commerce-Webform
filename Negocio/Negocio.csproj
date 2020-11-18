@@ -45,6 +45,7 @@
     <Compile Include="Criptografia.cs" />
     <Compile Include="NegocioArticulo.cs" />
     <Compile Include="NegocioCategoria.cs" />
+    <Compile Include="NegocioDatosPersonales.cs" />
     <Compile Include="NegocioGenero.cs" />
     <Compile Include="NegocioMarca.cs" />
     <Compile Include="NegocioProvincia.cs" />
