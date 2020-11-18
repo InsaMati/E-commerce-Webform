@@ -37,11 +37,11 @@ namespace TPC_Orihuela_Insaurralde
                 NegocioUsuario NegocioUsuario = new NegocioUsuario();
 
                 User.Email = TxtEmail.Text;
-                User.Contraseña = TxtPassword.Text;
+                User.Contraseña = Criptografia.Encriptar(TxtPassword.Text);
 
                 User = NegocioUsuario.Login(User);
 
-                if (User.Id != 0 || User.Estado == true)
+                if (User.Id != 0)
                 {
                     Session.Add("UsuarioLogueado", User);
                     Response.Redirect("inicio.aspx");

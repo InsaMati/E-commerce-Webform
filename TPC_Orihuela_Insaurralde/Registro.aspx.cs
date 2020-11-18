@@ -78,6 +78,8 @@ namespace TPC_Orihuela_Insaurralde
 
                 Datos.ID_Usuario = NegocioUsuario.RetornarId(user.Email);
                 negocioDatosPersonales.RegistrarDatosUsuario(Datos);
+
+                Response.Redirect("inicio.aspx");
             }
             catch (Exception ex)
             {

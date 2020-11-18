@@ -2,6 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <script src="Scripts/ScriptsValidaciones.js"></script>
+
     <h1>Registro</h1>
     <hr />
     <div class="container">
@@ -9,13 +11,13 @@
             <div class="col-md-4">
                 <asp:Label Text="Nombre/s" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
                 <br />
-                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtNombre" runat="server" />
+                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtNombre" OnKeyPress="return soloLetras(event);" runat="server" />
                 <br />
             </div>
             <div class="col-md-4">
                 <asp:Label Text="Apellidos/s" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
                 <br />
-                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtApellido" runat="server" />
+                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtApellido" OnKeyPress="return soloLetras(event);" runat="server" />
                 <br />
             </div>
             <div class="col-md-4">
@@ -35,7 +37,7 @@
             <div class="col-md-4">
                 <asp:Label Text="Dni" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
                 <br />
-                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtDni" runat="server" />
+                <asp:TextBox Style="font-size: 15px" CssClass="form-control" ID="TxtDni" OnKeyPress="return SoloNumeros(event);" runat="server" />
                 <br />
             </div>
 
@@ -68,7 +70,7 @@
             <div class="col-md-4">
                 <asp:Label Text="Telefono" Style="font-size: 15px; color: black; font-weight: 700" runat="server" /><br />
                 <br />
-                <asp:TextBox runat="server" Style="font-size: 15px" CssClass="form-control" ID="TxtTelefono" />
+                <asp:TextBox runat="server" Style="font-size: 15px" CssClass="form-control" OnKeyPress="return SoloNumeros(event);" ID="TxtTelefono" />
                 <br />
             </div>
         </div>
