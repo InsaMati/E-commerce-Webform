@@ -29,5 +29,31 @@ namespace TPC_Orihuela_Insaurralde
             DDTipoPago.DataSource = ListaTP;
             DDTipoPago.DataBind();
         }
+
+        protected void BtnPagar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        protected void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("inicio.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
