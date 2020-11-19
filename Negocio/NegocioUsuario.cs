@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                Datos.SetearQuery("select *from usuario");
+                Datos.SetearQuery("select *from VW_Listar_Usuarios");
                 Datos.EjecutarLector();
 
                 while (Datos.Leeme.Read())
@@ -27,12 +27,13 @@ namespace Negocio
                     aux.Id = Datos.Leeme.GetInt16(0);
                     aux.Email = Datos.Leeme.GetString(1);
                     aux.Contraseña = Datos.Leeme.GetString(2);
-
+                    aux.Estado = Datos.Leeme.GetBoolean(3);
+      
                     aux.TipoUsuario = new TipoUsuario();
-                    aux.TipoUsuario.Id = Datos.Leeme.GetInt16(3);
-                    aux.Estado = Datos.Leeme.GetBoolean(4);
-
-                    if(aux.Estado == true) ListaUsuarios.Add(aux);
+                    aux.TipoUsuario.Id = Datos.Leeme.GetInt16(4);
+                    aux.TipoUsuario.Nombre = Datos.Leeme.GetString(5);
+                    
+                    if (aux.Estado == true) ListaUsuarios.Add(aux);
                 }
                 return ListaUsuarios;
             }
@@ -64,6 +65,8 @@ namespace Negocio
                     aux.Id = Datos.Leeme.GetInt32(0);
                     aux.Email = Datos.Leeme.GetString(1);
                     aux.Contraseña = Datos.Leeme.GetString(2);
+
+                    aux.TipoUsuario = new TipoUsuario();
                     aux.TipoUsuario.Id = Datos.Leeme.GetInt32(3);
                     aux.Estado = Datos.Leeme.GetBoolean(4);
                 }
@@ -158,6 +161,29 @@ namespace Negocio
 
                 throw;
             }
+        }
+
+
+        public void ModificarUsuario(Usuario cambio)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+
+            try
+            {
+                Datos.SetearSp("SP_Modificar_Usuario");
+                Datos.AgregarParametro("@ID", Convert.ToString(cambio.Id));
+                Datos.AgregarParametro("@Email", cambio.Email);
+                Datos.AgregarParametro("@Contraseña", cambio.Contraseña);
+                Datos.AgregarParametro("@IdTipoUsuario", Convert.ToString(cambio.TipoUsuario.Id));
+                Datos.AgregarParametro("@Estado", Convert.ToString(cambio.Estado));
+                Datos.EjecutarLector();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
     }

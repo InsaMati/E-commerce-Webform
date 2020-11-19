@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-4">
                 <asp:Label Text="Email" Style="font-size: 15px" runat="server" />
-                <asp:TextBox ID="TxtEmail" CssClass="form-control" Style="font-size: 15px" runat="server" />
+                <asp:TextBox ID="TxtEmail" CssClass="form-control" Style="font-size: 15px" runat="server" ReadOnly="True" />
 
             </div>
             <div class="col-md-4">
@@ -25,9 +25,9 @@
     </div>
     <br />
     <center>
-    <asp:Button ID="BtnModificar" CssClass="btn btn-outline-primary" Style="font-size: 15px" Text="Modificar" runat="server" />
+    <asp:Button ID="BtnModificar" CssClass="btn btn-outline-primary" Style="font-size: 15px" Text="Modificar" runat="server" OnClick="BtnModificar_Click" />
         &nbsp;&nbsp;
-    <asp:Button ID="BtnVolver" CssClass="btn btn-outline-danger" Style="font-size: 15px" Text="Volver" runat="server" />
+    <asp:Button ID="BtnVolver" CssClass="btn btn-outline-danger" Style="font-size: 15px" Text="Volver" runat="server" OnClick="BtnVolver_Click" />
 </center>
 
 </asp:Content>

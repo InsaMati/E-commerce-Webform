@@ -28,7 +28,7 @@
                     <td style="font-size: 12px"><% = Item.Id %></td>
                     <td style="font-size: 12px"><% = Item.Email %></td>
                     <td style="font-size: 12px"><% = Item.Contraseña %></td>
-                    <td style="font-size: 12px"><% = Item.TipoUsuario.Id %></td>
+                    <td style="font-size: 12px"><% = Item.TipoUsuario.Nombre %></td>
                     <td class="text-right">
                         <a href="UsuarioaModificar.aspx?Pro=<% = Item.Id %>" class="btn btn-primary badge-pill" style="font-size: 15px; color: white; text-decoration: none">Editar</a>
                         <a href="ABMLUsuario.aspx?User=<% = Item.Id %>" class="btn btn-danger badge-pill" style="font-size: 15px; color: white; text-decoration: none">Eliminar</a>

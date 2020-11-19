@@ -139,3 +139,21 @@ BEGIN CATCH
 	RAISERROR('ERROR AL CARGAR UN USUARIO',16,1)
 END CATCH
 
+select *From USUARIO
+
+
+create procedure SP_Modificar_Usuario(
+@ID smallint,
+@Email varchar(100),
+@Contraseña varchar(100),
+@IdTipoUsuario smallint,
+@Estado bit 
+)
+as
+BEGIN TRY 
+	UPDATE  USUARIO set Email = @Email, Contraseña = @Contraseña, IdTipoUsuario = @IdTipoUsuario, Estado = @Estado
+	where ID = @ID
+END TRY
+BEGIN CATCH
+	RAISERROR('Error al Modificar Usuario',16,1)
+END CATCH
