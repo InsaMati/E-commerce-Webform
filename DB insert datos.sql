@@ -95,7 +95,6 @@ INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('Paypal')
 go
 INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('MercadoPago')
 go
-INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('Efectivo')
 --- Provincias
 INSERT INTO PROVINCIA VALUES ('Buenos Aires')
 GO
@@ -107,3 +106,6 @@ INSERT INTO PROVINCIA VALUES ('Entre Rios')
 GO
 INSERT INTO PROVINCIA VALUES ('La Pampa')
 
+select *From TIPO_DE_PAGO
+
+select *From DATOS_BANCARIOS

@@ -11,16 +11,23 @@ namespace TPC_Orihuela_Insaurralde
 {
     public partial class Facturacion : System.Web.UI.Page
     {
+        public List<TipoDePago> ListaTP = new List<TipoDePago>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            CargarListas();
+            CargarDD();
         }
 
-        protected void BtnEnviar_Click(object sender, EventArgs e)
+        public void CargarListas()
         {
-            
+            NegocioTipoDePago NegocioTipoDePago = new NegocioTipoDePago();
+            ListaTP = NegocioTipoDePago.ListarTiposPago();
+        }
 
-           
+        public void CargarDD()
+        {
+            DDTipoPago.DataSource = ListaTP;
+            DDTipoPago.DataBind();
         }
     }
 }
