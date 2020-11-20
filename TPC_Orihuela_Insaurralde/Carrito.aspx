@@ -11,7 +11,6 @@
                 <th>Imagen</th>
                 <th>Precio</th>
                 <th>Subtotal</th>
-                <th>Total</th>
                 <th>Eliminar</th>
 
             </tr>
@@ -29,7 +28,6 @@
                 <td style="font-size: 14px"><img src="<% = Item.articulo.UrlImagen %>" width="90" height="80" alt="ImagenProducto" /></td>
                 <td style="font-size: 14px">$ <% = Item.articulo.Precio %> c/u</td>
                 <td style="font-size: 14px">$ <% = Item.SubTotal %></td>
-                <td style="font-size: 14px">$ <% = Total %></td>
                 <td><a href="Carrito.aspx?id=<% = Item.articulo.Id %>"><span class="glyphicon glyphicon-trash" style="font-size: 20px; color: red" aria-hidden="true"></span></a></td>
             </tr>
 

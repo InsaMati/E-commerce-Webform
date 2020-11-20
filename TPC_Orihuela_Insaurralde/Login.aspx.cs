@@ -43,7 +43,7 @@ namespace TPC_Orihuela_Insaurralde
 
                 if (User.Id != 0)
                 {
-                    Session.Add("UsuarioLogueado", User);
+                    Session.Add(Session.SessionID + "UsuarioLogueado", User);
                     Response.Redirect("inicio.aspx");
                 }
 

@@ -111,6 +111,7 @@
     <Content Include="ABMLProducto.aspx" />
     <Content Include="ABMLUsuario.aspx" />
     <Content Include="About.aspx" />
+    <Content Include="ADMPedidos.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="CategoriaA.aspx" />
     <Content Include="CategoriaModificar.aspx" />
@@ -215,6 +216,13 @@
     </Compile>
     <Compile Include="ABMLUsuario.aspx.designer.cs">
       <DependentUpon>ABMLUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMPedidos.aspx.cs">
+      <DependentUpon>ADMPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMPedidos.aspx.designer.cs">
+      <DependentUpon>ADMPedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
