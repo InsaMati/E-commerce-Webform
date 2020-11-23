@@ -156,10 +156,10 @@ namespace Negocio
 
                 return Verificar;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 

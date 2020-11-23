@@ -19,7 +19,7 @@ namespace TPC_Orihuela_Insaurralde
             try
             {
                 Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
-                if (Logueado == null) Response.Redirect("Inicio.aspx");
+                if (Logueado == null) Response.Redirect("Login.aspx");
 
                 CargarListas();
                 CargarDD();
@@ -51,10 +51,15 @@ namespace TPC_Orihuela_Insaurralde
 
             try
             {
-                CarritoCompra Aux = new CarritoCompra();
-                Aux.IdUsuario = Logueado.Id;
-                Aux.CostoTotal = (double)Session[Session.SessionID + "Total"];
-                NegocioCarrito.AltaCarrito(Aux);
+                //CarritoCompra Aux = new CarritoCompra();
+               // Aux.IdUsuario = Logueado.Id;
+               // Aux.CostoTotal = (double)Session[Session.SessionID + "Total"];
+                //NegocioCarrito.AltaCarrito(Aux);
+                Factura Fac = new Factura();
+                Fac.IDUsuario = Logueado.Id;
+                Fac.IdFormaDePago = DDTipoPago.SelectedIndex;
+                Fac.Importe = (double)Session[Session.SessionID + "Total"];
+                NegocioCarrito.FacturarCarrito(Fac);
                 //AltaElementoCarrito();
             }
             catch (Exception ex)

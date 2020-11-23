@@ -1,7 +1,7 @@
 use TP_FINAL
 
 -- LISTAR ARTICULO
-create procedure SP_Listar
+-- create procedure SP_Listar
 
 -- AGREGAR ARTICULO
 create procedure SP_Agregar_Articulo(
@@ -56,7 +56,7 @@ END TRY
 BEGIN CATCH
 	RAISERROR('ERROR AL LISTAR ALUMNOS POR TIPO',16,1)
 END CATCH
-
+go
 -- AGREGAR USUARIO
 
 
@@ -64,14 +64,16 @@ END CATCH
 
 -- AGREGAR VENTA                 PROTOTIPO MEDIO TRUCHO
 create procedure SP_ComprarCarrito(
+	@ID_pedido smallint,
 	@IdUsuario smallint,
+	@ID_FormaDePago smallint,
 	@CostoTotal money
 ) as
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
-			insert into FACTURA (ID_pedido, ID_usuario, Fecha, Forma_de_pago, Importe)
-			values (@IdUsuario,@CostoTotal)
+			insert into FACTURA (ID_pedido, ID_usuario, Fecha, ID_FormPago, Importe)
+			values (@ID_pedido,@IdUsuario,Getdate(),@ID_FormaDePago,@CostoTotal)
 			declare @idcarrito SMALLINT
 			select @idcarrito = c.ID FROM CARRITO as c
 			inner join pedido as p on p.ID_carrito = c.ID
@@ -84,7 +86,7 @@ BEGIN
 	END CATCH
 END
 
-
+go
 
 create procedure SP_VERIFICAR_USUARIO
 (
@@ -100,7 +102,7 @@ END CATCH
 
 select *From USUARIO
 select *from DATOS_PERSONALES
-
+go
 
 -- AGREGAR USUARIO
 
@@ -139,9 +141,9 @@ BEGIN CATCH
 	RAISERROR('ERROR AL CARGAR UN USUARIO',16,1)
 END CATCH
 
-select *From USUARIO
+go
 
-
+-- MODIFICAR USUARIO
 create procedure SP_Modificar_Usuario(
 @ID smallint,
 @Email varchar(100),
@@ -157,3 +159,16 @@ END TRY
 BEGIN CATCH
 	RAISERROR('Error al Modificar Usuario',16,1)
 END CATCH
+
+-- AGREGAR PEDIDO
+--create procedure SP_Agregar_Pedido(
+--@ID_Carrito smallint,
+--@ID_Estado smallint
+--)
+--as
+--BEGIN TRY
+--	UPDATE PEDIDO SET ID_carrito = @ID_Carrito, ID_estado = @ID_Estado
+--END TRY
+--BEGIN CATCH
+--	RAISERROR('ERROR AL AGREGAR PEDIDO',16,1)
+--END CATCH

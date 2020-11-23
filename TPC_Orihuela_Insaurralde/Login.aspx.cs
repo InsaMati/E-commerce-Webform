@@ -49,7 +49,7 @@ namespace TPC_Orihuela_Insaurralde
 
                 else
                 { 
-                    Console.WriteLine("Usuario o contraseña incorrectos");
+                    Console.WriteLine("Usuario o contraseña incorrectos");                    
                     Response.Redirect("Login.aspx");
                 }
 

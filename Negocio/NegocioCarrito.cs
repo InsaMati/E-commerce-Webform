@@ -21,6 +21,7 @@ namespace Negocio
                 Datos.AgregarParametro("@Costo", Convert.ToString(Alta.CostoTotal));
                 Datos.AgregarParametro("@Estado", Convert.ToString(1));
                 Datos.EjecutarLector();
+               
 
             }
             catch (Exception ex)
@@ -45,5 +46,23 @@ namespace Negocio
             }
 
         }
+        public void FacturarCarrito (Factura aux)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            try
+            {
+                Datos.SetearSp("SP_ComprarCarrito");
+                Datos.AgregarParametro("@ID_Pedido",Convert.ToString(aux.IDPedido));
+                Datos.AgregarParametro("@IdUsuario", Convert.ToString(aux.IDUsuario));
+                Datos.AgregarParametro("@ID_FormaDePago", Convert.ToString(aux.IdFormaDePago));
+                Datos.AgregarParametro("@CostoTotal", Convert.ToString(aux.Importe));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

@@ -110,6 +110,12 @@ create table PEDIDO
 	ID_estado smallint not null foreign key references ESTADO(ID),
 	Fecha date not null
 )
+go
+create table TIPO_DE_PAGO
+(
+	ID smallint not null primary key identity (1,1),
+	Descripcion varchar (50) not null
+)
 GO
 create table FACTURA
 (
@@ -119,12 +125,6 @@ create table FACTURA
 	Fecha date not null,
 	ID_FormPago smallint not null foreign key references TIPO_DE_PAGO(ID),
 	Importe money not null
-)
-go
-create table TIPO_DE_PAGO
-(
-	ID smallint not null primary key identity (1,1),
-	Descripcion varchar (50) not null
 )
 /*create table PAGOS
 (
