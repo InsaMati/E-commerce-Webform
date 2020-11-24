@@ -64,5 +64,30 @@ namespace TPC_Orihuela_Insaurralde
             }
                      
         }
+
+        protected void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Articulo> FiltroDeBusqueda;
+
+            try
+            {
+                if (TxtFiltro.Text == "")
+                {
+                    FiltroDeBusqueda = ListaART;
+                }
+                else
+                {
+                    FiltroDeBusqueda = ListaART.FindAll(J => J.Nombre.ToLower().Contains(TxtFiltro.Text.ToLower()));
+                    RepetidorArticulos.DataSource = FiltroDeBusqueda;
+                    RepetidorArticulos.DataBind();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

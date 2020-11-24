@@ -42,6 +42,24 @@ namespace TPC_Orihuela_Insaurralde
         protected global::System.Web.UI.WebControls.DropDownList DdPrecios;
 
         /// <summary>
+        /// Control TxtFiltro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtFiltro;
+
+        /// <summary>
+        /// Control BtnBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnBuscar;
+
+        /// <summary>
         /// Control RepetidorArticulos.
         /// </summary>
         /// <remarks>

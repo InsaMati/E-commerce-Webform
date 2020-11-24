@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.Inicio" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+    <script src="Scripts/ScriptsValidaciones.js"></script>
+
     <div class="container" id="ContainerProductos">
         <div class="col-md-12">
             <h1 class="text-center">Productos</h1>
@@ -23,42 +26,55 @@
                     <asp:DropDownList ID="DdPrecios" Style="font-size: 15px" CssClass="form-control" runat="server">
                     </asp:DropDownList>
                 </div>
+
             </div>
+            <hr />
         </div>
-        <hr />
-        <asp:Repeater runat="server" ID="RepetidorArticulos">
-            <ItemTemplate>
-                <div class="col-md-4">
 
-                    <%if (Logueado != null)
-                    { %>
-                    <%if (Logueado.TipoUsuario.Id >= 1 && Logueado.TipoUsuario.Id <= 2)
-                        { %>
-                    <div style="text-align: right">
-                        <a href="ProductoAModificar.aspx?Pro=<%#Eval("Id")%>"><i class="fas fa-edit" style="font-size: 25px;color:blue;text-decoration: none"></i></a>
-                        <a href="ABMLProducto.aspx?Pro=<%#Eval("Id") %>"><i class="fas fa-trash-alt" style="font-size: 25px;color:red;text-decoration: none"></i></a>
-                        <br />
-                        <br />
-                    </div>
-                    <%} %>
-                    <%} %>
-                    <div class="card">
-                        <img src="<%#Eval("UrlImagen") %>" class="card-img-top" height="300" width="100" alt="Error Producto" />
-                        <br />
-                        <div class="card-body cards">
-                            <h5 class="card-title" style="font-size: 15px"><%#Eval("Nombre") %></h5>
-                            <p class="card-text" style="font-size: 15px"><%#Eval("Descripcion") %></p>
-                            <p class="card-text" style="font-size: 12px">$ <%#Eval("Precio") %></p>
-                        </div>
-                    </div>
-                    <a class="btn btn-secondary" style="font-family: 'Titillium Web', sans-serif; font-weight: 600; font-size: 15px; background-color: #8FCA00; border: none; justify-content: center; display: flex; height: 35px; color: #ffffff" href="ProductoSeleccionado.aspx?id=<%#Eval("Id")%>">Ver</a>
+        <asp:UpdatePanel runat="server">
+            <ContentTemplate>
+                <div class="col-lg-12">
+                    <p style="font-size: 18px">Buscador (Prueba)</p>
+                    <asp:TextBox runat="server" ID="TxtFiltro" Style="font-size: 15px" CssClass="form-control" OnKeyPress="return disableEnterKey(event);" />
                     <br />
+                    <asp:Button ID="BtnBuscar" Text="Buscar" Style="font-size: 15px" CssClass="btn btn-outline-success" runat="server" OnClick="BtnBuscar_Click" />
+
                     <hr />
-                    <br />
                 </div>
+                <asp:Repeater runat="server" ID="RepetidorArticulos">
+                    <ItemTemplate>
+                        <div class="col-md-4">
+                            <%if (Logueado != null)
+                                { %>
+                            <%if (Logueado.TipoUsuario.Id >= 1 && Logueado.TipoUsuario.Id <= 2)
+                                { %>
+                            <div style="text-align: right">
+                                <a href="ProductoAModificar.aspx?Pro=<%#Eval("Id")%>"><i class="fas fa-edit" style="font-size: 25px; color: blue; text-decoration: none"></i></a>
+                                <a href="ABMLProducto.aspx?Pro=<%#Eval("Id") %>"><i class="fas fa-trash-alt" style="font-size: 25px; color: red; text-decoration: none"></i></a>
+                                <br />
+                                <br />
+                            </div>
+                            <%} %>
+                            <%} %>
+                            <div class="card">
+                                <img src="<%#Eval("UrlImagen") %>" class="card-img-top" height="300" width="100" alt="Error Producto" />
+                                <br />
+                                <div class="card-body cards">
+                                    <h5 class="card-title" style="font-size: 15px"><%#Eval("Nombre") %></h5>
+                                    <p class="card-text" style="font-size: 15px"><%#Eval("Descripcion") %></p>
+                                    <p class="card-text" style="font-size: 12px">$ <%#Eval("Precio") %></p>
+                                </div>
+                            </div>
+                            <a class="btn btn-secondary" style="font-family: 'Titillium Web', sans-serif; font-weight: 600; font-size: 15px; background-color: #8FCA00; border: none; justify-content: center; display: flex; height: 35px; color: #ffffff" href="ProductoSeleccionado.aspx?id=<%#Eval("Id")%>">Ver</a>
+                            <br />
+                            <hr />
+                            <br />
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </ContentTemplate>
+        </asp:UpdatePanel>
 
-            </ItemTemplate>
-        </asp:Repeater>
     </div>
     <div class="container-fluid mb-5">
         <div class="text-center">
