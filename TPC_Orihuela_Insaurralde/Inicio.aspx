@@ -9,17 +9,17 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
-                    <p style="font-size:18px">Marca</p>
+                    <p style="font-size: 18px">Marca</p>
                     <asp:DropDownList ID="DdMarca" Style="font-size: 15px" CssClass="form-control" runat="server">
                     </asp:DropDownList>
                 </div>
                 <div class="col-lg-4">
-                    <p style="font-size:18px">Categoria</p>
+                    <p style="font-size: 18px">Categoria</p>
                     <asp:DropDownList ID="DdCategoria" Style="font-size: 15px" CssClass="form-control" runat="server">
                     </asp:DropDownList>
                 </div>
                 <div class="col-lg-4">
-                    <p style="font-size:18px">Precios</p>
+                    <p style="font-size: 18px">Precios</p>
                     <asp:DropDownList ID="DdPrecios" Style="font-size: 15px" CssClass="form-control" runat="server">
                     </asp:DropDownList>
                 </div>
@@ -29,6 +29,19 @@
         <asp:Repeater runat="server" ID="RepetidorArticulos">
             <ItemTemplate>
                 <div class="col-md-4">
+
+                    <%if (Logueado != null)
+                    { %>
+                    <%if (Logueado.TipoUsuario.Id >= 1 && Logueado.TipoUsuario.Id <= 2)
+                        { %>
+                    <div style="text-align: right">
+                        <a href="ProductoAModificar.aspx?Pro=<%#Eval("Id")%>"><i class="fas fa-edit" style="font-size: 25px;color:blue;text-decoration: none"></i></a>
+                        <a href="ABMLProducto.aspx?Pro=<%#Eval("Id") %>"><i class="fas fa-trash-alt" style="font-size: 25px;color:red;text-decoration: none"></i></a>
+                        <br />
+                        <br />
+                    </div>
+                    <%} %>
+                    <%} %>
                     <div class="card">
                         <img src="<%#Eval("UrlImagen") %>" class="card-img-top" height="300" width="100" alt="Error Producto" />
                         <br />
@@ -38,7 +51,7 @@
                             <p class="card-text" style="font-size: 12px">$ <%#Eval("Precio") %></p>
                         </div>
                     </div>
-                    <a class="btn btn-secondary" style="font-family: 'Titillium Web', sans-serif;font-weight:600;font-size: 15px; background-color: #8FCA00;border:none; justify-content: center; display: flex; height: 35px;color:#ffffff" href="ProductoSeleccionado.aspx?id=<%#Eval("Id")%>">Ver</a>
+                    <a class="btn btn-secondary" style="font-family: 'Titillium Web', sans-serif; font-weight: 600; font-size: 15px; background-color: #8FCA00; border: none; justify-content: center; display: flex; height: 35px; color: #ffffff" href="ProductoSeleccionado.aspx?id=<%#Eval("Id")%>">Ver</a>
                     <br />
                     <hr />
                     <br />

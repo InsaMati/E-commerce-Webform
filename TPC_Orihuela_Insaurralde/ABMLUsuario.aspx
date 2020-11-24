@@ -44,5 +44,5 @@
         <asp:Button class="btn btn-outline-danger" Style="font-size:15px" Text="Volver" runat="server" ID="BtnVolver"  />
                 </center>
     </div>
-
+    <hr />
 </asp:Content>

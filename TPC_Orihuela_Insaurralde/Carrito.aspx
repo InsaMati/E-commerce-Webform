@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Carrito.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.Carrito" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.Master" AutoEventWireup="true" CodeBehind="Carrito.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.Carrito" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Carrito</h1>
@@ -45,5 +45,5 @@
     &nbsp
    
     <asp:Button Text="Comprar" ID="BtnComprar" runat="server" Style="font-size: 15px" class="btn btn-outline-success" OnClick="BtnComprar_Click" />
-
+    <hr />
 </asp:Content>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CategoriaA.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.CategoriaA" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.Master" AutoEventWireup="true" CodeBehind="CategoriaA.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.CategoriaA" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Registro de Categoria</h1>
     <hr />
@@ -14,5 +14,5 @@
             </div>
         </div>
     </div>
-
+    <hr />
 </asp:Content>

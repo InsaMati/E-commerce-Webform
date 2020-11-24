@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ABMLProducto.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.ABMLProducto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.Master" AutoEventWireup="true" CodeBehind="ABMLProducto.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.ABMLProducto" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Administracion de productos</h1>
@@ -10,13 +10,13 @@
                 <tr>
                     <th>Codigo</th>
                     <th>Nombre</th>
-                    <th style="width:200px">Descripcion</th>
+                    <th style="width: 200px">Descripcion</th>
                     <th>Categoria</th>
                     <th>Marca</th>
                     <th>Precio</th>
                     <th>Imagen</th>
                     <th>Stock</th>
-                    <th class="text-right" style="width:200px">Acciones</th>
+                    <th class="text-right" style="width: 200px">Acciones</th>
 
                 </tr>
             </thead>
@@ -53,5 +53,5 @@
         <asp:Button class="btn btn-danger" Style="font-size:15px" Text="Volver" runat="server" ID="BtnVolver" OnClick="BtnVolver_Click1" />
                 </center>
     </div>
-
+    <hr />
 </asp:Content>

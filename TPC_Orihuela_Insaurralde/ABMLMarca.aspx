@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ABMLMarca.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.ABMLMarca" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.Master" AutoEventWireup="true" CodeBehind="ABMLMarca.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.ABMLMarca" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Administracion de Marcas</h1>
@@ -40,5 +40,5 @@
         <asp:Button ID="BtnVolver" class="btn btn-danger" Style="font-size:15px" Text="Volver" runat="server" OnClick="BtnVolver_Click" />
         </center>
     </div>
-
+    <hr />
 </asp:Content>

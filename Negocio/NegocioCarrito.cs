@@ -56,6 +56,7 @@ namespace Negocio
                 Datos.AgregarParametro("@IdUsuario", Convert.ToString(aux.IDUsuario));
                 Datos.AgregarParametro("@ID_FormaDePago", Convert.ToString(aux.IdFormaDePago));
                 Datos.AgregarParametro("@CostoTotal", Convert.ToString(aux.Importe));
+                Datos.EjecutarLector();
             }
             catch (Exception ex)
             {
