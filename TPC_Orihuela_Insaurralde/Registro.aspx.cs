@@ -76,6 +76,9 @@ namespace TPC_Orihuela_Insaurralde
 
                 NegocioUsuario.RegistrarUsuario(user, Datos);
 
+                EnvioEmails Envio = new EnvioEmails();
+                Envio.MailRegistro(user,Datos);
+
                 Response.Redirect("inicio.aspx");
             }
             catch (Exception ex)
