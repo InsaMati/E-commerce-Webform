@@ -18,11 +18,15 @@ namespace TPC_Orihuela_Insaurralde
         {
             try
             {
+
                 Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
                 if (Logueado == null) Response.Redirect("Login.aspx");
 
-                CargarListas();
-                CargarDD();
+                var Id = Request.QueryString["id"];
+
+                Continuar(Convert.ToInt32(Id));
+                //CargarListas();
+                //CargarDD();
             }
             catch (Exception ex)
             {
@@ -39,8 +43,31 @@ namespace TPC_Orihuela_Insaurralde
 
         public void CargarDD()
         {
-            DDTipoPago.DataSource = ListaTP;
-            DDTipoPago.DataBind();
+            //DDTipoPago.DataSource = ListaTP;
+            //DDTipoPago.DataBind();
+        }
+
+        public void Continuar(int Id)
+        {
+            switch (Id)
+            {
+
+                case 1:
+                    Response.Redirect("PagoEfectivo.aspx");
+                    break;
+                case 2:
+                    Response.Redirect("DatosTarjeta.aspx");
+                    break;
+                case 3:
+                    Response.Redirect("DatosBancarios.aspx");
+                    break;
+                case 4:
+                    Response.Redirect("PagoPaypal.aspx");
+                    break;
+                case 5:
+                    Response.Redirect("PagoMercadoPago.aspx");
+                    break;
+            }
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
@@ -50,29 +77,32 @@ namespace TPC_Orihuela_Insaurralde
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-            int metodo = DDTipoPago.SelectedIndex;
-            switch (metodo)
-            {
-                case 1:
-                    Response.Redirect("");
-                    break;
-                case 2:
-                    Response.Redirect("DatosTarjeta.aspx");
-                    break;
-                case 3:
-                    Response.Redirect("DatosBancarios.aspx");
-                    break;
-                case 4:
-                    Response.Redirect("");
-                    break;
-                case 5:
-                    Response.Redirect("");
-                    break;
-            }
+
+            //int metodo = DDTipoPago.SelectedIndex;
+            //switch (metodo)
+            //{
+                
+            //    case 1:
+            //        Response.Redirect("");
+            //        break;
+            //    case 2:
+            //        Response.Redirect("DatosTarjeta.aspx");
+            //        break;
+            //    case 3:
+            //        Response.Redirect("DatosBancarios.aspx");
+            //        break;
+            //    case 4:
+            //        Response.Redirect("");
+            //        break;
+            //    case 5:
+            //        Response.Redirect("");
+            //        break;
+            //}
             //1) Efectivo
             //2) Tarjeta Credito/debito
             //3) Transferencia
             //4) Paypal
             //5) MercadoPago
+        }
     }
 }
