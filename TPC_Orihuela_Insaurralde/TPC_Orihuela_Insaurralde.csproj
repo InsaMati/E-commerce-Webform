@@ -121,6 +121,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="DatosBancarios.aspx" />
     <Content Include="Facturacion.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -138,6 +139,7 @@
     <Content Include="Login.aspx" />
     <Content Include="MarcaA.aspx" />
     <Content Include="MarcaModificar.aspx" />
+    <Content Include="MetodoDePago.aspx" />
     <Content Include="ProductoA.aspx" />
     <Content Include="ProductoAModificar.aspx" />
     <Content Include="ProductoSeleccionado.aspx" />
@@ -260,6 +262,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DatosBancarios.aspx.cs">
+      <DependentUpon>DatosBancarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatosBancarios.aspx.designer.cs">
+      <DependentUpon>DatosBancarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion.aspx.cs">
       <DependentUpon>Facturacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,6 +306,13 @@
     </Compile>
     <Compile Include="MarcaModificar.aspx.designer.cs">
       <DependentUpon>MarcaModificar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MetodoDePago.aspx.cs">
+      <DependentUpon>MetodoDePago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MetodoDePago.aspx.designer.cs">
+      <DependentUpon>MetodoDePago.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductoA.aspx.cs">
       <DependentUpon>ProductoA.aspx</DependentUpon>
