@@ -125,7 +125,6 @@
     <Content Include="DatosBancarios.aspx" />
     <Content Include="DatosTarjeta.aspx" />
     <Content Include="Envios.aspx" />
-    <Content Include="Facturacion.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -293,13 +292,6 @@
     </Compile>
     <Compile Include="Envios.aspx.designer.cs">
       <DependentUpon>Envios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion.aspx.cs">
-      <DependentUpon>Facturacion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Facturacion.aspx.designer.cs">
-      <DependentUpon>Facturacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

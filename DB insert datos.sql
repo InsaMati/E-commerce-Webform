@@ -75,15 +75,6 @@ INSERT [dbo].[TIPO_DE_USUARIO]([Nombre]) VALUES ('Visita')
 go
 INSERT [dbo].[TIPO_DE_USUARIO]([Nombre]) VALUES ('Cliente')
 go
---- Usuario
-INSERT [dbo].[USUARIO]([email],[Contraseña],[IdTipoUsuario],[Estado]) VALUES ('matiasinsaurralde51@gmail.com','123456',1,1)
-go
-INSERT [dbo].[USUARIO]([email],[Contraseña],[IdTipoUsuario],[Estado]) VALUES ('msarfernandez@gmail.com','123456',2,1)
-go
-INSERT [dbo].[USUARIO]([email],[Contraseña],[IdTipoUsuario],[Estado]) VALUES ('lucasorihuela@gmail.com','123456',1,1)
-go
-INSERT [dbo].[USUARIO]([email],[Contraseña],[IdTipoUsuario],[Estado]) VALUES ('jorgemelgarejo@gmail.com','123456',3,1)
-go
 --- Medios de pago
 INSERT [dbo].[TIPO_DE_PAGO]([Descripcion]) VALUES ('Efectivo')
 go
@@ -106,6 +97,12 @@ INSERT INTO PROVINCIA VALUES ('Entre Rios')
 GO
 INSERT INTO PROVINCIA VALUES ('La Pampa')
 
-select *From TIPO_DE_PAGO
+--- Pedidos
 
-select *From DATOS_BANCARIOS
+insert into ESTADO values ('Pendiente')
+go
+insert into ESTADO values ('Rechazado')
+go
+insert into ESTADO values ('En Camino')
+go
+insert into ESTADO values ('Entregado')

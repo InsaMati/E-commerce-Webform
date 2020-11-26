@@ -172,3 +172,33 @@ END CATCH
 --BEGIN CATCH
 --	RAISERROR('ERROR AL AGREGAR PEDIDO',16,1)
 --END CATCH
+
+
+
+create procedure SP_Alta_Carrito(
+@IdUsuario smallint,
+@Costo money,
+@Estado bit
+)
+as
+BEGIN TRY 
+	INSERT INTO CARRITO(ID_usuario,Costo_Total,Estado)
+	VALUES (@IdUsuario,@Costo,@Estado)
+END TRY
+BEGIN CATCH
+	RAISERROR('Error al Agregar Carrito',16,1)
+END CATCH
+
+create procedure SP_Alta_Pedido(
+@IdCarrito smallint,
+@IdEstado smallint,
+@Fecha date
+)
+as
+BEGIN TRY 
+	INSERT INTO PEDIDO(ID_carrito,ID_estado,Fecha)
+	VALUES (@IdCarrito,@IdEstado,@Fecha)
+END TRY
+BEGIN CATCH
+	RAISERROR('Error al Agregar Pedido',16,1)
+END CATCH

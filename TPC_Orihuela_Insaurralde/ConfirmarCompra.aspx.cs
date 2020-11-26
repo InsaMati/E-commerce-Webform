@@ -52,10 +52,81 @@ namespace TPC_Orihuela_Insaurralde
         protected void BtnConfirmarCompra_Click(object sender, EventArgs e)
         {
 
+            try
+            {
+                AgregarCarrito();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void AgregarCarrito()
+        {
+          
+            try
+            {
+                NegocioCarrito NegocioCarrito = new NegocioCarrito();
+                CarritoCompra Aux = new CarritoCompra();
+                VariablesSession();
+
+                Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
+                Aux.IdUsuario = Logueado.Id;
+                Aux.CostoTotal = Total;
+
+                NegocioCarrito.AltaCarrito(Aux);
+                AltaElementoCarrito(NegocioCarrito.IdCarrito(Logueado));
+                AltaPedido(NegocioCarrito.IdCarrito(Logueado));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public void AltaElementoCarrito(int IdCarrito)
+        {
+            NegocioCarrito negocioCarrito = new NegocioCarrito();
+
+            try
+            {       
+                foreach (var Elemento in ElementosCarrito)
+                {
+                    ElementoCarrito Auxiliar = new ElementoCarrito();
+
+                    Auxiliar.IdCarrito = IdCarrito;
+                    Auxiliar.articulo = new Articulo();
+                    Auxiliar.articulo.Id = Elemento.articulo.Id;
+                    Auxiliar.Cantidad = Elemento.Cantidad;
+                    Auxiliar.SubTotal = Elemento.SubTotal;
+
+                    negocioCarrito.AltaElemento(Auxiliar);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void AltaPedido(int IdCarro)
+        {
+            NegocioCarrito NegocioCarrito = new NegocioCarrito();
 
             try
             {
+                Pedido AuxPedido = new Pedido();
+                AuxPedido.IDCarrito = IdCarro;
 
+                AuxPedido.EstadoPedidos = new EstadoPedidos();
+                AuxPedido.EstadoPedidos.Id = 1;
+                AuxPedido.Fecha = DateTime.Now;
+
+                NegocioCarrito.AltaPedido(AuxPedido);
             }
             catch (Exception ex)
             {

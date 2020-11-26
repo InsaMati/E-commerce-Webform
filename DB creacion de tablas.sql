@@ -80,6 +80,17 @@ create table DATOS_BANCARIOS
 	Alias Varchar(50)
 )
 GO
+create table DatosEnvios
+(
+       ID_Pedido smallint not null foreign key references PEDIDO(ID), 
+       ID_usuario smallint not null foreign key references USUARIO(ID),
+       Correo varchar(100),
+	   Localidad varchar(100),
+	   Calle varchar(100),
+	   EntreCalles varchar(100),
+	   CodigoPostal smallint not null
+)
+GO
 create table CARRITO
 (
 	ID smallint not null primary key identity (1,1),

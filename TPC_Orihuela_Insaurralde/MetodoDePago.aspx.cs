@@ -83,7 +83,7 @@ namespace TPC_Orihuela_Insaurralde
         {
             try
             {
-                Response.Redirect("Carrito.aspx");
+                Response.Redirect("Envios.aspx");
             }
             catch (Exception ex)
             {

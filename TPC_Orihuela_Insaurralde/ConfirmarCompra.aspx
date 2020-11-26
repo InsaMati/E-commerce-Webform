@@ -75,6 +75,6 @@
     </div>
 
     <center>
- <asp:Button ID="BtnConfirmarCompra" Text="Confirmar" CssClass="btn btn-outline-success" Style="font-size: 18px;" runat="server" />
+ <asp:Button ID="BtnConfirmarCompra" Text="Confirmar" CssClass="btn btn-outline-success" Style="font-size: 18px;" runat="server" OnClick="BtnConfirmarCompra_Click" />
     </center>
 </asp:Content>

@@ -59,7 +59,7 @@
             <center>
     <asp:Button ID="BtnContinuar" CssClass="btn btn-outline-success" Style="font-size: 15px" Text="Continuar" runat="server" OnClick="BtnContinuar_Click"  />
         &nbsp;&nbsp;
-    <asp:Button ID="BtnVolver" CssClass="btn btn-outline-danger" Style="font-size: 15px" Text="Volver" runat="server" />
+    <asp:Button ID="BtnVolver" CssClass="btn btn-outline-danger" Style="font-size: 15px" Text="Volver" runat="server" OnClick="BtnVolver_Click" />
 </center>
 
             <%} %>
