@@ -176,6 +176,8 @@ BEGIN CATCH
 	RAISERROR('Error al Agregar Carrito',16,1)
 END CATCH
 
+------- ALTA DE PEDIDO
+
 create procedure SP_Alta_Pedido(
 @IdCarrito smallint,
 @IdEstado smallint,
@@ -190,7 +192,7 @@ BEGIN CATCH
 	RAISERROR('Error al Agregar Pedido',16,1)
 END CATCH
 
----------
+--------- ALTA DE ELEMENTO CARRITO
 
 create procedure SP_Alta_ElementoCarrito(
     @ID_carrito smallint,
@@ -207,7 +209,21 @@ BEGIN CATCH
 	RAISERROR('Error al Agregar Elemento Carrito',16,1)
 END CATCH
 
----------
+--------- LISTAR ELEMENTOS POR USUARIO
+create procedure SP_Compras_X_Usuario(
+	@ID_usuario smallint
+
+) as
+BEGIN TRY
+	select * from ARTICULOS_X_CARRITO as axc
+	inner join CARRITO as c on c.ID = axc.ID_carrito
+	where c.ID_usuario = @ID_usuario
+END TRY
+BEGIN CATCH
+	RAISERROR('Error al listar articulos',16,1)
+END CATCH
+
+--------- ALTA DE FACTURA
 
 
 create procedure SP_Alta_Factura(

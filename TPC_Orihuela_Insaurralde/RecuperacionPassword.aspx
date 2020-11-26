@@ -11,7 +11,7 @@
                 <br />
                 <asp:TextBox ID="txtEmail" runat="server"  Style="font-size: 15px;" CssClass="form-control" />
                 <br />
-                <asp:Button Text="Continuar" Style="font-size: 15px;" CssClass="btn btn-dark" runat="server" />
+                <asp:Button Text="Continuar" ID="btnContinuar" Style="font-size: 15px;" CssClass="btn btn-dark" runat="server" OnClick="btnContinuar_Click" />
             </div>
         </div>
     </div>

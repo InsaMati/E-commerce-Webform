@@ -13,6 +13,11 @@ namespace TPC_Orihuela_Insaurralde
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+        
+        protected void btnContinuar_Click(object sender, EventArgs e)
+        {
             try
             {
                 NegocioUsuario usuario = new NegocioUsuario();
@@ -20,13 +25,17 @@ namespace TPC_Orihuela_Insaurralde
 
                 string Password = usuario.RecuperarPassword(txtEmail.Text);
                 EnviarMail.MailRecuPass(txtEmail.Text, Password);
-
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
+
         }
+
+        
+
+                
     }
 }
