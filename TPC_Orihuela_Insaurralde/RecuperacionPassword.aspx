@@ -9,7 +9,7 @@
                 <asp:Label Text="Ingresá el e-mail con el que te registraste" Style="font-size: 15px; color:black;font-weight:700" runat="server" />
                 <br />
                 <br />
-                <asp:TextBox runat="server"  Style="font-size: 15px;" CssClass="form-control" />
+                <asp:TextBox ID="txtEmail" runat="server"  Style="font-size: 15px;" CssClass="form-control" />
                 <br />
                 <asp:Button Text="Continuar" Style="font-size: 15px;" CssClass="btn btn-dark" runat="server" />
             </div>

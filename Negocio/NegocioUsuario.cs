@@ -186,5 +186,25 @@ namespace Negocio
 
         }
 
+        public string RecuperarPassword (String email)
+        {
+            List<Usuario> ListaUsuarios = new List<Usuario>();            
+
+            try
+            {
+
+                ListaUsuarios = ListarUsuarios();
+                Usuario aux = ListaUsuarios.Find(j => j.Email == email);
+                string password = Criptografia.DesEncriptar( aux.Contraseña);               
+
+                return password;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

@@ -43,6 +43,40 @@ namespace Negocio
 
         }
 
+        public void MailRecuPass(string email, string password)
+        {
+            try
+            {
+                string Remitente = "TpcCuatrimestralInsaurralde@gmail.com";
+                string contraseña = "AprueboOnoApruebo?";
+
+                MailMessage Msj = new MailMessage();
+                Msj.To.Add(email);
+                Msj.Subject = "Recuperacion de contraseña";
+                Msj.SubjectEncoding = System.Text.Encoding.UTF8;
+                Msj.Body = "Estimado cliente. " +
+                    "Su contraseña es " + password + "." +
+                    "Le recomendamos cambiarla por su seguridad." +
+                    "atte TPC.";
+                Msj.IsBodyHtml = false;
+                Msj.From = new System.Net.Mail.MailAddress(Remitente);
+
+                System.Net.Mail.SmtpClient Cliente = new SmtpClient();
+                Cliente.Credentials = new System.Net.NetworkCredential(Remitente, contraseña);
+                Cliente.Port = 587;
+                Cliente.EnableSsl = true;
+                Cliente.Host = "smtp.gmail.com";
+
+                Cliente.Send(Msj);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
 
     }
 }
