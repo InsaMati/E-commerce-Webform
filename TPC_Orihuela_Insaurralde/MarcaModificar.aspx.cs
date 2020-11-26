@@ -12,11 +12,16 @@ namespace TPC_Orihuela_Insaurralde
     public partial class MarcaModificar : System.Web.UI.Page
     {
         public List<Marca> BuscarMarca = new List<Marca>();
+        public Usuario Logueado = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
 
             try
             {
+                Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
+                if (Logueado == null) Response.Redirect("Login.aspx");
+                if (Logueado.TipoUsuario.Id >= 3) Response.Redirect("Inicio.aspx");
+
                 NegocioMarca Negocio = new NegocioMarca();
                 BuscarMarca = Negocio.ListarMarcas();
                 var MarcaVieja = Request.QueryString["ID"];

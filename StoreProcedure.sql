@@ -216,7 +216,7 @@ create procedure SP_Alta_Factura(
 	@ID_usuario smallint,
 	@Fecha date,
 	@ID_FormPago smallint,
-	@Importe money not null
+	@Importe money
 )
 as
 BEGIN TRY 

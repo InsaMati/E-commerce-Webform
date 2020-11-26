@@ -12,6 +12,7 @@ namespace TPC_Orihuela_Insaurralde
     public partial class ABMLUsuario : System.Web.UI.Page
     {
         public List<Usuario> Lista = new List<Usuario>();
+        public Usuario Logueado = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             NegocioUsuario NegocioUsuario = new NegocioUsuario();
@@ -19,6 +20,10 @@ namespace TPC_Orihuela_Insaurralde
             try
             {
                 Lista = NegocioUsuario.ListarUsuarios();
+
+                Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
+                if (Logueado == null) Response.Redirect("Login.aspx");
+                if (Logueado.TipoUsuario.Id >= 3) Response.Redirect("Inicio.aspx");
 
                 var Eliminado = Request.QueryString["User"];
 

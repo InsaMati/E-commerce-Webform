@@ -16,12 +16,16 @@ namespace TPC_Orihuela_Insaurralde
         public List<Marca> ListaM = new List<Marca>();
         public List<Articulo> BuscarArticulo = new List<Articulo>();
         public List<Categoria> ListaC = new List<Categoria>();
-
+        public Usuario Logueado = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                
+
+                Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
+                if (Logueado == null) Response.Redirect("Login.aspx");
+                if (Logueado.TipoUsuario.Id >= 3) Response.Redirect("Inicio.aspx");
+
                 if (!IsPostBack)
                 {
                     var Modificar = Request.QueryString["Pro"];

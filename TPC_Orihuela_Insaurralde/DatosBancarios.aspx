@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
         <script src="Scripts/ScriptsValidaciones.js"></script>
+    <script src="Scripts/ScriptsValidaciones.js"></script>
     <h1>DATOS BANCARIOS</h1>
     <hr />
     <div class="container">

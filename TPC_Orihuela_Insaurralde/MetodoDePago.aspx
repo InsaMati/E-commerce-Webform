@@ -1,9 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.Master" AutoEventWireup="true" CodeBehind="MetodoDePago.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.MetodoDePago" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Metodo de envio</h1>
+   
+    <script src="Scripts/ScriptsValidaciones.js"></script>
+    
+    <h1>Metodos de Pago</h1>
     <hr />
-
+    
     <div class="container">
         <div class="row">
             <div class="col-md-12">

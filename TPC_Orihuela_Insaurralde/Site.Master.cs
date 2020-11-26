@@ -15,7 +15,8 @@ namespace TPC_Orihuela_Insaurralde
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Logueado = (Usuario)Session["UsuarioLogueado"];
+
+            Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
 
         }
     }

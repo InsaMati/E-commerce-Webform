@@ -12,12 +12,17 @@ namespace TPC_Orihuela_Insaurralde
     public partial class ABMLProducto : System.Web.UI.Page
     {
         public List<Articulo> Lista = new List<Articulo>();
+        public Usuario Logueado = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 NegocioArticulo Negocio = new NegocioArticulo();
                 Lista = Negocio.ListarArticulos();
+
+                Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
+                if (Logueado == null) Response.Redirect("Login.aspx");
+                if (Logueado.TipoUsuario.Id >= 3) Response.Redirect("Inicio.aspx");
 
                 var Eliminado = Request.QueryString["Pro"];
 

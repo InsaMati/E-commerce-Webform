@@ -1,4 +1,6 @@
 ﻿using System;
+using Dominio;
+using Negocio;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +11,10 @@ namespace TPC_Orihuela_Insaurralde
 {
     public partial class SiteMaster2 : System.Web.UI.MasterPage
     {
+        public Usuario Logueado = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
         }
     }
 }

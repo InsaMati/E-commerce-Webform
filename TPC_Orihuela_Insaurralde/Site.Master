@@ -65,15 +65,16 @@
                         <a class="nav-link pr-5" href="Carrito.aspx">Carrito</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pr-5" href="#">Mis Compras</a>
+                        <a class="nav-link pr-5" href="MisCompras.aspx">Mis Compras</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pr-5" href="Login.aspx">Login</a>
                     </li>
 
                     <% if (Logueado != null)
+                    { %>
+                    <% if (Logueado.TipoUsuario.Id == 1)
                         { %>
-                    <% if(Logueado.TipoUsuario.Id == 1 || Logueado.TipoUsuario.Id == 2 ){ %>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABML
                         </a>

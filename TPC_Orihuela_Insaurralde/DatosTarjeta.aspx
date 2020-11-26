@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.Master" AutoEventWireup="true" CodeBehind="DatosTarjeta.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.DatosTarjeta" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <script src="Scripts/ScriptsValidaciones.js"></script>
     <h1 style="text-align:center">Información de pago</h1>
     <hr />
     <div class="container">

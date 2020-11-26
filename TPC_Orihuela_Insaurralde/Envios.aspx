@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.Master" AutoEventWireup="true" CodeBehind="Envios.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.Envios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <script src="Scripts/ScriptsValidaciones.js"></script>
     <h1>Metodo de envio</h1>
     <hr />
 

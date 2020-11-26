@@ -11,10 +11,14 @@ namespace TPC_Orihuela_Insaurralde
 {
     public partial class ProductoA : System.Web.UI.Page
     {
+        public Usuario Logueado = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+                Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
+                if (Logueado == null) Response.Redirect("Login.aspx");
+                if (Logueado.TipoUsuario.Id >= 3) Response.Redirect("Inicio.aspx");
                 NegocioCategoria NegocioCategoria = new NegocioCategoria();
                 NegocioMarca NegocioMarca = new NegocioMarca();
 
