@@ -28,8 +28,18 @@ namespace TPC_Orihuela_Insaurralde
 
         protected void BtnContinuar_Click(object sender, EventArgs e)
         {
+            DatosEnvio DatosEnvio = new DatosEnvio();
+
             try
             {
+                DatosEnvio.IdPedido = 1;
+                DatosEnvio.IdUsuario = Logueado.Id;
+                DatosEnvio.Correo = DDcorreo.SelectedValue;
+                DatosEnvio.Calle = TxtCalle.Text;
+                DatosEnvio.EntreCalles = TxtEntreCalles.Text;
+                DatosEnvio.CodigoPostal = Convert.ToInt32(TxtCodigoPostal.Text);
+
+                Session.Add(Session.SessionID + "DatosEnvio", DatosEnvio);
                 Response.Redirect("MetodoDePago.aspx");
             }
             catch (Exception ex)

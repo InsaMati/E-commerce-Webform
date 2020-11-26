@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-4">
                 <asp:Label Style="font-size: 15px" Text="Correo" runat="server" />
-                <asp:DropDownList Style="font-size: 15px" CssClass="form-control" runat="server">
+                <asp:DropDownList ID="DDcorreo" Style="font-size: 15px" CssClass="form-control" runat="server">
                     <asp:ListItem Text="Oca" />
                     <asp:ListItem Text="Correo Argentino" />
                 </asp:DropDownList>

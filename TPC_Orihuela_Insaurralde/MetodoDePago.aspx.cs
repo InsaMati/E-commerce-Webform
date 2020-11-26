@@ -42,25 +42,41 @@ namespace TPC_Orihuela_Insaurralde
 
         public void Continuar(int Id)
         {
-            switch (Id)
+            try
+            {
+                Session.Add(Session.SessionID + "IdMetodoPago", Id);
+
+                switch (Id)
+                {
+
+                    case 1:
+                        Response.Redirect("PagoEfectivo.aspx");
+                        
+                        break;
+                    case 2:
+                        Response.Redirect("DatosTarjeta.aspx");
+                        
+                        break;
+                    case 3:
+                        Response.Redirect("DatosBancarios.aspx");
+                        break;
+                    case 4:
+                        Response.Redirect("PagoPaypal.aspx");
+                        break;
+                    case 5:
+                        Response.Redirect("PagoMercadoPago.aspx");
+                        break;
+                }
+
+                
+
+            }
+            catch (Exception ex)
             {
 
-                case 1:
-                    Response.Redirect("PagoEfectivo.aspx");
-                    break;
-                case 2:
-                    Response.Redirect("DatosTarjeta.aspx");
-                    break;
-                case 3:
-                    Response.Redirect("DatosBancarios.aspx");
-                    break;
-                case 4:
-                    Response.Redirect("PagoPaypal.aspx");
-                    break;
-                case 5:
-                    Response.Redirect("PagoMercadoPago.aspx");
-                    break;
+                throw ex;
             }
+           
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
