@@ -16,7 +16,7 @@ namespace Dominio
 
         public DateTime FechaFactura { get; set; }
 
-        public int IdFormaDePago { get; set; }
+        public TipoDePago TipoDePago { get; set; }
 
         public double Importe { get; set; }
     }

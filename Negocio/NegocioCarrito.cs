@@ -58,6 +58,33 @@ namespace Negocio
 
         }
 
+
+        public int IdPedido(int IdCarrito)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+
+            int IdPedido = new int();
+            try
+            {
+                Datos.SetearQuery("select ID From PEDIDO where ID_carrito = @IdCarrito");
+                Datos.AgregarParametro("@IdCarrito", Convert.ToString(IdCarrito));
+                Datos.EjecutarLector();
+
+                if (Datos.Leeme.Read())
+                {
+                    IdPedido = Datos.Leeme.GetInt16(0);
+
+                }
+
+                return IdPedido;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public void AltaPedido(Pedido Alta)
         {
             AccesoADatos Datos = new AccesoADatos();
@@ -97,6 +124,29 @@ namespace Negocio
                 throw ex;
             }
 
+        }
+
+        public void AltaFactura(Factura AuxAlta)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+
+            try
+            {
+                Datos.SetearSp("SP_Alta_Factura");
+
+                Datos.AgregarParametro("@ID_pedido", Convert.ToString(AuxAlta.IDPedido));
+                Datos.AgregarParametro("@ID_usuario", Convert.ToString(AuxAlta.IDUsuario));
+                Datos.AgregarParametroDateTime("@Fecha", AuxAlta.FechaFactura);
+                Datos.AgregarParametro("@ID_FormPago", Convert.ToString(AuxAlta.TipoDePago.Id));
+                Datos.AgregarParametro("@Importe", Convert.ToString(AuxAlta.Importe));
+                Datos.EjecutarLector();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
 

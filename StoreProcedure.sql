@@ -160,6 +160,7 @@ BEGIN CATCH
 	RAISERROR('Error al Modificar Usuario',16,1)
 END CATCH
 
+---------------------- Ventas
 
 create procedure SP_Alta_Carrito(
 @IdUsuario smallint,
@@ -189,6 +190,8 @@ BEGIN CATCH
 	RAISERROR('Error al Agregar Pedido',16,1)
 END CATCH
 
+---------
+
 create procedure SP_Alta_ElementoCarrito(
     @ID_carrito smallint,
 	@ID_articulos smallint,
@@ -203,3 +206,25 @@ END TRY
 BEGIN CATCH
 	RAISERROR('Error al Agregar Elemento Carrito',16,1)
 END CATCH
+
+---------
+
+
+create procedure SP_Alta_Factura(
+   
+	@ID_pedido smallint,
+	@ID_usuario smallint,
+	@Fecha date,
+	@ID_FormPago smallint,
+	@Importe money not null
+)
+as
+BEGIN TRY 
+	INSERT INTO FACTURA(ID_pedido,ID_usuario,Fecha,ID_FormPago,Importe)
+	VALUES (@ID_pedido,@ID_usuario,@Fecha,@ID_FormPago,@Importe)
+END TRY
+BEGIN CATCH
+	RAISERROR('Error al Agregar Factura',16,1)
+END CATCH
+
+
