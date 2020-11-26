@@ -64,10 +64,10 @@ namespace Negocio
 
             try
             {
-                Datos.SetearSp("");
-                Datos.AgregarParametro("","");
-                Datos.AgregarParametro("","");
-                Datos.AgregarParametro("", "");
+                Datos.SetearSp("SP_Alta_Pedido");
+                Datos.AgregarParametro("@IdCarrito", Convert.ToString(Alta.IDCarrito));
+                Datos.AgregarParametro("@IdEstado", Convert.ToString(Alta.EstadoPedidos.Id));
+                Datos.AgregarParametroDateTime("@Fecha", Alta.Fecha);
                 Datos.EjecutarLector();
             }
             catch (Exception ex)
@@ -83,6 +83,12 @@ namespace Negocio
 
             try
             {
+                Datos.SetearSp("SP_Alta_ElementoCarrito");
+                Datos.AgregarParametro("@ID_carrito", Convert.ToString(Alta.IdCarrito));
+                Datos.AgregarParametro("@ID_articulos", Convert.ToString(Alta.articulo.Id));
+                Datos.AgregarParametro("@Cantidad", Convert.ToString(Alta.Cantidad));
+                Datos.AgregarParametro("@Subtotal", Convert.ToString(Alta.SubTotal));
+                Datos.EjecutarLector();
 
             }
             catch (Exception ex)

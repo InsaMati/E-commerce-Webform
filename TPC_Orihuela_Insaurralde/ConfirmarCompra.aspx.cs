@@ -55,6 +55,7 @@ namespace TPC_Orihuela_Insaurralde
             try
             {
                 AgregarCarrito();
+                Response.Redirect("Inicio.aspx");
             }
             catch (Exception ex)
             {

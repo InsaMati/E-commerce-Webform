@@ -160,20 +160,6 @@ BEGIN CATCH
 	RAISERROR('Error al Modificar Usuario',16,1)
 END CATCH
 
--- AGREGAR PEDIDO
---create procedure SP_Agregar_Pedido(
---@ID_Carrito smallint,
---@ID_Estado smallint
---)
---as
---BEGIN TRY
---	UPDATE PEDIDO SET ID_carrito = @ID_Carrito, ID_estado = @ID_Estado
---END TRY
---BEGIN CATCH
---	RAISERROR('ERROR AL AGREGAR PEDIDO',16,1)
---END CATCH
-
-
 
 create procedure SP_Alta_Carrito(
 @IdUsuario smallint,
@@ -201,4 +187,19 @@ BEGIN TRY
 END TRY
 BEGIN CATCH
 	RAISERROR('Error al Agregar Pedido',16,1)
+END CATCH
+
+create procedure SP_Alta_ElementoCarrito(
+    @ID_carrito smallint,
+	@ID_articulos smallint,
+	@Cantidad smallint,
+	@Subtotal money
+)
+as
+BEGIN TRY 
+	INSERT INTO ARTICULOS_X_CARRITO(ID_carrito,ID_articulos,Cantidad,Subtotal)
+	VALUES (@ID_carrito,@ID_articulos,@Cantidad,@Subtotal)
+END TRY
+BEGIN CATCH
+	RAISERROR('Error al Agregar Elemento Carrito',16,1)
 END CATCH
