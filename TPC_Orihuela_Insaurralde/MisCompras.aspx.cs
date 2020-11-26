@@ -15,12 +15,15 @@ namespace TPC_Orihuela_Insaurralde
         protected void Page_Load(object sender, EventArgs e)
         {
             NegocioUsuario negocio = new NegocioUsuario();
+            List<Articulo> Lista = new List<Articulo>();
             try
             {
                 Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
                 if (Logueado == null) Response.Redirect("Login.aspx");
-                negocio.ListarCompras(Logueado);
-                
+                Lista = negocio.ListarCompras(Logueado);
+                RepetidorArticulos.DataSource = Lista;
+                RepetidorArticulos.DataBind();
+
             }
             catch (Exception ex)
             {
