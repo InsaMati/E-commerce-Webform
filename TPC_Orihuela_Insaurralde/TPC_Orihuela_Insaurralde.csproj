@@ -115,6 +115,7 @@
     <Content Include="Carrito.aspx" />
     <Content Include="CategoriaA.aspx" />
     <Content Include="CategoriaModificar.aspx" />
+    <Content Include="ConfirmarCompra.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -122,6 +123,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="DatosBancarios.aspx" />
+    <Content Include="DatosTarjeta.aspx" />
+    <Content Include="Envios.aspx" />
     <Content Include="Facturacion.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -140,6 +143,7 @@
     <Content Include="MarcaA.aspx" />
     <Content Include="MarcaModificar.aspx" />
     <Content Include="MetodoDePago.aspx" />
+    <Content Include="PagoEfectivo.aspx" />
     <Content Include="ProductoA.aspx" />
     <Content Include="ProductoAModificar.aspx" />
     <Content Include="ProductoSeleccionado.aspx" />
@@ -256,6 +260,13 @@
     <Compile Include="CategoriaModificar.aspx.designer.cs">
       <DependentUpon>CategoriaModificar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmarCompra.aspx.cs">
+      <DependentUpon>ConfirmarCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmarCompra.aspx.designer.cs">
+      <DependentUpon>ConfirmarCompra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -269,6 +280,20 @@
     </Compile>
     <Compile Include="DatosBancarios.aspx.designer.cs">
       <DependentUpon>DatosBancarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DatosTarjeta.aspx.cs">
+      <DependentUpon>DatosTarjeta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatosTarjeta.aspx.designer.cs">
+      <DependentUpon>DatosTarjeta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Envios.aspx.cs">
+      <DependentUpon>Envios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Envios.aspx.designer.cs">
+      <DependentUpon>Envios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Facturacion.aspx.cs">
       <DependentUpon>Facturacion.aspx</DependentUpon>
@@ -314,6 +339,13 @@
     </Compile>
     <Compile Include="MetodoDePago.aspx.designer.cs">
       <DependentUpon>MetodoDePago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagoEfectivo.aspx.cs">
+      <DependentUpon>PagoEfectivo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagoEfectivo.aspx.designer.cs">
+      <DependentUpon>PagoEfectivo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductoA.aspx.cs">
       <DependentUpon>ProductoA.aspx</DependentUpon>

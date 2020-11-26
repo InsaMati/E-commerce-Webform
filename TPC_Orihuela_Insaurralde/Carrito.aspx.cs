@@ -104,7 +104,7 @@ namespace TPC_Orihuela_Insaurralde
             {
                 if(ElementoC.Count > 0)
                 {
-                    Response.Redirect("MetodoDePago.aspx");
+                    Response.Redirect("Envios.aspx");
                 }
 
 
