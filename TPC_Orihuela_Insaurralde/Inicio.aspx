@@ -34,10 +34,10 @@
         <asp:UpdatePanel runat="server">
             <ContentTemplate>
                 <div class="col-lg-12">
-                    <p style="font-size: 18px">Buscador (Prueba)</p>
+                    <p style="font-size: 18px">Buscador</p>
                     <asp:TextBox runat="server" ID="TxtFiltro" Style="font-size: 15px" CssClass="form-control" OnKeyPress="return disableEnterKey(event);" />
                     <br />
-                    <asp:Button ID="BtnBuscar" Text="Buscar" Style="font-size: 15px" CssClass="btn btn-outline-success" runat="server" OnClick="BtnBuscar_Click" />
+                    <asp:Button ID="BtnBuscar" Text="Buscar" Style="font-size: 15px;" CssClass="btn btn-outline-secondary" runat="server" OnClick="BtnBuscar_Click" />
 
                     <hr />
                 </div>
@@ -49,8 +49,8 @@
                             <%if (Logueado.TipoUsuario.Id >= 1 && Logueado.TipoUsuario.Id <= 2)
                                 { %>
                             <div style="text-align: right">
-                                <a href="ProductoAModificar.aspx?Pro=<%#Eval("Id")%>"><i class="fas fa-edit" style="font-size: 25px; color: blue; text-decoration: none"></i></a>
-                                <a href="ABMLProducto.aspx?Pro=<%#Eval("Id") %>"><i class="fas fa-trash-alt" style="font-size: 25px; color: red; text-decoration: none"></i></a>
+                                <a href="ProductoAModificar.aspx?Pro=<%#Eval("Id")%>"><i class="fas fa-edit" style="font-size: 22.5px; color: blueviolet; text-decoration: none"></i></a>
+                                <a href="ABMLProducto.aspx?Pro=<%#Eval("Id") %>"><i class="fas fa-trash-alt" style="font-size: 22.5px; color: red; text-decoration: none"></i></a>
                                 <br />
                                 <br />
                             </div>

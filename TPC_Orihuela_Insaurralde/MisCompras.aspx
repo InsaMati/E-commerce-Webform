@@ -6,7 +6,7 @@
     <hr />
     <div class="container">
         <table class="table table-hover table-bordered">
-            <thead class="thead-dark text-center" style="font-size: 14px">
+            <thead class="thead-light text-center" style="font-size: 14px">
                 <tr>
                     <th>Nro Remito</th>
                     <th>Estado</th>
@@ -31,7 +31,7 @@
                     <td style="font-size: 12px"><% = Item.TipoDePago.Descripcion %></td>
                     <td style="font-size: 12px">$<% = Item.Importe %></td>
                     <td class="text-right">
-                        <a href="#" class="btn btn-primary badge-pill" style="font-size: 15px; color: white; text-decoration: none;width:100px">Ver</a>
+                        <a href="#" class="btn btn-outline-primary badge-pill" style="font-size: 15px;text-decoration: none;width:100px">Ver</a>
                     </td>
                 </tr>
 
@@ -40,4 +40,9 @@
                 <% } %>
             </tbody>
         </table>
+
+        <center>
+       
+        <asp:Button class="btn btn-outline-danger" Style="font-size:15px" Text="Volver" runat="server" ID="BtnVolver" OnClick="BtnVolver_Click" />
+                </center>
 </asp:Content>

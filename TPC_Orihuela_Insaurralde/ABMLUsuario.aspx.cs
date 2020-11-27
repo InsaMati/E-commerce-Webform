@@ -42,5 +42,31 @@ namespace TPC_Orihuela_Insaurralde
             }
 
         }
+
+        protected void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("Registro.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        protected void BtnVolver_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("Inicio.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

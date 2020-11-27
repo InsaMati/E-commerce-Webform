@@ -6,7 +6,7 @@
     <hr />
     <div class="container">
         <table class="table table-hover table-bordered">
-            <thead class="thead-dark text-center" style="font-size: 14px">
+            <thead class="thead-light text-center" style="font-size: 14px">
                 <tr>
                     <th>Nombre</th>
                     <th>Cantidad</th>

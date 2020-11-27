@@ -7,7 +7,7 @@
     <div class="container">
 
         <table class="table table-hover table-bordered">
-            <thead class="thead-dark text-center" style="font-size: 14px">
+            <thead class="thead-light text-center" style="font-size: 14px">
                 <tr>
                     <th>ID</th>
                     <th>Email</th>
@@ -30,8 +30,8 @@
                     <td style="font-size: 12px"><% = Item.Contraseña %></td>
                     <td style="font-size: 12px"><% = Item.TipoUsuario.Nombre %></td>
                     <td class="text-right">
-                        <a href="UsuarioaModificar.aspx?Pro=<% = Item.Id %>" class="btn btn-primary badge-pill" style="font-size: 15px; color: white; text-decoration: none">Editar</a>
-                        <a href="ABMLUsuario.aspx?User=<% = Item.Id %>" class="btn btn-danger badge-pill" style="font-size: 15px; color: white; text-decoration: none">Eliminar</a>
+                        <a href="UsuarioaModificar.aspx?Pro=<% = Item.Id %>" class="btn btn-outline-primary badge-pill" style="font-size: 15px;text-decoration: none">Editar</a>
+                        <a href="ABMLUsuario.aspx?User=<% = Item.Id %>" class="btn btn-outline-danger badge-pill" style="font-size: 15px;text-decoration: none">Eliminar</a>
                     </td>
                 </tr>
 
@@ -40,8 +40,8 @@
             </tbody>
         </table>
         <center>
-        <asp:Button class="btn btn-outline-primary" Style="font-size:15px" Text="Agregar" runat="server" ID="BtnAgregar" />
-        <asp:Button class="btn btn-outline-danger" Style="font-size:15px" Text="Volver" runat="server" ID="BtnVolver"  />
+        <asp:Button class="btn btn-outline-primary" Style="font-size:15px" Text="Agregar" runat="server" ID="BtnAgregar" OnClick="BtnAgregar_Click" />
+        <asp:Button class="btn btn-outline-danger" Style="font-size:15px" Text="Volver" runat="server" ID="BtnVolver" OnClick="BtnVolver_Click"  />
                 </center>
     </div>
     <hr />
