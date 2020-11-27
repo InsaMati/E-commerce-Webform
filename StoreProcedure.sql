@@ -258,3 +258,18 @@ inner join ESTADO AS E on E.ID = P.ID_estado
 inner join TIPO_DE_PAGO as TP on TP.ID = F.ID_FormPago
 where F.ID_usuario = @Id_Usuario
 
+
+
+create procedure SP_ModificarEstadoPedido(
+@IdPedido smallint,
+@IdEstado smallint
+)
+as
+BEGIN TRY 
+	UPDATE  PEDIDO set ID_estado = @IdEstado
+	where ID = @IdPedido
+END TRY
+BEGIN CATCH
+	RAISERROR('Error al Modificar estado de pedido',16,1)
+END CATCH
+

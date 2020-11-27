@@ -13,9 +13,11 @@ select U.ID,U.Email, U.Contraseña, U.Estado, TU.ID as IdTipo, TU.Nombre as TipoU
 inner join TIPO_DE_USUARIO as TU on TU.ID = U.IdTipoUsuario
 
 create view VW_ListarAdmPedidos as
-select P.ID,P.ID_CARRITO,P.ID_Estado, P.Fecha, C.Costo_Total [Importe], TP.Descripcion [Forma De Pago]  ,E.Descripcion [Estado] from PEDIDO as P
-inner join ESTADO as E on E.ID = P.ID_estado
+select P.ID, P.ID_CARRITO [Nro Remito],P.ID_ESTADO,P.Fecha, C.Costo_Total[Importe],E.Descripcion [Estado] From PEDIDO as P
 inner join CARRITO as C on C.ID = P.ID_carrito
-inner join FACTURA as F on F.ID = P.ID
-inner join TIPO_DE_PAGO as TP on TP.ID = F.ID_FormPago
+inner join ESTADO as E on E.ID = P.ID_estado
+
+
+
+
 

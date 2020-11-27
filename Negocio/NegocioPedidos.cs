@@ -29,16 +29,34 @@ namespace Negocio
                     AuxPedido.EstadoPedidos = new EstadoPedidos();
 
                     AuxPedido.EstadoPedidos.Id = Datos.Leeme.GetInt16(2);
-                    AuxPedido.EstadoPedidos.Descripcion = Datos.Leeme.GetString(6);
+                    AuxPedido.EstadoPedidos.Descripcion = Datos.Leeme.GetString(5);
 
                     AuxPedido.Fecha = Datos.Leeme.GetDateTime(3);
                     AuxPedido.Importe = (double)Datos.Leeme.GetDecimal(4);
-                    AuxPedido.FormaPago = Datos.Leeme.GetString(5);
 
                     Lista.Add(AuxPedido);
                 }
 
                 return Lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public void ModificarEstado(int IdPedido,int IdEstado)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+
+            try
+            {
+                Datos.SetearSp("SP_ModificarEstadoPedido");
+                Datos.AgregarParametro("@IdPedido", Convert.ToString(IdPedido));
+                Datos.AgregarParametro("@IdEstado", Convert.ToString(IdEstado));
+                Datos.EjecutarLector();
             }
             catch (Exception ex)
             {

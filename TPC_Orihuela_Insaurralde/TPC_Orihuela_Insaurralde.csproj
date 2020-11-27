@@ -149,6 +149,7 @@
     <Content Include="ProductoSeleccionado.aspx" />
     <Content Include="RecuperacionPassword.aspx" />
     <Content Include="Registro.aspx" />
+    <Content Include="RevisionPedidos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -381,6 +382,13 @@
     </Compile>
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RevisionPedidos.aspx.cs">
+      <DependentUpon>RevisionPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RevisionPedidos.aspx.designer.cs">
+      <DependentUpon>RevisionPedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

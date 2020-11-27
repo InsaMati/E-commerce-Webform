@@ -23,6 +23,28 @@ namespace TPC_Orihuela_Insaurralde
                 if (Logueado.TipoUsuario.Id >= 3) Response.Redirect("Inicio.aspx");
 
                 CargarLista();
+                VariablesRequest();
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void VariablesRequest()
+        {
+            try
+            {
+                var IdPedido = Request.QueryString["ID"];
+                var IdEstado = Request.QueryString["Estado"];
+
+                if (IdPedido != null && IdEstado != null)
+                {
+                    AccionesPedidos(Convert.ToInt32(IdPedido), Convert.ToInt32(IdEstado));
+                }
             }
             catch (Exception ex)
             {
@@ -30,13 +52,41 @@ namespace TPC_Orihuela_Insaurralde
                 throw ex;
             }
         }
-
         public void CargarLista()
-        {        
+        {
             try
             {
                 NegocioPedidos NegocioPedidos = new NegocioPedidos();
                 ListaPedidos = NegocioPedidos.ListarPedidos();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public void AccionesPedidos(int IdPedido, int IdEstado)
+        {
+            try
+            {
+                NegocioPedidos NegocioPedidos = new NegocioPedidos();
+                NegocioPedidos.ModificarEstado(IdPedido, IdEstado);
+                CargarLista();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        protected void BtnVolver_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("inicio.aspx");
             }
             catch (Exception ex)
             {
