@@ -206,42 +206,31 @@ namespace Negocio
             }
         }
 
-        public List<Articulo> ListarCompras(Usuario user)
+        public List<ComprasPorUsuario> ListarCompras(int IdPedido)
         {
             AccesoADatos Datos = new AccesoADatos();
-            Articulo aux = new Articulo();
-            List<Articulo> ListaArticulos = new List<Articulo>();
+            List<ComprasPorUsuario> ListaArticulos = new List<ComprasPorUsuario>();
 
             try
             { 
 
                 Datos.SetearSp("SP_Compras_X_Usuario");
-                Datos.AgregarParametro("@ID_usuario",Convert.ToString(user.Id));
+                Datos.AgregarParametro("@ID_Pedido",Convert.ToString(IdPedido));
                 Datos.EjecutarLector();
 
                 while(Datos.Leeme.Read())
                 {
-                    aux.Id = Datos.Leeme.GetInt16(0);
-                    aux.Codigo = Datos.Leeme.GetString(1);
-                    aux.Nombre = Datos.Leeme.GetString(2);
-                    aux.Descripcion = Datos.Leeme.GetString(3);
+                    ComprasPorUsuario Aux = new ComprasPorUsuario();
 
-                    aux.Marca = new Marca();
-                    aux.Marca.Nombre = Datos.Leeme.GetString(4);
+                    Aux.elementoCarrito = new ElementoCarrito();
+                    Aux.elementoCarrito.articulo = new Articulo();
+                    Aux.elementoCarrito.articulo.Nombre = Datos.Leeme.GetString(0);
+                    Aux.elementoCarrito.articulo.Descripcion = Datos.Leeme.GetString(1);
 
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.Nombre = Datos.Leeme.GetString(5);
+                    Aux.elementoCarrito.Cantidad = Datos.Leeme.GetInt16(2);
+                    Aux.elementoCarrito.SubTotal = (double)Datos.Leeme.GetDecimal(3);
 
-                    aux.UrlImagen = Datos.Leeme.GetString(6);
-
-                    aux.Precio = Convert.ToDouble(Datos.Leeme.GetDecimal(7));
-                    aux.Marca.Id = Datos.Leeme.GetInt16(8);
-                    aux.Categoria.Id = Datos.Leeme.GetInt16(9);
-
-                    aux.Estado = Datos.Leeme.GetBoolean(10);
-                    aux.Stock = Datos.Leeme.GetInt16(11);
-
-                    ListaArticulos.Add(aux);
+                    ListaArticulos.Add(Aux);
                 }
 
                 return ListaArticulos;

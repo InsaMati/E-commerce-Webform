@@ -27,11 +27,11 @@
                 <tr class="table-light text-center">
                     <td style="font-size: 12px"><% = Item.IDPedido %></td>
                     <td style="font-size: 12px"><% = Item.EstadoPedidos.Descripcion %></td>
-                    <td style="font-size: 12px"><% = Item.FechaFactura.Day + "/" + Item.FechaFactura.Month + "/" + Item.FechaFactura.Year %></td>              
+                    <td style="font-size: 12px"><% = Item.FechaFactura.Day + "/" + Item.FechaFactura.Month + "/" + Item.FechaFactura.Year %></td>
                     <td style="font-size: 12px"><% = Item.TipoDePago.Descripcion %></td>
                     <td style="font-size: 12px">$<% = Item.Importe %></td>
                     <td class="text-right">
-                        <a href="#" class="btn btn-outline-primary badge-pill" style="font-size: 15px;text-decoration: none;width:100px">Ver</a>
+                        <a href="VerPedido.aspx?IdPedido=<% = Item.IDPedido %>" class="btn btn-outline-primary badge-pill" style="font-size: 15px; text-decoration: none; width: 100px">Ver</a>
                     </td>
                 </tr>
 
@@ -40,9 +40,8 @@
                 <% } %>
             </tbody>
         </table>
-
-        <center>
-       
-        <asp:Button class="btn btn-outline-danger" Style="font-size:15px" Text="Volver" runat="server" ID="BtnVolver" OnClick="BtnVolver_Click" />
-                </center>
+        <div class="col-md-12" style="text-align:center">
+            <asp:Button class="btn btn-outline-danger" Style="font-size: 15px" Text="Volver" runat="server" ID="BtnVolver" OnClick="BtnVolver_Click" />
+        </div>
+    </div>
 </asp:Content>

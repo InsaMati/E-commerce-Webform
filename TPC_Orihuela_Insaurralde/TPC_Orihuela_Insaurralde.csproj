@@ -183,6 +183,7 @@
     <Content Include="Styles\Mobile.css" />
     <Content Include="Styles\Style.css" />
     <Content Include="UsuarioaModificar.aspx" />
+    <Content Include="VerPedido.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -417,6 +418,13 @@
     </Compile>
     <Compile Include="UsuarioaModificar.aspx.designer.cs">
       <DependentUpon>UsuarioaModificar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerPedido.aspx.cs">
+      <DependentUpon>VerPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerPedido.aspx.designer.cs">
+      <DependentUpon>VerPedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

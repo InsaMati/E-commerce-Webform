@@ -211,17 +211,21 @@ END CATCH
 
 --------- LISTAR ELEMENTOS POR USUARIO
 create procedure SP_Compras_X_Usuario(
-	@ID_usuario smallint
+	@ID_Pedido smallint
 
 ) as
 BEGIN TRY
-	select * from ARTICULOS_X_CARRITO as axc
-	inner join CARRITO as c on c.ID = axc.ID_carrito
-	where c.ID_usuario = '1'
+	select A.Nombre [Nombre],A.Descripcion[Descripcion] , AXC.CANTIDAD, AXC.SUBTOTAL FROM ARTICULOS_X_CARRITO AS AXC
+inner join ARTICULOS as A on A.ID = AXC.ID_articulos
+inner join PEDIDO as P on P.ID_carrito = AXC.ID_carrito
+inner join FACTURA as F on F.ID_pedido = P.ID
+where F.ID_pedido = @ID_Pedido
 END TRY
 BEGIN CATCH
 	RAISERROR('Error al listar articulos',16,1)
 END CATCH
+
+
 
 --------- ALTA DE FACTURA
 
