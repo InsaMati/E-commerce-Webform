@@ -20,7 +20,7 @@ function disableEnterKey(e) {
     if (window.event) {
         key = window.event.keyCode;
     } else {
-        key = e.which; 
+        key = e.which;
     }
     if (key == 13) {
         return false;
@@ -28,3 +28,4 @@ function disableEnterKey(e) {
         return true;
     }
 }
+

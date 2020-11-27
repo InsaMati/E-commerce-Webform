@@ -39,6 +39,7 @@
                     <br />
                     <asp:Button ID="BtnBuscar" Text="Buscar" Style="font-size: 15px;" CssClass="btn btn-outline-secondary" runat="server" OnClick="BtnBuscar_Click" />
 
+                   
                     <hr />
                 </div>
                 <asp:Repeater runat="server" ID="RepetidorArticulos">
