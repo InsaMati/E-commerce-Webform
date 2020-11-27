@@ -1,15 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.Master" AutoEventWireup="true" CodeBehind="ConfirmarCompra.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.ConfirmarCompra" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Confirmacion</h1>
+    <h1 style="font-size:25px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Confirmacion</h1>
     <hr />
 
     <div class="container">
         <div class="row">
-            <p style="font-size: 15px">Detalle</p>
             <div class="col-md-12">
+                <h1 style="font-size:18.5px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Detalle</h1>
+                <hr />
                 <table class="table table-hover table-bordered">
-                    <thead class="thead-dark text-center" style="font-size: 17px">
+                    <thead class="thead-light text-center" style="font-size: 12px">
                         <tr>
                             <th>Nombre</th>
                             <th>Cantidad</th>
@@ -18,6 +19,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <% if (ElementosCarrito != null)
                             { %>
                         <%foreach (var Item in ElementosCarrito)
@@ -27,49 +29,76 @@
                         <tr class="table-light text-center">
                             <td style="font-size: 14px"><% = Item.articulo.Nombre%></td>
                             <td style="font-size: 14px"><% = Item.Cantidad %></td>
-                            <td style="font-size: 14px">$ <% = Item.articulo.Precio %> c/u</td>
+                            <td style="font-size: 14px">$<% = Item.articulo.Precio %> c/u</td>
 
                         </tr>
                         <% } %>
                         <% } %>
                     </tbody>
                 </table>
-
-
             </div>
-        </div>
-
-        <div class="row">
-            <p style="font-size: 15px">Envio</p>
             <div class="col-md-12">
-                <% if (InfoEnvio != null)
-                    { %>
+                <h1 style="font-size:18.5px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Datos Envio</h1>
+                <hr />
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-light text-center" style="font-size: 12px">
+                        <tr>
+                            <th>Correo</th>
+                            <th>Localidad</th>
+                            <th>Direccion</th>
+                            <th>Codigo Postal</th>
 
-                <p><% = InfoEnvio.Correo %></p>
-                <p><% = InfoEnvio.Localidad %></p>
-                <p><% = InfoEnvio.Calle + " " + InfoEnvio.EntreCalles %></p>
-                <p><% = InfoEnvio.CodigoPostal %></p>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                <%} %>
+                        <%if (InfoEnvio != null)
+                            { %>
+
+                        <tr class="table-light text-center">
+                            <td style="font-size: 14px"><% = InfoEnvio.Correo %></td>
+                            <td style="font-size: 14px"><% = InfoEnvio.Localidad %></td>
+                            <td style="font-size: 14px"><% = InfoEnvio.Calle + " " + InfoEnvio.EntreCalles %></td>
+                            <td style="font-size: 14px"><% = InfoEnvio.CodigoPostal %></td>
+
+                        </tr>
+                        <%} %>
+                    </tbody>
+                </table>
             </div>
-        </div>
 
-        <div class="row">
-            <p style="font-size: 15px">Medio de Pago</p>
             <div class="col-md-12">
+                <h1 style="font-size:18.5px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Medio de Pago</h1>
+                <hr />
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-light text-center" style="font-size: 12px">
+                        <tr>
+                            <th>Medio Pago</th>
+                            <th>Cuotas</th>
+                            <th>Pagos de</th>
+                            <th>Total</th>
 
-                <%switch (MedioPago)
-                    { %>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                <%case 1:  %>
-                <%break; %>
+                        <%switch (MedioPago)
+                            { %>
 
-                <%case 2: %>
-                <p>Tarjeta Credito/Debito</p>
-                <p>Cuotas <% = Cuotas %></p>
-                <p>Total <% = Total / Cuotas %></p>
-                <% break; %>
-                <%} %>
+                        <%case 1:  %>
+                        <%break; %>
+
+                        <%case 2: %>
+                        <tr class="table-light text-center">
+                        <td style="font-size: 14px">Tarjeta Credito/Debito</td>
+                        <td style="font-size: 14px"><% = Cuotas %></td>
+                        <td style="font-size: 14px">$<% = Total / Cuotas %></td>
+                            <td style="font-size: 14px">$<% = Total%></td>
+                        </tr>
+                        <% break; %>
+                        <%} %>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
