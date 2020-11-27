@@ -273,3 +273,24 @@ BEGIN CATCH
 	RAISERROR('Error al Modificar estado de pedido',16,1)
 END CATCH
 
+
+select *From DatosEnvios
+
+create procedure SP_Agregar_DatosEnvio(
+   
+	@IdPedido smallint,
+	@IdUsuario smallint,
+	@Correo varchar(100),
+	@Localidad varchar(100),
+	@Calle varchar(100),
+	@EntreCalles varchar(100),
+	@CodigoPostal smallint
+)
+as
+BEGIN TRY 
+	INSERT INTO DatosEnvios(ID_pedido,ID_usuario,Correo,Localidad,Calle,EntreCalles,CodigoPostal)
+	VALUES (@IdPedido,@IdUsuario,@Correo,@Localidad,@Calle,@EntreCalles,@CodigoPostal)
+END TRY
+BEGIN CATCH
+	RAISERROR('Error al Agregar Datos de envio',16,1)
+END CATCH

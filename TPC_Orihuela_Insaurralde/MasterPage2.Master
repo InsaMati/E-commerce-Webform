@@ -57,9 +57,6 @@
                         <a class="nav-link pr-5" href="Inicio.aspx">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pr-5" href="#">Sobre Nosotros</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link pr-5" href="Carrito.aspx">Carrito</a>
                     </li>
                     <li class="nav-item">
@@ -84,9 +81,8 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Clientes</a>
                             <a class="dropdown-item" href="ABMLUsuario.aspx">Usuarios</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Facturas</a>
-                            <a class="dropdown-item" href="#">Estado De Pedidos</a>
+                            <div class="dropdown-divider"></div>                          
+                            <a class="dropdown-item" href="ADMPedidos.aspx">Estado De Pedidos</a>
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>

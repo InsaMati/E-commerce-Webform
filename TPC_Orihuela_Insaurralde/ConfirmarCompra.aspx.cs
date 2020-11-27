@@ -18,6 +18,7 @@ namespace TPC_Orihuela_Insaurralde
         public int MedioPago = new int();
         public int Cuotas = new int();
         public double Total = new double();
+        public DatosEnvio Envio = new DatosEnvio();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -41,6 +42,7 @@ namespace TPC_Orihuela_Insaurralde
                 Cuotas = (int)Session[Session.SessionID + "Cuotas"];
                 InfoEnvio = (DatosEnvio)Session[Session.SessionID + "DatosEnvio"];
                 Total = (double)Session[Session.SessionID + "Total"];
+                Envio = (DatosEnvio)Session[Session.SessionID + "DatosEnvio"];
             }
             catch (Exception ex)
             {
@@ -67,7 +69,7 @@ namespace TPC_Orihuela_Insaurralde
 
         public void AgregarCarrito()
         {
-          
+
             try
             {
                 NegocioCarrito NegocioCarrito = new NegocioCarrito();
@@ -80,7 +82,7 @@ namespace TPC_Orihuela_Insaurralde
 
                 NegocioCarrito.AltaCarrito(Aux);
                 AltaElementoCarrito(NegocioCarrito.IdCarrito(Logueado));
-                AltaPedido(NegocioCarrito.IdCarrito(Logueado),Logueado.Id);
+                AltaPedido(NegocioCarrito.IdCarrito(Logueado), Logueado.Id);
             }
             catch (Exception ex)
             {
@@ -94,7 +96,7 @@ namespace TPC_Orihuela_Insaurralde
             NegocioCarrito negocioCarrito = new NegocioCarrito();
 
             try
-            {       
+            {
                 foreach (var Elemento in ElementosCarrito)
                 {
                     ElementoCarrito Auxiliar = new ElementoCarrito();
@@ -115,7 +117,7 @@ namespace TPC_Orihuela_Insaurralde
             }
         }
 
-        public void AltaPedido(int IdCarro,int IdUsuario)
+        public void AltaPedido(int IdCarro, int IdUsuario)
         {
             NegocioCarrito NegocioCarrito = new NegocioCarrito();
 
@@ -128,7 +130,8 @@ namespace TPC_Orihuela_Insaurralde
                 AuxPedido.EstadoPedidos.Id = 1;
                 AuxPedido.Fecha = DateTime.Now;
                 NegocioCarrito.AltaPedido(AuxPedido);
-                AltaFactura(NegocioCarrito.IdPedido(IdCarro),IdUsuario);
+                AltaFactura(NegocioCarrito.IdPedido(IdCarro), IdUsuario);
+
             }
             catch (Exception ex)
             {
@@ -141,7 +144,7 @@ namespace TPC_Orihuela_Insaurralde
         public void AltaFactura(int IdPedido, int IdUsuario)
         {
             NegocioCarrito NegocioCarrito = new NegocioCarrito();
-            
+
             try
             {
                 VariablesSession();
@@ -155,12 +158,32 @@ namespace TPC_Orihuela_Insaurralde
                 AuxFactura.Importe = Total;
 
                 NegocioCarrito.AltaFactura(AuxFactura);
+
+                AltaDatosEnvio(IdPedido);
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
+        }
+
+        public void AltaDatosEnvio(int IdPedido)
+        {
+            NegocioEnvio NegocioEnvio = new NegocioEnvio();
+
+            try
+            {
+                VariablesSession();
+
+                NegocioEnvio.AltaEnvio(IdPedido,Envio);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
     }
 }

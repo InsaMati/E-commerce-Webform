@@ -65,5 +65,47 @@ namespace Negocio
             }
 
         }
+
+        public List<PedidosRevision> Listar(int IdPedido)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            List<PedidosRevision> Lista = new List<PedidosRevision>();
+
+            try
+            {
+                Datos.SetearSp("SP_Ver_Pedido");
+                Datos.AgregarParametro("@IdPedido", Convert.ToString(IdPedido));
+                Datos.EjecutarLector();
+
+                while (Datos.Leeme.Read())
+                {
+                    PedidosRevision Aux = new PedidosRevision();
+
+                    Aux.Articulo = new Articulo();
+                    Aux.Articulo.Nombre = Datos.Leeme.GetString(0);
+
+                    Aux.ElementoCarrito = new ElementoCarrito();
+                    Aux.ElementoCarrito.Cantidad = Datos.Leeme.GetInt16(1);
+                    Aux.ElementoCarrito.SubTotal = (double)Datos.Leeme.GetDecimal(2);
+
+                    Aux.DatosEnvio = new DatosEnvio();
+                    Aux.DatosEnvio.Correo = Datos.Leeme.GetString(3);
+                    Aux.DatosEnvio.Localidad = Datos.Leeme.GetString(4);
+                    Aux.DatosEnvio.Calle = Datos.Leeme.GetString(5);
+                    Aux.DatosEnvio.EntreCalles = Datos.Leeme.GetString(6);
+                    Aux.DatosEnvio.CodigoPostal = Datos.Leeme.GetInt16(7);
+
+                    Lista.Add(Aux);
+
+                }
+
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

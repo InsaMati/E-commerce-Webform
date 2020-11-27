@@ -32,9 +32,10 @@ namespace TPC_Orihuela_Insaurralde
 
             try
             {
-                DatosEnvio.IdPedido = 1;
+                
                 DatosEnvio.IdUsuario = Logueado.Id;
                 DatosEnvio.Correo = DDcorreo.SelectedValue;
+                DatosEnvio.Localidad = TxtLocalidad.Text;
                 DatosEnvio.Calle = TxtCalle.Text;
                 DatosEnvio.EntreCalles = TxtEntreCalles.Text;
                 DatosEnvio.CodigoPostal = Convert.ToInt32(TxtCodigoPostal.Text);

@@ -32,13 +32,12 @@
                     <td style="font-size: 12px">$<% = Item.Importe %></td>                   
                     <td style="font-size: 12px"><% = Item.EstadoPedidos.Descripcion %></td>
                     <td class="text-right">
-                        <a href="ADMPedidos.aspx?ID=<%=Item.id %>&Estado=<%=Item.EstadoPedidos.Id %>" class="btn btn-primary badge-pill" style="font-size: 15px; color: white; text-decoration: none; width: 100px">Revisar</a>
+                        <a href="RevisionPedidos.aspx?ID=<%=Item.id %>" class="btn btn-primary badge-pill" style="font-size: 15px; color: white; text-decoration: none; width: 100px">Revisar</a>
                         <a href="ADMPedidos.aspx?ID=<%=Item.id %>&Estado=<%= 4 %>" class="btn btn-success badge-pill" style="font-size: 15px; color: white; text-decoration: none; width: 100px">Entregado</a>
                         <a href="ADMPedidos.aspx?ID=<%=Item.id %>&Estado=<%= 2 %>" class="btn btn-danger badge-pill" style="font-size: 15px; color: white; text-decoration: none; width: 100px">Rechazado</a>
                         <a href="ADMPedidos.aspx?ID=<%=Item.id %>&Estado=<%= 3 %>" class="btn btn-warning badge-pill" style="font-size: 15px; color: white; text-decoration: none; width: 100px">En Camino</a>
                     </td>
                 </tr>
-
 
                 <% } %>
                 <% } %>
