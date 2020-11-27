@@ -273,9 +273,6 @@ BEGIN CATCH
 	RAISERROR('Error al Modificar estado de pedido',16,1)
 END CATCH
 
-
-select *From DatosEnvios
-
 create procedure SP_Agregar_DatosEnvio(
    
 	@IdPedido smallint,
@@ -294,3 +291,21 @@ END TRY
 BEGIN CATCH
 	RAISERROR('Error al Agregar Datos de envio',16,1)
 END CATCH
+
+
+
+create procedure SP_Ver_Pedido
+(@IdPedido smallint) as
+BEGIN TRY
+select A.Nombre, AXC.Cantidad, AXC.Subtotal, DE.Correo,DE.Localidad,DE.Calle,DE.EntreCalles,DE.CodigoPostal from ARTICULOS_X_CARRITO as AXC
+inner join ARTICULOS as A on A.ID = AXC.ID_articulos
+inner join PEDIDO as P on P.ID_carrito = AXC.ID_carrito
+inner join CARRITO as C on C.ID = AXC.ID_carrito
+inner join DatosEnvios as DE on DE.ID_usuario = c.ID_usuario
+where P.ID = @IdPedido and DE.ID_Pedido =@IdPedido
+END TRY
+BEGIN CATCH
+RAISERROR('Error al mostrar Pedido',16,1)
+END CATCH
+
+
