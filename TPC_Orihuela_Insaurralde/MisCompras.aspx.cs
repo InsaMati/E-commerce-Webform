@@ -12,17 +12,17 @@ namespace TPC_Orihuela_Insaurralde
     public partial class MisCompras : System.Web.UI.Page
     {
         public Usuario Logueado = new Usuario();
+        public List<Factura> ListaF = new List<Factura>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            NegocioUsuario negocio = new NegocioUsuario();
-            List<Articulo> Lista = new List<Articulo>();
+           
+           
             try
             {
                 Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
                 if (Logueado == null) Response.Redirect("Login.aspx");
-                Lista = negocio.ListarCompras(Logueado);
-                RepetidorArticulos.DataSource = Lista;
-                RepetidorArticulos.DataBind();
+
+                CargarLista(Logueado);
 
             }
             catch (Exception ex)
@@ -31,5 +31,24 @@ namespace TPC_Orihuela_Insaurralde
                 throw ex;
             }
         }
+
+
+        public void CargarLista(Usuario Logueado)
+        {
+            NegocioUsuario NegocioUsuario = new NegocioUsuario();
+
+            try
+            {
+                ListaF = NegocioUsuario.ListarFacturas(Logueado);
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

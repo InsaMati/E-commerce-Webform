@@ -221,7 +221,7 @@ namespace Negocio
 
                 while(Datos.Leeme.Read())
                 {
-                    aux.Id = Datos.Leeme.GetInt32(0);
+                    aux.Id = Datos.Leeme.GetInt16(0);
                     aux.Codigo = Datos.Leeme.GetString(1);
                     aux.Nombre = Datos.Leeme.GetString(2);
                     aux.Descripcion = Datos.Leeme.GetString(3);
@@ -245,6 +245,48 @@ namespace Negocio
                 }
 
                 return ListaArticulos;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<Factura> ListarFacturas(Usuario Logueado)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            List<Factura> Lista = new List<Factura>();
+
+            try
+            {
+                Datos.SetearSp("sp_listar_facturas_por_usuario");
+                Datos.AgregarParametro("@Id_Usuario", Convert.ToString(Logueado.Id));
+                Datos.EjecutarLector();
+                while (Datos.Leeme.Read())
+                {
+                    Factura AuxF = new Factura();
+
+                    AuxF.ID = Datos.Leeme.GetInt16(0);
+                    AuxF.IDPedido = Datos.Leeme.GetInt16(1);
+                    AuxF.IDUsuario = Datos.Leeme.GetInt16(2);
+
+                    AuxF.EstadoPedidos = new EstadoPedidos();
+                    AuxF.EstadoPedidos.Descripcion = Datos.Leeme.GetString(3);
+
+                    AuxF.FechaFactura = Datos.Leeme.GetDateTime(4);
+
+                    AuxF.TipoDePago = new TipoDePago();
+                    AuxF.TipoDePago.Descripcion = Datos.Leeme.GetString(5);
+
+                    AuxF.Importe = (double)Datos.Leeme.GetDecimal(6);
+
+                    Lista.Add(AuxF);
+
+                }
+
+
+                return Lista;
             }
             catch (Exception ex)
             {

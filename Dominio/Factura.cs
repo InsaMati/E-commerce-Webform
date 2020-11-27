@@ -19,5 +19,12 @@ namespace Dominio
         public TipoDePago TipoDePago { get; set; }
 
         public double Importe { get; set; }
+
+        ////// Temporales
+        ///
+        
+
+        public EstadoPedidos EstadoPedidos { get; set; }
+
     }
 }

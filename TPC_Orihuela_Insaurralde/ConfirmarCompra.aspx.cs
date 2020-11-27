@@ -55,6 +55,7 @@ namespace TPC_Orihuela_Insaurralde
             try
             {
                 AgregarCarrito();
+                Session.Remove(Session.SessionID + "Lista");
                 Response.Redirect("Inicio.aspx");
             }
             catch (Exception ex)

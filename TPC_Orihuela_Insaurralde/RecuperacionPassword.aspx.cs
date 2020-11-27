@@ -25,6 +25,8 @@ namespace TPC_Orihuela_Insaurralde
 
                 string Password = usuario.RecuperarPassword(txtEmail.Text);
                 EnviarMail.MailRecuPass(txtEmail.Text, Password);
+
+                Response.Redirect("Login.aspx");
             }
             catch (Exception ex)
             {

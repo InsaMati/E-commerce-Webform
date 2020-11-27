@@ -217,7 +217,7 @@ create procedure SP_Compras_X_Usuario(
 BEGIN TRY
 	select * from ARTICULOS_X_CARRITO as axc
 	inner join CARRITO as c on c.ID = axc.ID_carrito
-	where c.ID_usuario = @ID_usuario
+	where c.ID_usuario = '1'
 END TRY
 BEGIN CATCH
 	RAISERROR('Error al listar articulos',16,1)
@@ -243,4 +243,18 @@ BEGIN CATCH
 	RAISERROR('Error al Agregar Factura',16,1)
 END CATCH
 
+
+
+
+create procedure sp_listar_facturas_por_usuario
+(
+@Id_Usuario smallint
+
+)
+as
+select F.ID, F.ID_PEDIDO[Nro Remito],F.ID_usuario,E.Descripcion [Estado] , F.Fecha, TP.[Descripcion], F.Importe from FACTURA as F
+inner join PEDIDO AS P on P.ID = F.ID_pedido
+inner join ESTADO AS E on E.ID = P.ID_estado
+inner join TIPO_DE_PAGO as TP on TP.ID = F.ID_FormPago
+where F.ID_usuario = @Id_Usuario
 
