@@ -6,21 +6,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-
-                <asp:Label Text="Marca a Modificar" Style="font-size: 13.5px; color: black; font-weight: 700" runat="server" />
+                <br />
                 <asp:TextBox ID="txtMarca" CssClass="form-control" style="font-size:13.5px" runat="server" ReadOnly="True" />
             </div>
             <div class="col-md-4">
-                <asp:Label Text="Marca Nueva" Style="font-size: 13.5px; color: black; font-weight: 700" runat="server" />
-                <asp:TextBox ID="txtModificar" CssClass="form-control" style="font-size:13.5px" runat="server" />
+                <br />
+                <asp:TextBox ID="txtModificar" CssClass="form-control" placeholder="Ingresar nueva marca" style="font-size:13.5px" runat="server" />
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <div class="col-md-12">
-                <center>
-                <asp:Button ID="btnModificar" Text="Modificar" style="font-size:15px" class="btn btn-outline-success" runat="server" OnClick="btnModificar_Click" /></center>
+            <div class="col-md-12" style="text-align:center">
+                <br />
+                <asp:Button ID="btnModificar" Text="Modificar" style="font-size:15px" class="btn btn-outline-success" runat="server" OnClick="btnModificar_Click" />
+                 <asp:Button ID="btnVolver" Text="Volver" style="font-size:15px" class="btn btn-outline-danger" runat="server" OnClick="btnVolver_Click" />
             </div>
         </div>
     </div>

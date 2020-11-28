@@ -141,6 +141,7 @@
     <Content Include="Login.aspx" />
     <Content Include="MarcaA.aspx" />
     <Content Include="MarcaModificar.aspx" />
+    <Content Include="MercadoPago.aspx" />
     <Content Include="MetodoDePago.aspx" />
     <Content Include="MisCompras.aspx" />
     <Content Include="PagoEfectivo.aspx" />
@@ -326,6 +327,13 @@
     </Compile>
     <Compile Include="MarcaModificar.aspx.designer.cs">
       <DependentUpon>MarcaModificar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MercadoPago.aspx.cs">
+      <DependentUpon>MercadoPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MercadoPago.aspx.designer.cs">
+      <DependentUpon>MercadoPago.aspx</DependentUpon>
     </Compile>
     <Compile Include="MetodoDePago.aspx.cs">
       <DependentUpon>MetodoDePago.aspx</DependentUpon>

@@ -32,17 +32,49 @@ namespace TPC_Orihuela_Insaurralde
             {
 
                 throw ex;
-            }   
+            }
         }
 
+        public bool Validar()
+        {
+            string Categoria = txtModificar.Text.Trim();
+
+            if (Categoria.Length == 0) return false;
+
+            return true;
+        }
         protected void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
-                NegocioCategoria Negocio = new NegocioCategoria();
-                var CategoriaVieja = txtCategoria.Text;
-                var CategoriaNueva = txtModificar.Text;
-                Negocio.ModificarCategoria(CategoriaVieja, CategoriaNueva);
+                if (Validar() == true)
+                {
+                    NegocioCategoria Negocio = new NegocioCategoria();
+                    var CategoriaVieja = txtCategoria.Text;
+                    var CategoriaNueva = txtModificar.Text;
+                    Negocio.ModificarCategoria(CategoriaVieja, CategoriaNueva);
+                    Response.Redirect("ABMLCategoria.aspx");
+                }
+                else
+                {
+                    string script = @"<script type='text/javascript'>
+                            alert('Error campos vacios.');
+                        </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        protected void btnvolver_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 Response.Redirect("ABMLCategoria.aspx");
             }
             catch (Exception ex)

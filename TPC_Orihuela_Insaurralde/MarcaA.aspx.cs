@@ -30,13 +30,43 @@ namespace TPC_Orihuela_Insaurralde
             }
         }
 
+        public bool Validar()
+        {
+            string Marca = txtMarca.Text.Trim();
+            if (Marca.Length == 0) return false;
+            return true;
+        }
+
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-                NegocioMarca Negocio = new NegocioMarca();
-                var NuevaMarca = Convert.ToString(txtMarca.Text);
-                Negocio.AgregarMarca(NuevaMarca);
+                if (Validar() == true)
+                {
+                    NegocioMarca Negocio = new NegocioMarca();
+                    var NuevaMarca = Convert.ToString(txtMarca.Text);
+                    Negocio.AgregarMarca(NuevaMarca);
+                    Response.Redirect("ABMLMarca.aspx");
+                }
+                else
+                {
+                    string script = @"<script type='text/javascript'>
+                            alert('Error campos vacios.');
+                        </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        protected void btnvolver_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 Response.Redirect("ABMLMarca.aspx");
             }
             catch (Exception ex)

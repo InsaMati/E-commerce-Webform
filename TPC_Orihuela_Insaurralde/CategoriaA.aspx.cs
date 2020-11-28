@@ -27,13 +27,45 @@ namespace TPC_Orihuela_Insaurralde
             }
         }
 
+        public bool ValidarTamanio()
+        {
+
+            string Categoria = txtCategoria.Text.Trim();
+            if (Categoria.Length == 0) return false;
+
+            return true;
+        }
+
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-                NegocioCategoria Negocio = new NegocioCategoria();
-                var NuevaCategoria = Convert.ToString(txtCategoria.Text);
-                Negocio.AgregarCategoria(NuevaCategoria);
+                if (ValidarTamanio() == true)
+                {
+                    NegocioCategoria Negocio = new NegocioCategoria();
+                    var NuevaCategoria = Convert.ToString(txtCategoria.Text);
+                    Negocio.AgregarCategoria(NuevaCategoria);
+                    Response.Redirect("ABMLCategoria.aspx");
+                }
+                else
+                {
+                    string script = @"<script type='text/javascript'>
+                            alert('Error campos vacios.');
+                        </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        protected void BtnVolver_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 Response.Redirect("ABMLCategoria.aspx");
             }
             catch (Exception ex)
