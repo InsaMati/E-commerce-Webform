@@ -85,6 +85,26 @@ namespace TPC_Orihuela_Insaurralde
 
         }
 
+        public bool ValidarProducto()
+        {
+            Articulo Aux = new Articulo();
+
+            Aux.Codigo = TxtCodigo.Text.Trim();
+            Aux.Nombre = TxtNombre.Text.Trim();
+            Aux.Descripcion = TxtDescripcion.Text.Trim();
+            Aux.UrlImagen = TxtImagen.Text.Trim();
+            string stock = TxtStock.Text.Trim();
+            string precio = TxtPrecio.Text.Trim();
+
+            if (Aux.Codigo.Length == 0) return false;
+            if (Aux.Nombre.Length == 0) return false;
+            if (Aux.Descripcion.Length == 0) return false;
+            if (Aux.UrlImagen.Length == 0) return false;
+            if (stock.Length == 0) return false;
+            if (precio.Length == 0) return false;
+            return true;
+        }
+
         protected void BtnModificar_Click(object sender, EventArgs e)
         {
             NegocioArticulo NegocioArticulo = new NegocioArticulo();
@@ -92,23 +112,33 @@ namespace TPC_Orihuela_Insaurralde
             try
             {
 
-                CargarListas();
+                if (ValidarProducto() == true)
+                {
+                    CargarListas();
 
-                Articulo AuxModificar = new Articulo();
+                    Articulo AuxModificar = new Articulo();
 
-                AuxModificar.Id = Convert.ToInt16(Request.QueryString["Pro"]);
-                AuxModificar.Codigo = TxtCodigo.Text;
-                AuxModificar.Nombre = TxtNombre.Text;
-                AuxModificar.Descripcion = TxtDescripcion.Text;
-                AuxModificar.Marca = ListaM.Find(BuscarMarca => BuscarMarca.Nombre == DDMarca.SelectedValue);
-                AuxModificar.Categoria = ListaC.Find(BuscarCategoria => BuscarCategoria.Nombre == DDCategoria.SelectedValue);
-                AuxModificar.UrlImagen = TxtImagen.Text;
-                AuxModificar.Precio = double.Parse(TxtPrecio.Text);
-                AuxModificar.Stock = Convert.ToInt16(TxtStock.Text);
+                    AuxModificar.Id = Convert.ToInt16(Request.QueryString["Pro"]);
+                    AuxModificar.Codigo = TxtCodigo.Text;
+                    AuxModificar.Nombre = TxtNombre.Text;
+                    AuxModificar.Descripcion = TxtDescripcion.Text;
+                    AuxModificar.Marca = ListaM.Find(BuscarMarca => BuscarMarca.Nombre == DDMarca.SelectedValue);
+                    AuxModificar.Categoria = ListaC.Find(BuscarCategoria => BuscarCategoria.Nombre == DDCategoria.SelectedValue);
+                    AuxModificar.UrlImagen = TxtImagen.Text;
+                    AuxModificar.Precio = double.Parse(TxtPrecio.Text);
+                    AuxModificar.Stock = Convert.ToInt16(TxtStock.Text);
 
-                NegocioArticulo.ModificarArticulo(AuxModificar);
+                    NegocioArticulo.ModificarArticulo(AuxModificar);
 
-                Response.Redirect("ABMLProducto.aspx");
+                    Response.Redirect("ABMLProducto.aspx");
+                }
+                else
+                {
+                    string script = @"<script type='text/javascript'>
+                            alert('Error campos vacios.');
+                        </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                }
 
             }
             catch (Exception ex)

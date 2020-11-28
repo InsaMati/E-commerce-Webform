@@ -11,22 +11,45 @@ namespace TPC_Orihuela_Insaurralde
 {
     public partial class RecuperacionPassword : System.Web.UI.Page
     {
+        public int Alert = new int();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
-        
+
+        public bool ValidarEmail()
+        {
+            string email = txtEmail.Text.Trim();
+            if (email.Length == 0) return false;
+            return true;
+        }
+
         protected void btnContinuar_Click(object sender, EventArgs e)
         {
             try
             {
-                NegocioUsuario usuario = new NegocioUsuario();
-                EnvioEmails EnviarMail = new EnvioEmails();
+                if (ValidarEmail()==true)
+                {
+                    NegocioUsuario usuario = new NegocioUsuario();
+                    EnvioEmails EnviarMail = new EnvioEmails();
 
-                string Password = usuario.RecuperarPassword(txtEmail.Text);
-                EnviarMail.MailRecuPass(txtEmail.Text, Password);
+                    string Password = usuario.RecuperarPassword(txtEmail.Text);
 
-                Response.Redirect("Login.aspx");
+                    if (Password != null)
+                    {
+                        EnviarMail.MailRecuPass(txtEmail.Text, Password);
+                        Alert = 3;
+                    }
+                    else
+                    {
+                        Alert = 1;
+                    }
+
+                }
+                else
+                {
+                    Alert = 2;
+                }
             }
             catch (Exception ex)
             {
@@ -36,8 +59,8 @@ namespace TPC_Orihuela_Insaurralde
 
         }
 
-        
 
-                
+
+
     }
 }

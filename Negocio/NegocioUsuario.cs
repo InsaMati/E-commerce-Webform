@@ -28,11 +28,11 @@ namespace Negocio
                     aux.Email = Datos.Leeme.GetString(1);
                     aux.Contraseña = Datos.Leeme.GetString(2);
                     aux.Estado = Datos.Leeme.GetBoolean(3);
-      
+
                     aux.TipoUsuario = new TipoUsuario();
                     aux.TipoUsuario.Id = Datos.Leeme.GetInt16(4);
                     aux.TipoUsuario.Nombre = Datos.Leeme.GetString(5);
-                    
+
                     if (aux.Estado == true) ListaUsuarios.Add(aux);
                 }
                 return ListaUsuarios;
@@ -186,16 +186,21 @@ namespace Negocio
 
         }
 
-        public string RecuperarPassword (String email)
+        public string RecuperarPassword(String email)
         {
-            List<Usuario> ListaUsuarios = new List<Usuario>();            
+            List<Usuario> ListaUsuarios = new List<Usuario>();
 
             try
             {
 
                 ListaUsuarios = ListarUsuarios();
                 Usuario aux = ListaUsuarios.Find(j => j.Email == email);
-                string password = Criptografia.DesEncriptar( aux.Contraseña);               
+                string password = null;
+
+                if (aux != null)
+                {
+                    password = Criptografia.DesEncriptar(aux.Contraseña);
+                }
 
                 return password;
             }
@@ -212,13 +217,12 @@ namespace Negocio
             List<ComprasPorUsuario> ListaArticulos = new List<ComprasPorUsuario>();
 
             try
-            { 
-
+            {
                 Datos.SetearSp("SP_Compras_X_Usuario");
-                Datos.AgregarParametro("@ID_Pedido",Convert.ToString(IdPedido));
+                Datos.AgregarParametro("@ID_Pedido", Convert.ToString(IdPedido));
                 Datos.EjecutarLector();
 
-                while(Datos.Leeme.Read())
+                while (Datos.Leeme.Read())
                 {
                     ComprasPorUsuario Aux = new ComprasPorUsuario();
 

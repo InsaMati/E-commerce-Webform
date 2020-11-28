@@ -46,36 +46,58 @@ namespace TPC_Orihuela_Insaurralde
             }
         }
 
+        public bool ValidarProducto()
+        {
+            Articulo Aux = new Articulo();
+
+            Aux.Codigo = TxtCodigo.Text.Trim();
+            Aux.Nombre = TxtNombre.Text.Trim();
+            Aux.Descripcion = TxtDescripcion.Text.Trim();
+            Aux.UrlImagen = TxtImagen.Text.Trim();
+            string stock = TxtStock.Text.Trim();
+            string precio = TxtPrecio.Text.Trim();
+
+            if (Aux.Codigo.Length == 0) return false;
+            if (Aux.Nombre.Length == 0) return false;
+            if (Aux.Descripcion.Length == 0) return false;
+            if (Aux.UrlImagen.Length == 0) return false;
+            if (stock.Length == 0) return false;
+            if (precio.Length == 0) return false;
+            return true;
+        }
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-                NegocioArticulo NegocioArticulo = new NegocioArticulo();
+                if (ValidarProducto()==true)
+                {
+                    NegocioArticulo NegocioArticulo = new NegocioArticulo();
+                    Articulo ArticuloAux = new Articulo();
+                    ArticuloAux.Codigo = TxtCodigo.Text.Trim();
+                    ArticuloAux.Nombre = TxtNombre.Text.Trim();
+                    ArticuloAux.Descripcion = TxtDescripcion.Text.Trim();
+                    ArticuloAux.Precio = double.Parse(TxtPrecio.Text);
+                    ArticuloAux.UrlImagen = TxtImagen.Text.Trim();
+                    List<Marca> LMarca = (List<Marca>)Session["LMarca"];
+                    ArticuloAux.Marca = LMarca.Find(x => x.Nombre == DDMarca.SelectedValue);
+                    List<Categoria> LCategoria = (List<Categoria>)Session["LCategoria"];
+                    ArticuloAux.Categoria = LCategoria.Find(j => j.Nombre == DDCategoria.SelectedValue);
+                    ArticuloAux.Stock = Convert.ToInt16(TxtStock.Text);
+                    NegocioArticulo.AgregarArticulo(ArticuloAux);
 
-                Articulo ArticuloAux = new Articulo();
-
-                ArticuloAux.Codigo = TxtCodigo.Text.Trim();
-                ArticuloAux.Nombre = TxtNombre.Text.Trim();
-                ArticuloAux.Descripcion = TxtDescripcion.Text.Trim();
-                ArticuloAux.Precio = double.Parse(TxtPrecio.Text);
-                ArticuloAux.UrlImagen = TxtImagen.Text.Trim();
-
-                List<Marca> LMarca = (List<Marca>)Session["LMarca"];
-                ArticuloAux.Marca = LMarca.Find(x => x.Nombre == DDMarca.SelectedValue);
-
-                List<Categoria> LCategoria = (List<Categoria>)Session["LCategoria"];
-                ArticuloAux.Categoria = LCategoria.Find(j => j.Nombre == DDCategoria.SelectedValue);
-
-                ArticuloAux.Stock = Convert.ToInt16(TxtStock.Text);
-
-                NegocioArticulo.AgregarArticulo(ArticuloAux);
-
-                Response.Redirect("ProductoA.aspx");
+                    Response.Redirect("ABMLProducto.aspx");
+                }
+                else
+                {
+                    string script = @"<script type='text/javascript'>
+                            alert('Error campos vacios.');
+                        </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                }
 
             }
             catch (Exception ex)
-            {
-
+            { 
                 throw ex;
             }
         }
