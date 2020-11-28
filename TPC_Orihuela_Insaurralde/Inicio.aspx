@@ -22,9 +22,18 @@
                     </asp:DropDownList>
                 </div>
                 <div class="col-lg-4">
-                    <p style="font-size: 18px">Precios</p>
-                    <asp:DropDownList ID="DdPrecios" Style="font-size: 15px" CssClass="form-control" runat="server">
-                    </asp:DropDownList>
+                    <p style="font-size: 18px">Precio Minimo</p>
+                    <asp:TextBox ID="txtPrecioMin" Style="font-size: 15px" CssClass="form-control" runat="server" />  
+                    
+                </div>
+                <div class="col-lg-4">
+                    <p style="font-size: 18px">Precio Maximo</p>
+                    <asp:TextBox ID="txtPrecioMax" Style="font-size: 15px" CssClass="form-control" runat="server" />  
+                    
+                </div>
+                <br />
+                <div class="col-lg-4">
+                    <asp:Button Text="Filtrar" ID="btnFiltrar" Style="font-size: 15px;" CssClass="btn btn-outline-secondary" runat="server" OnClick="btnFiltrar_Click" />
                 </div>
 
             </div>

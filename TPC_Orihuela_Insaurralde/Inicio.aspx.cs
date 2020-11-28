@@ -83,10 +83,43 @@ namespace TPC_Orihuela_Insaurralde
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
+            }
+        }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+
+            List<Articulo> FiltroDeBusqueda = new List<Articulo>;
+            NegocioArticulo negocio = new NegocioArticulo();
+            int idMar = DdMarca.SelectedIndex;
+            int idCat = DdCategoria.SelectedIndex;
+            int Pmin = Convert.ToInt32(txtPrecioMin.Text);
+            int Pmax = Convert.ToInt32(txtPrecioMax.Text);
+
+            try
+            {
+                if (idCat >=0 && idMar >=0 && Pmin >=0 && Pmax >0)
+                {
+                    FiltroDeBusqueda = negocio.ListarX_Mar_Cat_Pre(idMar, idCat, Pmin, Pmax);
+
+                }
+                else 
+                {
+                    FiltroDeBusqueda = ListaART;
+                }
+
+                RepetidorArticulos.DataSource = FiltroDeBusqueda;
+                RepetidorArticulos.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

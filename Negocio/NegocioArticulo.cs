@@ -150,6 +150,155 @@ namespace Negocio
 
         }
 
-       
+        public List<Articulo> ListarXCategoria (int id)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            List<Articulo> Lista = new List<Articulo>();
+
+            try
+            {
+
+                Datos.SetearSp("SP_Listar_x_Categoria");
+                Datos.AgregarParametro("@Id_Categoria",Convert.ToString(id));
+                Datos.EjecutarLector();
+
+                while (Datos.Leeme.Read())
+                {
+                    Articulo Aux = new Articulo();
+
+                    Aux.Id = Datos.Leeme.GetInt16(0);
+                    Aux.Codigo = Datos.Leeme.GetString(1);
+                    Aux.Nombre = Datos.Leeme.GetString(2);
+                    Aux.Descripcion = Datos.Leeme.GetString(3);
+
+                    Aux.Marca = new Marca();
+                    Aux.Marca.Nombre = Datos.Leeme.GetString(4);
+
+                    Aux.Categoria = new Categoria();
+                    Aux.Categoria.Nombre = Datos.Leeme.GetString(5);
+
+                    Aux.UrlImagen = Datos.Leeme.GetString(6);
+
+                    Aux.Precio = Convert.ToDouble(Datos.Leeme.GetDecimal(7));
+                    Aux.Marca.Id = Datos.Leeme.GetInt16(8);
+                    Aux.Categoria.Id = Datos.Leeme.GetInt16(9);
+
+                    Aux.Estado = Datos.Leeme.GetBoolean(10);
+                    Aux.Stock = Datos.Leeme.GetInt16(11);
+                    if (Aux.Estado == true) Lista.Add(Aux);
+
+                }
+                    return Lista;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex; 
+            }
+
+        }
+        public List<Articulo> ListarXMarca(int id)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            List<Articulo> Lista = new List<Articulo>();
+
+            try
+            {
+
+                Datos.SetearSp("SP_Listar_x_Marca");
+                Datos.AgregarParametro("@Id_Marca", Convert.ToString(id));
+                Datos.EjecutarLector();
+
+                while (Datos.Leeme.Read())
+                {
+                    Articulo Aux = new Articulo();
+
+                    Aux.Id = Datos.Leeme.GetInt16(0);
+                    Aux.Codigo = Datos.Leeme.GetString(1);
+                    Aux.Nombre = Datos.Leeme.GetString(2);
+                    Aux.Descripcion = Datos.Leeme.GetString(3);
+
+                    Aux.Marca = new Marca();
+                    Aux.Marca.Nombre = Datos.Leeme.GetString(4);
+
+                    Aux.Categoria = new Categoria();
+                    Aux.Categoria.Nombre = Datos.Leeme.GetString(5);
+
+                    Aux.UrlImagen = Datos.Leeme.GetString(6);
+
+                    Aux.Precio = Convert.ToDouble(Datos.Leeme.GetDecimal(7));
+                    Aux.Marca.Id = Datos.Leeme.GetInt16(8);
+                    Aux.Categoria.Id = Datos.Leeme.GetInt16(9);
+
+                    Aux.Estado = Datos.Leeme.GetBoolean(10);
+                    Aux.Stock = Datos.Leeme.GetInt16(11);
+                    if (Aux.Estado == true) Lista.Add(Aux);
+
+                }
+                    return Lista;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        public List<Articulo> ListarX_Mar_Cat_Pre(int idMarca, int idCategoria, int Pmin, int Pmax)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            List<Articulo> Lista = new List<Articulo>();
+
+            try
+            {
+
+                Datos.SetearSp("SP_ListarConFiltros");
+                Datos.AgregarParametro("@Id_Marca", Convert.ToString(idMarca));
+                Datos.AgregarParametro("@Id_Categoria", Convert.ToString(idCategoria));
+                Datos.AgregarParametro("@PrecioMin", Convert.ToString(Pmin));
+                Datos.AgregarParametro("@PrecioMax", Convert.ToString(Pmax));
+                Datos.EjecutarLector();
+
+                while (Datos.Leeme.Read())
+                {
+                    Articulo Aux = new Articulo();
+
+                    Aux.Id = Datos.Leeme.GetInt16(0);
+                    Aux.Codigo = Datos.Leeme.GetString(1);
+                    Aux.Nombre = Datos.Leeme.GetString(2);
+                    Aux.Descripcion = Datos.Leeme.GetString(3);
+
+                    Aux.Marca = new Marca();
+                    Aux.Marca.Nombre = Datos.Leeme.GetString(4);
+
+                    Aux.Categoria = new Categoria();
+                    Aux.Categoria.Nombre = Datos.Leeme.GetString(5);
+
+                    Aux.UrlImagen = Datos.Leeme.GetString(6);
+
+                    Aux.Precio = Convert.ToDouble(Datos.Leeme.GetDecimal(7));
+                    Aux.Marca.Id = Datos.Leeme.GetInt16(8);
+                    Aux.Categoria.Id = Datos.Leeme.GetInt16(9);
+
+                    Aux.Estado = Datos.Leeme.GetBoolean(10);
+                    Aux.Stock = Datos.Leeme.GetInt16(11);
+                    if (Aux.Estado == true) Lista.Add(Aux);
+
+                }
+                return Lista;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+
+
     }
 }
