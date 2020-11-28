@@ -20,13 +20,24 @@ namespace TPC_Orihuela_Insaurralde
                 Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
                 if (Logueado == null) Response.Redirect("Login.aspx");
           
-
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
+        }
+
+        public bool ValidarTamanio()
+        {
+            string Tarjeta = TxtNumTarjeta.Text.Trim();
+            string CVV = TxtCvv.Text.Trim();
+
+            if (Tarjeta.Length == 0) return false;
+            if (CVV.Length == 0) return false;
+            if (TxtFechaVenci.Text.Length == 0) return false;
+            
+            return true;
         }
 
         protected void BtnContinuar_Click(object sender, EventArgs e)
@@ -36,7 +47,18 @@ namespace TPC_Orihuela_Insaurralde
 
             try
             {
-                Response.Redirect("ConfirmarCompra.aspx");
+                if (ValidarTamanio() == true)
+                {
+                    Response.Redirect("ConfirmarCompra.aspx");
+                }
+
+                else
+                {
+                    string script = @"<script type='text/javascript'>
+                            alert('Error campos vacios.');
+                        </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                }
             }
             catch (Exception ex)
             {

@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-4">
                 <asp:Label Text="Numero de la tarjeta" Style="font-size: 15px" runat="server" />
-                <asp:TextBox Txt="TxtNumTarjeta" OnKeyPress="return SoloNumeros(event);" runat="server" Style="font-size: 15px" placeholder="**** **** **** **** **** **** **** **** ****" CssClass="form-control" />
+                <asp:TextBox ID="TxtNumTarjeta" OnKeyPress="return SoloNumeros(event);" OnCopy="return false" OnPaste="return false" OnCut="return false" runat="server" Style="font-size: 15px" placeholder="**** **** **** **** **** **** **** **** ****" CssClass="form-control" />
             </div>
 
             <div class="col-md-4">
@@ -19,7 +19,7 @@
 
             <div class="col-md-4">
                 <asp:Label Text="CVV" Style="font-size: 15px" runat="server" />
-                <asp:TextBox ID="TxtCvv" runat="server" OnKeyPress="return SoloNumeros(event);" Style="font-size: 15px" Width="50px" CssClass="form-control" />
+                <asp:TextBox ID="TxtCvv" runat="server" OnKeyPress="return SoloNumeros(event);" OnCopy="return false" OnPaste="return false" OnCut="return false" Style="font-size: 15px" Width="50px" CssClass="form-control" />
             </div>
         </div>
 

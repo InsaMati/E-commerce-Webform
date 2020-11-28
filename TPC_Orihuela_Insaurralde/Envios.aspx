@@ -16,14 +16,14 @@
 
             <div class="col-md-4">
                 <asp:Label Style="font-size: 15px" Text="Localidad" runat="server" />
-                <asp:TextBox runat="server" Style="font-size: 15px" OnKeyPress="return soloLetras(event);" CssClass="form-control" ID="TxtLocalidad" />
+                <asp:TextBox runat="server" Style="font-size: 15px" OnKeyPress="return soloLetras(event);" OnCopy="return false" OnPaste="return false" OnCut="return false" CssClass="form-control" ID="TxtLocalidad" />
 
             </div>
 
 
             <div class="col-md-4">
                 <asp:Label Style="font-size: 15px" Text="Calle" runat="server" />
-                <asp:TextBox runat="server" Style="font-size: 15px" CssClass="form-control" ID="TxtCalle" />
+                <asp:TextBox runat="server" Style="font-size: 15px" OnKeyPress="return LetrasYNumeros(event);" OnCopy="return false" OnPaste="return false" OnCut="return false" CssClass="form-control" ID="TxtCalle" />
             </div>
         </div>
     </div>
@@ -32,12 +32,12 @@
 
         <div class="col-md-4">
             <asp:Label Style="font-size: 15px" Text="Entre Calles" runat="server" />
-            <asp:TextBox runat="server" Style="font-size: 15px" CssClass="form-control" ID="TxtEntreCalles" />
+            <asp:TextBox runat="server" Style="font-size: 15px" CssClass="form-control" OnKeyPress="return LetrasYNumeros(event);" OnCopy="return false" OnPaste="return false" OnCut="return false" ID="TxtEntreCalles" />
         </div>
 
         <div class="col-md-4">
             <asp:Label Text="Codigo Postal" Style="font-size: 15px" runat="server" />
-            <asp:TextBox runat="server" OnKeyPress="return SoloNumeros(event);" Style="font-size: 15px" CssClass="form-control" ID="TxtCodigoPostal" />
+            <asp:TextBox runat="server" OnKeyPress="return SoloNumeros(event);" Style="font-size: 15px" CssClass="form-control" OnCopy="return false" OnPaste="return false" OnCut="return false" ID="TxtCodigoPostal" />
         </div>
     </div>
 
