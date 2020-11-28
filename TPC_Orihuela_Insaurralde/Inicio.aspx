@@ -35,7 +35,7 @@
             <ContentTemplate>
                 <div class="col-lg-12">
                     <p style="font-size: 18px">Buscador</p>
-                    <asp:TextBox runat="server" ID="TxtFiltro" Style="font-size: 15px" CssClass="form-control" OnKeyPress="return disableEnterKey(event);" />
+                    <asp:TextBox runat="server" ID="TxtFiltro" Style="font-size: 15px" CssClass="form-control" OnKeyPress="return disableEnterKey(event);" type="search" />
                     <br />
                     <asp:Button ID="BtnBuscar" Text="Buscar" Style="font-size: 15px;" CssClass="btn btn-outline-secondary" runat="server" OnClick="BtnBuscar_Click" />
 

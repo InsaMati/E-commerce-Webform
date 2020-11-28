@@ -47,6 +47,7 @@ namespace TPC_Orihuela_Insaurralde
             TxtContraseña.Text = Criptografia.DesEncriptar(Cambio.Contraseña);
         }
 
+
         public void CargarLista()
         {
             NegocioUsuario NegocioUsuario = new NegocioUsuario();
@@ -61,6 +62,13 @@ namespace TPC_Orihuela_Insaurralde
             DDTipoUsuario.DataSource = ListaTS;
             DDTipoUsuario.SelectedIndex = IndexTipo;
             DDTipoUsuario.DataBind();
+        }
+        public bool validar()
+        {
+            string contra = TxtContraseña.Text.Trim();
+            if (contra.Length == 0) return false;
+
+            return true;
         }
 
         protected void BtnVolver_Click(object sender, EventArgs e)
@@ -84,17 +92,27 @@ namespace TPC_Orihuela_Insaurralde
             {
                 CargarLista();
 
-                Usuario Aux = new Usuario();
 
-                Aux.Id = Convert.ToInt32(Request.QueryString["Pro"]);
-                Aux.Email = TxtEmail.Text;
-                Aux.Contraseña = Criptografia.Encriptar(TxtContraseña.Text);
-                Aux.TipoUsuario = new TipoUsuario();
-                Aux.TipoUsuario = ListaTS.Find(XS => XS.Nombre == DDTipoUsuario.SelectedValue);
-                Aux.Estado = true;
-                NegocioUsuario.ModificarUsuario(Aux);
+                if (validar() == true)
+                {
+                    Usuario Aux = new Usuario();
 
-                Response.Redirect("ABMLUsuario.aspx");
+                    Aux.Id = Convert.ToInt32(Request.QueryString["Pro"]);
+                    Aux.Email = TxtEmail.Text;
+                    Aux.Contraseña = Criptografia.Encriptar(TxtContraseña.Text);
+                    Aux.TipoUsuario = new TipoUsuario();
+                    Aux.TipoUsuario = ListaTS.Find(XS => XS.Nombre == DDTipoUsuario.SelectedValue);
+                    Aux.Estado = true;
+                    NegocioUsuario.ModificarUsuario(Aux);
+                    Response.Redirect("ABMLUsuario.aspx");
+                }
+                else
+                {
+                    string script = @"<script type='text/javascript'>
+                            alert('Error campos vacios.');
+                        </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                }
 
             }
             catch (Exception ex)

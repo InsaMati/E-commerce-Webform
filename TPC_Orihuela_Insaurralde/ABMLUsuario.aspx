@@ -30,8 +30,8 @@
                     <td style="font-size: 12px"><% = Item.Contraseña %></td>
                     <td style="font-size: 12px"><% = Item.TipoUsuario.Nombre %></td>
                     <td class="text-right">
-                        <a href="UsuarioaModificar.aspx?Pro=<% = Item.Id %>" class="btn btn-outline-primary badge-pill" style="font-size: 15px;text-decoration: none">Editar</a>
-                        <a href="ABMLUsuario.aspx?User=<% = Item.Id %>" class="btn btn-outline-danger badge-pill" style="font-size: 15px;text-decoration: none">Eliminar</a>
+                        <a href="UsuarioaModificar.aspx?Pro=<% = Item.Id %>" class="btn btn-outline-primary badge-pill" style="font-size: 15px; text-decoration: none">Editar</a>
+                        <a href="ABMLUsuario.aspx?User=<% = Item.Id %>" class="btn btn-outline-danger badge-pill" style="font-size: 15px; text-decoration: none">Eliminar</a>
                     </td>
                 </tr>
 
@@ -39,10 +39,10 @@
                 <% } %>
             </tbody>
         </table>
-        <center>
-        <asp:Button class="btn btn-outline-primary" Style="font-size:15px" Text="Agregar" runat="server" ID="BtnAgregar" OnClick="BtnAgregar_Click" />
-        <asp:Button class="btn btn-outline-danger" Style="font-size:15px" Text="Volver" runat="server" ID="BtnVolver" OnClick="BtnVolver_Click"  />
-                </center>
+        <div class="col-md-12" style="text-align: center">
+            <asp:Button class="btn btn-outline-primary" Style="font-size: 15px" Text="Agregar" runat="server" ID="BtnAgregar" OnClick="BtnAgregar_Click" />
+            <asp:Button class="btn btn-outline-danger" Style="font-size: 15px" Text="Volver" runat="server" ID="BtnVolver" OnClick="BtnVolver_Click" />
+        </div>
     </div>
     <hr />
 </asp:Content>
