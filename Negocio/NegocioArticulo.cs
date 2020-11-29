@@ -284,7 +284,8 @@ namespace Negocio
 
                     Aux.Estado = Datos.Leeme.GetBoolean(10);
                     Aux.Stock = Datos.Leeme.GetInt16(11);
-                    if (Aux.Estado == true) Lista.Add(Aux);
+                    if (Aux.Estado == true)
+                    Lista.Add(Aux);
 
                 }
                 return Lista;

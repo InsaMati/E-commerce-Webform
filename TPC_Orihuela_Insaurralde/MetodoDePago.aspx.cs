@@ -50,21 +50,13 @@ namespace TPC_Orihuela_Insaurralde
                 {
 
                     case 1:
-                        Response.Redirect("PagoEfectivo.aspx");
-                        
+                        Response.Redirect("MercadoPago.aspx");                        
                         break;
                     case 2:
-                        Response.Redirect("DatosTarjeta.aspx");
-                        
+                        Response.Redirect("DatosTarjeta.aspx");                        
                         break;
                     case 3:
-                        Response.Redirect("DatosBancarios.aspx");
-                        break;
-                    case 4:
-                        Response.Redirect("PagoPaypal.aspx");
-                        break;
-                    case 5:
-                        Response.Redirect("MercadoPago.aspx");
+                        Response.Redirect("ConfirmarCompra.aspx");
                         break;
                 }
 
