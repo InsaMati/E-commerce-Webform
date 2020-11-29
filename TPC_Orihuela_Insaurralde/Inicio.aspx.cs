@@ -93,7 +93,7 @@ namespace TPC_Orihuela_Insaurralde
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
 
-            List<Articulo> FiltroDeBusqueda = new List<Articulo>;
+            List<Articulo> FiltroDeBusqueda = new List<Articulo>();
             NegocioArticulo negocio = new NegocioArticulo();
             int idMar = DdMarca.SelectedIndex;
             int idCat = DdCategoria.SelectedIndex;

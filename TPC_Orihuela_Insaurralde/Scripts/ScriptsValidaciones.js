@@ -50,3 +50,8 @@ function validarEmail(valor) {
         alert("La dirección de email es incorrecta.");
     }
 }
+
+
+$(document).ready(function () {
+    $('.toast').toast('show');
+});
