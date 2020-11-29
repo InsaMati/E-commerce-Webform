@@ -77,40 +77,6 @@ namespace Negocio
             }
         }
 
-        public void MailLinkDePago(string email)
-        {
-            try
-            {
-                string Remitente = "TpcCuatrimestralInsaurralde@gmail.com";
-                string contraseña = "AprueboOnoApruebo?";
-
-                MailMessage Msj = new MailMessage();
-                Msj.To.Add(email);
-                Msj.Subject = "Link de pago";
-                Msj.SubjectEncoding = System.Text.Encoding.UTF8;
-                Msj.Body = "Estimado cliente. " +
-                    "A continuacion encontrará el link para pagar su compra a través de mercado pago." +
-                    "Linkdepago.mp" +
-                    "Muchas gracias por su compra, no dude en consultarnos ante cualquier duda con su compra." +
-                    "atte TPC.";
-                Msj.IsBodyHtml = false;
-                Msj.From = new System.Net.Mail.MailAddress(Remitente);
-
-                System.Net.Mail.SmtpClient Cliente = new SmtpClient();
-                Cliente.Credentials = new System.Net.NetworkCredential(Remitente, contraseña);
-                Cliente.Port = 587;
-                Cliente.EnableSsl = true;
-                Cliente.Host = "smtp.gmail.com";
-
-                Cliente.Send(Msj);
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
 
     }
 }

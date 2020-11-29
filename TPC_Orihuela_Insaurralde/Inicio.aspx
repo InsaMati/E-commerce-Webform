@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="TPC_Orihuela_Insaurralde.Inicio" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
     <script src="Scripts/ScriptsValidaciones.js"></script>
 
     <div class="container" id="ContainerProductos">
@@ -9,6 +8,7 @@
             <h1 class="text-center">Productos</h1>
             <hr />
         </div>
+   
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
@@ -23,13 +23,13 @@
                 </div>
                 <div class="col-lg-4">
                     <p style="font-size: 18px">Precio Minimo</p>
-                    <asp:TextBox ID="txtPrecioMin" Style="font-size: 15px" CssClass="form-control" runat="server" />  
-                    
+                    <asp:TextBox ID="txtPrecioMin" Style="font-size: 15px" CssClass="form-control" runat="server" />
+
                 </div>
                 <div class="col-lg-4">
                     <p style="font-size: 18px">Precio Maximo</p>
-                    <asp:TextBox ID="txtPrecioMax" Style="font-size: 15px" CssClass="form-control" runat="server" />  
-                    
+                    <asp:TextBox ID="txtPrecioMax" Style="font-size: 15px" CssClass="form-control" runat="server" />
+
                 </div>
                 <br />
                 <div class="col-lg-4">
@@ -48,7 +48,7 @@
                     <br />
                     <asp:Button ID="BtnBuscar" Text="Buscar" Style="font-size: 15px;" CssClass="btn btn-outline-secondary" runat="server" OnClick="BtnBuscar_Click" />
 
-                   
+
                     <hr />
                 </div>
                 <asp:Repeater runat="server" ID="RepetidorArticulos">

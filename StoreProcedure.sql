@@ -248,7 +248,7 @@ BEGIN CATCH
 END CATCH
 
 
---- LISTAR FACTURAS POR USUARIO
+
 
 create procedure sp_listar_facturas_por_usuario
 (
@@ -261,9 +261,8 @@ inner join PEDIDO AS P on P.ID = F.ID_pedido
 inner join ESTADO AS E on E.ID = P.ID_estado
 inner join TIPO_DE_PAGO as TP on TP.ID = F.ID_FormPago
 where F.ID_usuario = @Id_Usuario
-GO
 
---- MODIFICAR ESTADO DE PEDIDO
+
 
 create procedure SP_ModificarEstadoPedido(
 @IdPedido smallint,
@@ -277,9 +276,6 @@ END TRY
 BEGIN CATCH
 	RAISERROR('Error al Modificar estado de pedido',16,1)
 END CATCH
-go
-
---- AGREGAR DATOS DE ENVIO
 
 create procedure SP_Agregar_DatosEnvio(
    
@@ -300,70 +296,20 @@ BEGIN CATCH
 	RAISERROR('Error al Agregar Datos de envio',16,1)
 END CATCH
 
----- BUSCAR PEDIDO
+
 
 create procedure SP_Ver_Pedido
 (@IdPedido smallint) as
 BEGIN TRY
-	select A.Nombre, AXC.Cantidad, AXC.Subtotal, DE.Correo,DE.Localidad,DE.Calle,DE.EntreCalles,DE.CodigoPostal from ARTICULOS_X_CARRITO as AXC
-	inner join ARTICULOS as A on A.ID = AXC.ID_articulos
-	inner join PEDIDO as P on P.ID_carrito = AXC.ID_carrito
-	inner join CARRITO as C on C.ID = AXC.ID_carrito
-	inner join DatosEnvios as DE on DE.ID_usuario = c.ID_usuario
-	where P.ID = @IdPedido and DE.ID_Pedido =@IdPedido
+select A.Nombre, AXC.Cantidad, AXC.Subtotal, DE.Correo,DE.Localidad,DE.Calle,DE.EntreCalles,DE.CodigoPostal from ARTICULOS_X_CARRITO as AXC
+inner join ARTICULOS as A on A.ID = AXC.ID_articulos
+inner join PEDIDO as P on P.ID_carrito = AXC.ID_carrito
+inner join CARRITO as C on C.ID = AXC.ID_carrito
+inner join DatosEnvios as DE on DE.ID_usuario = c.ID_usuario
+where P.ID = @IdPedido and DE.ID_Pedido =@IdPedido
 END TRY
 BEGIN CATCH
 RAISERROR('Error al mostrar Pedido',16,1)
 END CATCH
 
----  LISTAR ARTICULOS POR MARCA
-create procedure SP_Listar_x_Marca(
-	@Id_Marca smallint
-) as
-BEGIN TRY
-	select * from ARTICULOS where IdMarca = @Id_Marca
-END TRY
-BEGIN CATCH
-	RAISERROR('Error al buscar marca',16,1)
-END CATCH
-go
----  LISTAR ARTICULOS POR CATEGORIA
 
-create procedure SP_Listar_x_Categoria(
-	@Id_Categoria smallint
-) as
-BEGIN TRY
-	select * from ARTICULOS where IdCategoria = @Id_Categoria
-END TRY
-BEGIN CATCH
-	RAISERROR('Error al buscar categoria',16,1)
-END CATCH
-go
-
---- LISTAR POR MARCA Y CATEGORIA
-
-create procedure SP_Listar_x_Mar_Cat(
-	@Id_Marca smallint,
-	@Id_Categoria smallint
-) as
-BEGIN TRY
-	select * from ARTICULOS where IdCategoria = @Id_Categoria and IdMarca = @Id_Marca
-END TRY
-BEGIN CATCH
-	RAISERROR('Error al buscar articulos',16,1)
-END CATCH
-go
-
---- LISTAR ARTICULOS CON FILTROS DE MARCA, CATEGORIA Y PRECIO
-create procedure SP_ListarConFiltros(
-	@Id_Marca smallint,
-	@Id_Categoria smallint,
-	@PrecioMin money,
-	@PrecioMax money	
-) as
-BEGIN TRY
-	select * from ARTICULOS where IdCategoria = @Id_Categoria and IdMarca = @Id_Marca and Precio >= @PrecioMin and Precio <= @PrecioMax
-END TRY
-BEGIN CATCH
-	RAISERROR('Error al buscar articulos',16,1)
-END CATCH

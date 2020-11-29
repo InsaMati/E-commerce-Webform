@@ -97,32 +97,15 @@ namespace TPC_Orihuela_Insaurralde
             NegocioArticulo negocio = new NegocioArticulo();
             int idMar = DdMarca.SelectedIndex;
             int idCat = DdCategoria.SelectedIndex;
-            int Pmin = new int();
-            int Pmax = new int();
+            int Pmin = Convert.ToInt32(txtPrecioMin.Text);
+            int Pmax = Convert.ToInt32(txtPrecioMax.Text);
 
             try
             {
-                if (txtPrecioMin.Text == "")
-                {
-                    Pmin = -1;
-                }
-                else
-                {
-                    Pmin = Convert.ToInt32(txtPrecioMin.Text);
-                }
-
-                if (txtPrecioMax.Text == "")
-                {
-                    Pmax = -1;
-                }
-                else
-                {
-                    Pmax = Convert.ToInt32(txtPrecioMax.Text);
-                }
-
-                if (idCat >=0 && idMar >= 0 && Pmin >= 0 && Pmax > 0)
+                if (idCat >=0 && idMar >=0 && Pmin >=0 && Pmax >0)
                 {
                     FiltroDeBusqueda = negocio.ListarX_Mar_Cat_Pre(idMar, idCat, Pmin, Pmax);
+
                 }
                 else 
                 {
