@@ -48,15 +48,11 @@ namespace TPC_Orihuela_Insaurralde
 
                 switch (Id)
                 {
-
-                    case 1:
-                        Response.Redirect("MercadoPago.aspx");
-                        break;
                     case 2:
                         Response.Redirect("DatosTarjeta.aspx");
                         break;
-                    case 3:
-                        Response.Redirect("ConfirmarCompra.aspx");
+                    case 5:
+                        Response.Redirect("MercadoPago.aspx");
                         break;
                 }
 

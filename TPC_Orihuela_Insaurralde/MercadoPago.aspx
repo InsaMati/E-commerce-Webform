@@ -8,18 +8,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="alert alert-success" style="font-size: 40px" role="alert">
-                      <h1 class="alert-heading">Felicidades !!</h1>                    
+                <div class="alert alert-success" style="font-size: 35px" role="alert">
+                    <h1 class="alert-heading">Felicidades !!</h1>
                     <hr />
-                      <p style="font-size: 20px">Ha realizado la compra exitosamente. Le enviamos un mail con el link de pago, a la direccion de correo con la que se registro.</p>                      
+                    <p style="font-size: 20px">Ha realizado la compra exitosamente. Le enviamos un mail con el link de pago, a la direccion de correo con la que se registro.</p>
                 </div>
             </div>
         </div>
 
     </div>
-    <center>
-        <asp:button text="Terminar" ID="txtTerminar" runat="server" CssClass="btn btn-outline-success" OnClick="txtTerminar_Click" />
-    </center>
-
+    <div class="col-md-12" style="text-align:center">
+        <asp:Button Text="Confirmar" Style="font-size:15px" ID="txtTerminar" runat="server" CssClass="btn btn-outline-success" OnClick="txtTerminar_Click" />
+    </div>
 
 </asp:Content>

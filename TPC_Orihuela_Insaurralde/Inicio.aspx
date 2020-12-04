@@ -8,37 +8,6 @@
             <h1 class="text-center">Productos</h1>
             <hr />
         </div>
-   
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-4">
-                    <p style="font-size: 18px">Marca</p>
-                    <asp:DropDownList ID="DdMarca" Style="font-size: 15px" CssClass="form-control" runat="server">
-                    </asp:DropDownList>
-                </div>
-                <div class="col-lg-4">
-                    <p style="font-size: 18px">Categoria</p>
-                    <asp:DropDownList ID="DdCategoria" Style="font-size: 15px" CssClass="form-control" runat="server">
-                    </asp:DropDownList>
-                </div>
-                <div class="col-lg-4">
-                    <p style="font-size: 18px">Precio Minimo</p>
-                    <asp:TextBox ID="txtPrecioMin" Style="font-size: 15px" CssClass="form-control" runat="server" />
-
-                </div>
-                <div class="col-lg-4">
-                    <p style="font-size: 18px">Precio Maximo</p>
-                    <asp:TextBox ID="txtPrecioMax" Style="font-size: 15px" CssClass="form-control" runat="server" />
-
-                </div>
-                <br />
-                <div class="col-lg-4">
-                    <asp:Button Text="Filtrar" ID="btnFiltrar" Style="font-size: 15px;" CssClass="btn btn-outline-secondary" runat="server" OnClick="btnFiltrar_Click" />
-                </div>
-
-            </div>
-            <hr />
-        </div>
 
         <asp:UpdatePanel runat="server">
             <ContentTemplate>
@@ -47,8 +16,6 @@
                     <asp:TextBox runat="server" ID="TxtFiltro" Style="font-size: 15px" CssClass="form-control" OnKeyPress="return disableEnterKey(event);" type="search" />
                     <br />
                     <asp:Button ID="BtnBuscar" Text="Buscar" Style="font-size: 15px;" CssClass="btn btn-outline-secondary" runat="server" OnClick="BtnBuscar_Click" />
-
-
                     <hr />
                 </div>
                 <asp:Repeater runat="server" ID="RepetidorArticulos">
@@ -97,7 +64,6 @@
                         <h4>Settings</h4>
                         <br />
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                        <span><i class="fab fa-cc-visa"></i></span>
                     </div>
                 </div>
             </div>
@@ -107,7 +73,6 @@
                         <h4>Speedup</h4>
                         <br />
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                        <span><i class="fab fa-cc-visa"></i></span>
                     </div>
                 </div>
             </div>
@@ -116,8 +81,7 @@
                     <div class="our-services privacy">
                         <h4>Privacy</h4>
                         <br />
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
-                        <span><i class="fab fa-cc-visa"></i></span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>                  
                     </div>
                 </div>
             </div>

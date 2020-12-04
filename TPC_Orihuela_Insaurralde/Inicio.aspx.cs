@@ -26,8 +26,6 @@ namespace TPC_Orihuela_Insaurralde
                 RepetidorArticulos.DataSource = ListaART;
                 RepetidorArticulos.DataBind();
 
-                CargarDD();
-
             }
             catch (Exception ex)
             {
@@ -36,21 +34,6 @@ namespace TPC_Orihuela_Insaurralde
             }
         }
 
-        public void CargarDD()
-        {
-            //// Categoria
-            NegocioCategoria NegocioCategoria = new NegocioCategoria();
-
-            DdCategoria.DataSource = NegocioCategoria.ListarCategorias();
-            DdCategoria.DataBind();
-
-            //// Marca
-            NegocioMarca NegocioMarca = new NegocioMarca();
-
-            DdMarca.DataSource = NegocioMarca.ListarMarcas();
-            DdMarca.DataBind();
-
-        }
         public void VerificarLogueado()
         {
             try
@@ -89,55 +72,6 @@ namespace TPC_Orihuela_Insaurralde
                 throw ex;
             }
         }
-
-        protected void btnFiltrar_Click(object sender, EventArgs e)
-        {
-
-            List<Articulo> FiltroDeBusqueda = new List<Articulo>();
-            NegocioArticulo negocio = new NegocioArticulo();
-            int idMar = DdMarca.SelectedIndex;
-            int idCat = DdCategoria.SelectedIndex;
-            int Pmin = new int();
-            int Pmax = new int();
-
-            try
-            {
-                if (txtPrecioMin.Text == "")
-                {
-                    Pmin = -1;
-                }
-                else
-                {
-                    Pmin = Convert.ToInt32(txtPrecioMin.Text);
-                }
-
-                if (txtPrecioMax.Text == "")
-                {
-                    Pmax = -1;
-                }
-                else
-                {
-                    Pmax = Convert.ToInt32(txtPrecioMax.Text);
-                }
-
-                if (idCat >= 0 && idMar >= 0 && Pmin >= 0 && Pmax > 0)
-                {
-                    FiltroDeBusqueda = negocio.ListarX_Mar_Cat_Pre(idMar, idCat, Pmin, Pmax);
-                }
-                else
-                {
-                    FiltroDeBusqueda = ListaART;
-                }
-
-                RepetidorArticulos.DataSource = FiltroDeBusqueda;
-                RepetidorArticulos.DataBind();
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
+       
     }
 }

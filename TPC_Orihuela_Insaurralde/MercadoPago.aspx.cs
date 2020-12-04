@@ -21,7 +21,9 @@ namespace TPC_Orihuela_Insaurralde
         {
             EnvioEmails mail = new EnvioEmails();
             mail.MailLinkDePago(Logueado.Email);
-            Response.Redirect("Inicio.aspx");
+
+            Session[Session.SessionID + "Cuotas"] = 0;
+            Response.Redirect("ConfirmarCompra.aspx");
         }
     }
 }

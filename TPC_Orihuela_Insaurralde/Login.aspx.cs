@@ -11,6 +11,7 @@ namespace TPC_Orihuela_Insaurralde
 {
     public partial class Login : System.Web.UI.Page
     {
+        public bool alert = new bool();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -48,9 +49,8 @@ namespace TPC_Orihuela_Insaurralde
                 }
 
                 else
-                { 
-                    Console.WriteLine("Usuario o contraseña incorrectos");                    
-                    Response.Redirect("Login.aspx");
+                {
+                    alert = true;
                 }
 
             }
