@@ -44,17 +44,18 @@
                             </div>
                             <a class="btn btn-secondary" style="font-family: 'Titillium Web', sans-serif; font-weight: 600; font-size: 15px; background-color: #8FCA00; border: none; justify-content: center; display: flex; height: 35px; color: #ffffff" href="ProductoSeleccionado.aspx?id=<%#Eval("Id")%>">Ver</a>
                             <br />
-                            <hr />
+                            
                             <br />
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
             </ContentTemplate>
         </asp:UpdatePanel>
-
+        
     </div>
     <div class="container-fluid mb-5">
         <div class="text-center">
+            <hr />
             <h1>Servicios</h1>
         </div>
         <div class="row">

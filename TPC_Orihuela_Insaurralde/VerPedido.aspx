@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h1>Mis Compras</h1>
+    <h1>Revision Pedido</h1>
     <hr />
     <div class="container">
         <table class="table table-hover table-bordered">

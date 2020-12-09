@@ -33,7 +33,11 @@
                     <td class="text-right">
                         <a href="VerPedido.aspx?IdPedido=<% = Item.IDPedido %>" class="btn btn-outline-primary badge-pill" style="font-size: 15px; text-decoration: none; width: 100px">Ver</a>
 
-                        <% if (Item.EstadoPedidos.Id ==  ) {%>
+                        <% if (Item.EstadoPedidos.Descripcion == "Rechazado")
+                            {%>
+                        <a href="VerPedido.aspx?IdPedido=<% = Item.IDPedido %>" class="btn btn-outline-danger badge-pill" style="font-size: 15px; text-decoration: none; width: 100px">Motivo</a>
+
+
                         <%} %>
                     </td>
                 </tr>
@@ -43,7 +47,7 @@
                 <% } %>
             </tbody>
         </table>
-        <div class="col-md-12" style="text-align:center">
+        <div class="col-md-12" style="text-align: center">
             <asp:Button class="btn btn-outline-danger" Style="font-size: 15px" Text="Volver" runat="server" ID="BtnVolver" OnClick="BtnVolver_Click" />
         </div>
     </div>
