@@ -66,5 +66,18 @@ namespace TPC_Orihuela_Insaurralde
                 throw ex;
             }
         }
+
+        protected void BtnVolver_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("MetodoDePago.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

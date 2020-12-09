@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script src="Scripts/ScriptsValidaciones.js"></script>
-    <h1 style="text-align:center">Información de pago</h1>
+    <h1 style="text-align: center">Información de pago</h1>
     <hr />
     <div class="container">
         <div class="row">
@@ -45,8 +45,14 @@
 
     <p></p>
 
-    <center>
-     <asp:button text="Continuar" ID="BtnContinuar" CssClass="btn btn-outline-success"  style="font-size:15px" runat="server" OnClick="BtnContinuar_Click"/>
-    </center>
+    <div class="container">
+        <div class="col-md-12" style="text-align:center">
+            <asp:Button Text="Continuar" ID="BtnContinuar" CssClass="btn btn-outline-success" Style="font-size: 15px" runat="server" OnClick="BtnContinuar_Click" />
+
+            <asp:Button Text="Volver" ID="BtnVolver" CssClass="btn btn-outline-danger" Style="font-size: 15px" runat="server" OnClick="BtnVolver_Click" />
+
+        </div>
+    </div>
+
     <hr />
 </asp:Content>

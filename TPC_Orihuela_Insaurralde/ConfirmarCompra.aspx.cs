@@ -39,7 +39,8 @@ namespace TPC_Orihuela_Insaurralde
             {
                 ElementosCarrito = (List<ElementoCarrito>)Session[Session.SessionID + "Lista"];
                 MedioPago = (int)Session[Session.SessionID + "IdMetodoPago"];
-                Cuotas = (int)Session[Session.SessionID + "Cuotas"];
+
+                if(MedioPago == 2) Cuotas = (int)Session[Session.SessionID + "Cuotas"];
                 InfoEnvio = (DatosEnvio)Session[Session.SessionID + "DatosEnvio"];
                 Total = (double)Session[Session.SessionID + "Total"];
                 Envio = (DatosEnvio)Session[Session.SessionID + "DatosEnvio"];
@@ -56,9 +57,13 @@ namespace TPC_Orihuela_Insaurralde
 
             try
             {
+                VariablesSession();
                 AgregarCarrito();
                 Session.Remove(Session.SessionID + "Lista");
-                Response.Redirect("Inicio.aspx");
+
+                if (MedioPago == 2) Response.Redirect("MercadoPago.aspx");
+
+                Response.Redirect("inicio.aspx");
             }
             catch (Exception ex)
             {
@@ -184,6 +189,22 @@ namespace TPC_Orihuela_Insaurralde
                 throw ex;
             }
 
+        }
+
+        protected void BtnVolver_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                VariablesSession();
+
+                if (MedioPago == 2) Response.Redirect("DatosTarjeta.aspx");
+                if (MedioPago == 5) Response.Redirect("MetodoDePago.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

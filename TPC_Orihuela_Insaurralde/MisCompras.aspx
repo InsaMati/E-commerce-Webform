@@ -32,6 +32,9 @@
                     <td style="font-size: 12px">$<% = Item.Importe %></td>
                     <td class="text-right">
                         <a href="VerPedido.aspx?IdPedido=<% = Item.IDPedido %>" class="btn btn-outline-primary badge-pill" style="font-size: 15px; text-decoration: none; width: 100px">Ver</a>
+
+                        <% if (Item.EstadoPedidos.Id ==  ) {%>
+                        <%} %>
                     </td>
                 </tr>
 

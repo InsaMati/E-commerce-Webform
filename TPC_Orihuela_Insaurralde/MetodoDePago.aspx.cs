@@ -52,7 +52,7 @@ namespace TPC_Orihuela_Insaurralde
                         Response.Redirect("DatosTarjeta.aspx");
                         break;
                     case 5:
-                        Response.Redirect("MercadoPago.aspx");
+                        Response.Redirect("ConfirmarCompra.aspx");
                         break;
                 }
 

@@ -17,8 +17,10 @@
         </div>
 
     </div>
-    <div class="col-md-12" style="text-align:center">
-        <asp:Button Text="Confirmar" Style="font-size:15px" ID="txtTerminar" runat="server" CssClass="btn btn-outline-success" OnClick="txtTerminar_Click" />
+    <div class="col-md-12" style="text-align: center">
+        <asp:Button Text="Inicio" Style="font-size: 15px" ID="BtnConfirmar" runat="server" CssClass="btn btn-outline-success" OnClick="BtnConfirmar_Click"  />
+        <asp:Button Text="Volver" Style="font-size: 15px" ID="BtnVolver" runat="server" CssClass="btn btn-outline-danger" OnClick="BtnVolver_Click"  />
+
     </div>
 
 </asp:Content>

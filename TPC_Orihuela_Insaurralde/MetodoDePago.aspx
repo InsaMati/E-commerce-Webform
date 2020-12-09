@@ -26,5 +26,7 @@
     <div class="col-md-12" style="text-align: center">
         <asp:Button Text="Volver" ID="btnVolver" CssClass="btn btn-outline-danger" Style="font-size: 15px" runat="server" OnClick="btnVolver_Click" />
     </div>
+    <br />
+    <br />
     <hr />
 </asp:Content>

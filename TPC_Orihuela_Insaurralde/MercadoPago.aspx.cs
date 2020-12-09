@@ -17,13 +17,34 @@ namespace TPC_Orihuela_Insaurralde
             Logueado = (Usuario)Session[Session.SessionID + "UsuarioLogueado"];
             if (Logueado == null) Response.Redirect("Login.aspx");
         }
-        protected void txtTerminar_Click(object sender, EventArgs e)
-        {
-            EnvioEmails mail = new EnvioEmails();
-            mail.MailLinkDePago(Logueado.Email);
 
-            Session[Session.SessionID + "Cuotas"] = 0;
-            Response.Redirect("ConfirmarCompra.aspx");
+        protected void BtnConfirmar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EnvioEmails mail = new EnvioEmails();
+                mail.MailLinkDePago(Logueado.Email);
+
+                Response.Redirect("Inicio.aspx");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        protected void BtnVolver_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("MetodoDePago.aspx");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
