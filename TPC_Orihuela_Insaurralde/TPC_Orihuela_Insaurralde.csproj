@@ -144,6 +144,7 @@
     <Content Include="MetodoDePago.aspx" />
     <Content Include="MisCompras.aspx" />
     <Content Include="PagoEfectivo.aspx" />
+    <Content Include="PedidoRechazado.aspx" />
     <Content Include="ProductoA.aspx" />
     <Content Include="ProductoAModificar.aspx" />
     <Content Include="ProductoSeleccionado.aspx" />
@@ -349,6 +350,13 @@
     </Compile>
     <Compile Include="PagoEfectivo.aspx.designer.cs">
       <DependentUpon>PagoEfectivo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoRechazado.aspx.cs">
+      <DependentUpon>PedidoRechazado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PedidoRechazado.aspx.designer.cs">
+      <DependentUpon>PedidoRechazado.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductoA.aspx.cs">
       <DependentUpon>ProductoA.aspx</DependentUpon>

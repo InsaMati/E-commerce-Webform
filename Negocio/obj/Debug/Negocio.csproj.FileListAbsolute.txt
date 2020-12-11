@@ -25,3 +25,12 @@ C:\Users\ines3\Downloads\TPC_Orihuela_Insaurralde-master\TPC_Orihuela_Insaurrald
 C:\Users\ines3\Downloads\TPC_Orihuela_Insaurralde-master\TPC_Orihuela_Insaurralde-master\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\ines3\Downloads\TPC_Orihuela_Insaurralde-master\TPC_Orihuela_Insaurralde-master\Negocio\obj\Debug\Negocio.dll
 C:\Users\ines3\Downloads\TPC_Orihuela_Insaurralde-master\TPC_Orihuela_Insaurralde-master\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\Programacion III\TPC_Orihuela_Insaurralde\Negocio\bin\Debug\Negocio.dll
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\Programacion III\TPC_Orihuela_Insaurralde\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\Programacion III\TPC_Orihuela_Insaurralde\Negocio\bin\Debug\Dominio.dll
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\Programacion III\TPC_Orihuela_Insaurralde\Negocio\bin\Debug\Dominio.pdb
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\Programacion III\TPC_Orihuela_Insaurralde\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\Programacion III\TPC_Orihuela_Insaurralde\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\Programacion III\TPC_Orihuela_Insaurralde\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\Programacion III\TPC_Orihuela_Insaurralde\Negocio\obj\Debug\Negocio.dll
+C:\Users\Lucas\Desktop\Facultad\Segundo cuatrimestre 2020\Programacion III\TPC_Orihuela_Insaurralde\Negocio\obj\Debug\Negocio.pdb

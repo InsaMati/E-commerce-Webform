@@ -107,5 +107,26 @@ namespace Negocio
                 throw ex;
             }
         }
+        public int IdCarrito(int idPedido)
+        {
+            try
+            {
+                AccesoADatos Datos = new AccesoADatos();
+
+                Datos.SetearQuery("SELECT ID_carrito from Pedido where id = @IdPedido");
+                Datos.AgregarParametro("@IdPedido",Convert.ToString(idPedido));
+                Datos.EjecutarLector();
+                int idCarrito = Convert.ToInt32(Datos.Leeme.GetString(1));
+                int probando = idCarrito;
+                return idCarrito;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

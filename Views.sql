@@ -11,7 +11,7 @@ GO
 create view VW_Listar_Usuarios as
 select U.ID,U.Email, U.Contraseña, U.Estado, TU.ID as IdTipo, TU.Nombre as TipoUsuario from USUARIO as U
 inner join TIPO_DE_USUARIO as TU on TU.ID = U.IdTipoUsuario
-
+go
 create view VW_ListarAdmPedidos as
 select P.ID, P.ID_CARRITO [Nro Remito],P.ID_ESTADO,P.Fecha, C.Costo_Total[Importe],E.Descripcion [Estado] From PEDIDO as P
 inner join CARRITO as C on C.ID = P.ID_carrito

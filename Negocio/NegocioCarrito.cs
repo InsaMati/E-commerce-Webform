@@ -61,22 +61,38 @@ namespace Negocio
 
         public int IdPedido(int IdCarrito)
         {
-            AccesoADatos Datos = new AccesoADatos();
-
-            int IdPedido = new int();
             try
             {
+                AccesoADatos Datos = new AccesoADatos();
+                int IdPedido = new int();
+
                 Datos.SetearQuery("select ID From PEDIDO where ID_carrito = @IdCarrito");
                 Datos.AgregarParametro("@IdCarrito", Convert.ToString(IdCarrito));
                 Datos.EjecutarLector();
-
-                if (Datos.Leeme.Read())
-                {
-                    IdPedido = Datos.Leeme.GetInt16(0);
-
-                }
+                IdPedido = Datos.Leeme.GetInt16(0);
 
                 return IdPedido;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public int IdUsuario (int idCarrito)
+        {
+            try
+            {
+                AccesoADatos Datos = new AccesoADatos();                
+
+                Datos.SetearQuery("SELECT TOP 1 ID_Usuario from Carrito where id=@IdCarrito");
+                Datos.AgregarParametro("@IdCarrito", Convert.ToString(idCarrito));
+                Datos.EjecutarLector();
+                int idUsuario = Convert.ToInt32(Datos.Leeme.GetString(0));
+                return idUsuario;
+
+
             }
             catch (Exception ex)
             {

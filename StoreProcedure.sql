@@ -4,6 +4,7 @@ use TP_FINAL
 -- create procedure SP_Listar
 
 -- AGREGAR ARTICULO
+go
 create procedure SP_Agregar_Articulo(
 @Codigo varchar (50),
 @Nombre varchar (50),
@@ -161,7 +162,7 @@ BEGIN CATCH
 END CATCH
 
 ---------------------- Ventas
-
+go
 create procedure SP_Alta_Carrito(
 @IdUsuario smallint,
 @Costo money,
@@ -177,7 +178,7 @@ BEGIN CATCH
 END CATCH
 
 ------- ALTA DE PEDIDO
-
+go
 create procedure SP_Alta_Pedido(
 @IdCarrito smallint,
 @IdEstado smallint,

@@ -13,6 +13,8 @@ namespace TPC_Orihuela_Insaurralde
     {
         public Usuario Logueado = new Usuario();
 
+        public Usuario Cliente = new Usuario();
+
         public List<Pedido> ListaPedidos = new List<Pedido>();
         protected void Page_Load(object sender, EventArgs e)
         {
