@@ -179,6 +179,7 @@
     <Content Include="Styles\Style.css" />
     <Content Include="UsuarioaModificar.aspx" />
     <Content Include="VerPedido.aspx" />
+    <Content Include="VerRechazo.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -435,6 +436,13 @@
     </Compile>
     <Compile Include="VerPedido.aspx.designer.cs">
       <DependentUpon>VerPedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerRechazo.aspx.cs">
+      <DependentUpon>VerRechazo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerRechazo.aspx.designer.cs">
+      <DependentUpon>VerRechazo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

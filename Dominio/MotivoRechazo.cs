@@ -1,5 +1,4 @@
 ﻿using System;
-using Dominio;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +8,8 @@ namespace Dominio
 {
     public class MotivoRechazo
     {
-        public int IdMotivo { get; set; }
-        public string Descripcion { get; set; }
-
-        public override string ToString()
-        {
-            return Descripcion;
-        }
+        public int IDPedido { get; set; }
+        public string Motivo { get; set; }
+        public string Mensaje { get; set; }
     }
 }

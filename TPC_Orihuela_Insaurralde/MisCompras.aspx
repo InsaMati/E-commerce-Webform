@@ -35,7 +35,7 @@
 
                         <% if (Item.EstadoPedidos.Descripcion == "Rechazado")
                             {%>
-                        <a href="VerPedido.aspx?IdPedido=<% = Item.IDPedido %>" class="btn btn-outline-danger badge-pill" style="font-size: 15px; text-decoration: none; width: 100px">Motivo</a>
+                        <a href="VerRechazo.aspx?IdPedido=<% = Item.IDPedido %>" class="btn btn-outline-danger badge-pill" style="font-size: 15px; text-decoration: none; width: 100px">Motivo</a>
 
 
                         <%} %>

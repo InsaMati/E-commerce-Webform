@@ -77,6 +77,33 @@ namespace Negocio
             Datos.EjecutarLector();
         }
 
+        public MotivoRechazo RetornarMotivo(int IdPedido)
+        {
+            try
+            {
+                AccesoADatos Datos = new AccesoADatos();
+                MotivoRechazo M = new MotivoRechazo();
+
+                Datos.SetearQuery("select *from PedidosRechazados where IDPedido = @id");
+                Datos.AgregarParametro("@id", Convert.ToString(IdPedido));
+                Datos.EjecutarLector();
+
+                if (Datos.Leeme.Read())
+                {
+                    M.IDPedido = Datos.Leeme.GetInt16(0);
+                    M.Motivo = Datos.Leeme.GetString(1);
+                    M.Mensaje = Datos.Leeme.GetString(2);
+
+                }
+
+                return M;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         public List<PedidosRevision> Listar(int IdPedido)
         {
             AccesoADatos Datos = new AccesoADatos();

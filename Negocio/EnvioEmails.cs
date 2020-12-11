@@ -126,7 +126,7 @@ namespace Negocio
                 Msj.Body = "Estimado cliente. " +
                     "Su pedido ha sido rechazado por el siguiente motivo:" +
                     motivo +
-                    "atte TPC.";
+                    " atte TPC.";
                 Msj.IsBodyHtml = false;
                 Msj.From = new System.Net.Mail.MailAddress(Remitente);
 

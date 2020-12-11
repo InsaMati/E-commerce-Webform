@@ -159,3 +159,7 @@ IDPedido smallint not null,
 Motivo varchar(60),
 Mensaje varchar(1000)
 )
+
+select *From PedidosRechazados
+
+
