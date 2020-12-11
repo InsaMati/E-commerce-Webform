@@ -53,6 +53,7 @@
     <Compile Include="Genero.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="ComprasPorUsuario.cs" />
+    <Compile Include="MotivoRechazo.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provincia.cs" />

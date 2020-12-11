@@ -93,13 +93,13 @@ namespace Negocio
                 Datos.AgregarParametro("@IdCarrito", Convert.ToString(idCarrito));
                 Datos.EjecutarLector();
                 int idUsuario = new int();
+
                 if (Datos.Leeme.Read())
                 {
-                    idUsuario = Convert.ToInt32(Datos.Leeme.GetString(0));
+                    idUsuario = Datos.Leeme.GetInt16(0);
                 }
+
                 return idUsuario;
-
-
             }
             catch (Exception ex)
             {

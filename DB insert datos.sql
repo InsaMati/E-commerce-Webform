@@ -1,5 +1,10 @@
 use TP_Final
 GO
+-- MOTIVO
+insert into MotivoRechazo values('Falta de stock')
+go
+insert into MotivoRechazo values ('Problemas en el envio')
+GO
 --- MARCA
 INSERT [dbo].[MARCA] ([Nombre],[Estado]) VALUES ('Floyd',1)
 go

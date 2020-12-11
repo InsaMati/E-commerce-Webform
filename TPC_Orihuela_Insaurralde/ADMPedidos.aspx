@@ -34,7 +34,7 @@
                     <td class="text-right">
                         <a href="RevisionPedidos.aspx?ID=<%=Item.id %>" class="btn btn-outline-primary badge-pill" style="font-size: 15px;text-decoration: none; width: 100px">Revisar</a>
                         <a href="ADMPedidos.aspx?ID=<%=Item.id %>&Estado=<%= 4 %>" class="btn btn-outline-success badge-pill" style="font-size: 15px;text-decoration: none; width: 100px">Entregado</a>
-                        <a href="PedidoRechazado.aspx?ID=<%=Item.id %>" class="btn btn-outline-danger badge-pill" style="font-size: 15px;text-decoration: none; width: 100px">Rechazado</a>
+                        <a href="PedidoRechazado.aspx?ID=<%=Item.id %>&Carrito=<%= Item.IDCarrito %>" class="btn btn-outline-danger badge-pill" style="font-size: 15px;text-decoration: none; width: 100px">Rechazado</a>
                         <a href="ADMPedidos.aspx?ID=<%=Item.id %>&Estado=<%= 3 %>" class="btn btn-outline-warning badge-pill" style="font-size: 15px;text-decoration: none; width: 100px">En Camino</a>
                     </td>
                 </tr>

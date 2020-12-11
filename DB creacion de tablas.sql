@@ -152,3 +152,10 @@ create table HISTORIAL(
 	Descripcion varchar(100),
 	UsuarioNombre varchar(100)
 )
+
+
+create table PedidosRechazados(
+IDPedido smallint not null,
+Motivo varchar(60),
+Mensaje varchar(1000)
+)

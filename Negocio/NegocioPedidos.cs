@@ -66,6 +66,17 @@ namespace Negocio
 
         }
 
+        public void AgregarMotivoRechazo(int IdPedido,string Motivo,string Mensaje)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            Datos.SetearQuery("INSERT INTO MARCA ([Nombre],[Estado]) values (@Nombre,@Estado)");
+            Datos.SetearQuery("insert into PedidosRechazados Values(@IDPedido,@Motivo,@Mensaje)");
+            Datos.AgregarParametro("@IDPedido", Convert.ToString(IdPedido));
+            Datos.AgregarParametro("@Motivo", Motivo);
+            Datos.AgregarParametro("@Mensaje", Mensaje);
+            Datos.EjecutarLector();
+        }
+
         public List<PedidosRevision> Listar(int IdPedido)
         {
             AccesoADatos Datos = new AccesoADatos();
@@ -100,31 +111,6 @@ namespace Negocio
                 }
 
                 return Lista;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-        public int IdCarrito(int idPedido)
-        {
-            try
-            {
-                AccesoADatos Datos = new AccesoADatos();
-
-                Datos.SetearQuery("SELECT ID_carrito from Pedido where id = @IdPedido");
-                Datos.AgregarParametro("@IdPedido",Convert.ToString(idPedido));
-                Datos.EjecutarLector();
-                int idCarrito = new int();
-                if (Datos.Leeme.Read())
-                {
-                    idCarrito = Convert.ToInt32(Datos.Leeme.GetString(0));
-                }
-                
-                return idCarrito;
-
-
             }
             catch (Exception ex)
             {

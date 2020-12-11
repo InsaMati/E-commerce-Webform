@@ -27,8 +27,6 @@ namespace TPC_Orihuela_Insaurralde
                 CargarLista();
                 VariablesRequest();
 
-
-
             }
             catch (Exception ex)
             {
