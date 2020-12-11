@@ -101,6 +101,29 @@ namespace Negocio
 
         }
 
+        public string BuscarMail(int id)
+        {
+            AccesoADatos Datos = new AccesoADatos();
+            try
+            {
+                Datos.SetearQuery("Select Email from USUARIO where ID = @ID");
+                Datos.AgregarParametro("@ID", Convert.ToString(id));
+                Datos.EjecutarLector();
+                string mail = "";
+                if (Datos.Leeme.Read())
+                {
+                    mail = Datos.Leeme.GetString(0);
+                }
+                return mail;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
         public void RegistrarUsuario(Usuario user, DatosPersonales UsuarioDatos)
         {
             AccesoADatos Datos = new AccesoADatos();

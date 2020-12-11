@@ -69,7 +69,10 @@ namespace Negocio
                 Datos.SetearQuery("select ID From PEDIDO where ID_carrito = @IdCarrito");
                 Datos.AgregarParametro("@IdCarrito", Convert.ToString(IdCarrito));
                 Datos.EjecutarLector();
-                IdPedido = Datos.Leeme.GetInt16(0);
+                if (Datos.Leeme.Read())
+                {
+                    IdPedido = Datos.Leeme.GetInt16(0);
+                }
 
                 return IdPedido;
             }
@@ -89,7 +92,11 @@ namespace Negocio
                 Datos.SetearQuery("SELECT TOP 1 ID_Usuario from Carrito where id=@IdCarrito");
                 Datos.AgregarParametro("@IdCarrito", Convert.ToString(idCarrito));
                 Datos.EjecutarLector();
-                int idUsuario = Convert.ToInt32(Datos.Leeme.GetString(0));
+                int idUsuario = new int();
+                if (Datos.Leeme.Read())
+                {
+                    idUsuario = Convert.ToInt32(Datos.Leeme.GetString(0));
+                }
                 return idUsuario;
 
 

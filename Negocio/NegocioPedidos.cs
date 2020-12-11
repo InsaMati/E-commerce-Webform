@@ -116,8 +116,12 @@ namespace Negocio
                 Datos.SetearQuery("SELECT ID_carrito from Pedido where id = @IdPedido");
                 Datos.AgregarParametro("@IdPedido",Convert.ToString(idPedido));
                 Datos.EjecutarLector();
-                int idCarrito = Convert.ToInt32(Datos.Leeme.GetString(1));
-                int probando = idCarrito;
+                int idCarrito = new int();
+                if (Datos.Leeme.Read())
+                {
+                    idCarrito = Convert.ToInt32(Datos.Leeme.GetString(0));
+                }
+                
                 return idCarrito;
 
 

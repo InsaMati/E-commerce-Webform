@@ -112,5 +112,38 @@ namespace Negocio
         }
 
 
+    public void RechazoPedido(string email, string motivo)
+    {
+            try
+            {
+                string Remitente = "TpcCuatrimestralInsaurralde@gmail.com";
+                string contraseña = "AprueboOnoApruebo?";
+
+                MailMessage Msj = new MailMessage();
+                Msj.To.Add(email);
+                Msj.Subject = "Pedido rechazado";
+                Msj.SubjectEncoding = System.Text.Encoding.UTF8;
+                Msj.Body = "Estimado cliente. " +
+                    "Su pedido ha sido rechazado por el siguiente motivo:" +
+                    motivo +
+                    "atte TPC.";
+                Msj.IsBodyHtml = false;
+                Msj.From = new System.Net.Mail.MailAddress(Remitente);
+
+                System.Net.Mail.SmtpClient Cliente = new SmtpClient();
+                Cliente.Credentials = new System.Net.NetworkCredential(Remitente, contraseña);
+                Cliente.Port = 587;
+                Cliente.EnableSsl = true;
+                Cliente.Host = "smtp.gmail.com";
+
+                Cliente.Send(Msj);
+            }
+
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
