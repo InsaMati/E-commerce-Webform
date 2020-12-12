@@ -61,7 +61,7 @@ namespace TPC_Orihuela_Insaurralde
                 AgregarCarrito();
                 Session.Remove(Session.SessionID + "Lista");
 
-                if (MedioPago == 2) Response.Redirect("MercadoPago.aspx");
+                if (MedioPago == 5) Response.Redirect("MercadoPago.aspx");
 
                 Response.Redirect("inicio.aspx");
             }
